@@ -1,117 +1,7 @@
 <html><head>
     <title>Ứng dụng web</title>
     <meta charset="UTF-8">
-    <style>
-        *{
-            padding:0;
-            margin:0;
-        }
-        .header{
-            padding:0;
-            margin:0;
-            display:flex;
-            justify-content:space-between;
-            box-sizing: border-box;
-        }
-        .more{
-            color:blue;
-            font-size:20px;
-            display: inline;
-            cursor:pointer;
-            box-sizing: border-box;
-        }
-        .paper{
-            max-width:1200px;
-            margin:0 auto;
-        }
-        ul.anh{
-            list-style:none;
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:space-between;
-        }
-        ul.anh li{
-            flex-basis:33%;
-            position: relative;
-        }
-        ul.anh li img{
-            width:390px;
-            height:auto;
-            margin:20px 0;
-            border-radius: 6%;
-        }
-        ul.anh li div.t_cm{
-            color: #fff;
-            top:140px;
-            left:30px;
-            position: absolute;
-            font-size: 40px;
-        }
-        ul.anh li div.t_cm a.comment{
-            font-size:70%;
-        }
-        .anh_nen{
-            position: relative;
-            margin:20px 0px;
-            width:1200px;
-            height:360px;
-            opacity: 0.1;
-        }
-        .earth{
-            position: absolute;
-            top:336px;
-            left:160px;
-            width:360px;
-            height:360px;
-        }
-        div.box div.in4{
-            color: #000;
-            top:400px;
-            left:600px;
-            position: absolute;
-            font-size: 40px;
-        } 
-        .cm{
-            font-size: 80%;
-        }
-        .signin{
-            color:blue;
-            top:600px;
-            left:600px;
-            position:absolute;
-            font-size:30px;
-            border: 2px blue solid;
-            border-radius:5%;
-            padding:10px;
-        }
-        .res{
-            top:610px;
-            left:750px;
-            position: absolute;
-            font-size:30px;
-        }
-        .nenvui{
-            position:absolute;
-            top:746px;
-            left:240px;
-            width:360px;
-            height:360px;
-        }
-        .cat{
-            position:absolute;
-            top:746px;
-            left:700px;
-            width:480x;
-            height:360px;
-        }
-        .spann{
-            position:absolute;
-            font-size:50px;
-            color:rgb(13, 255, 0);
-            top:900px;
-            left:380px;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body class="paper">
     <div>
@@ -173,8 +63,8 @@
         </div>
     </div>
     <div class="button">
-        <a href="" class="signin">Sign in</a>
-        <a href="" class="res">register</a>
+        <button type="button" class="signin">Sign in
+        <button type="button" class="res">Register
     </div>
     <div class="box" style="display:block">
         <img class="anh_nen" alt="" src="https://img4.thuthuatphanmem.vn/uploads/2020/06/22/hinh-nen-mau-xanh-duong_092908838.jpg">
