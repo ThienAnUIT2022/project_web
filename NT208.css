@@ -1,0 +1,561 @@
+* {
+  .patrick-hand sc-regular {
+    font-family: "Patrick Hand SC", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.margin {
+  margin: 0 15% 0 15%;
+}
+
+.bodyHome {
+  margin: 0 15% 0 15%;
+}
+
+.webHeader {
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.navHeader {
+  margin: 0;
+  padding: 0;
+  height: 124px;
+  background: #cb99c9;
+}
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.botNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.webName {
+  padding-top: 10px;
+  color: white;
+  font-size: 24px;
+  display: inline-block;
+}
+
+.roundButton button {
+  border-radius: 25px;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffbe98;
+}
+
+.roundButton button:focus {
+  border: 2px solid #ffbe98;
+  font-weight: 500;
+}
+
+.roundButton button:hover {
+  background-color: #b95cb7;
+}
+
+.rectangleButton button {
+  margin: 0;
+  border-radius: 3px;
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  align-items: center;
+}
+
+.topNav .rectangleButton button {
+  color: #cb99c9;
+}
+
+.searchbox .rectangleButton button {
+  background-color: #cb99c9;
+  height: 45px;
+  padding: 0px 10px 0 10px;
+  border-radius: 5px;
+}
+
+.registerBanner .rectangleButton button {
+  display: inline-block;
+  color: #ffbe98;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.registerBannerText .rectangleButton :focus {
+  display: block;
+  border: 2px solid #ffbe98;
+  border-radius: 5px;
+}
+
+.registerBanner .rectangleButton :hover {
+  background-color: #cb99c9;
+}
+
+.botNav .roundButton button {
+  padding: 10px 16px;
+  color: white;
+  display: inline-flex;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.botnav .roundButton button:hover {
+  background-color: #cb99c9;
+}
+
+.botNav .roundButton button:focus {
+  border: 2px white solid;
+}
+
+.botNav i {
+  padding: 0 10px 0 5px;
+}
+
+.bannerHeader {
+  background-image: url(https://images.squarespace-cdn.com/content/v1/580424dcb3db2b0146970fd3/1609511670233-7IXSUKJ5BVVEKZMJ5WS6/vahid-kanani-4XXBsFCmo7w-unsplash.jpg);
+  background-size: cover;
+  height: 375px;
+  background-position: center 70%;
+}
+
+.slogan {
+  padding-top: 15px;
+  font-size: 46px;
+  font-weight: 700;
+  font-style: oblique;
+  text-shadow: #000 2px 2px 1px;
+  margin-left: 15px;
+  color: white;
+}
+
+.subSlogan {
+  padding-top: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  /* text-shadow: #000 2px 2px 1px; */
+  margin-left: 15px;
+  color: white;
+}
+
+.searchbox {
+  background-color: #ffbe98;
+  box-shadow: 0px 2px 8px 0px #000;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 52px;
+  /* max-width: calc(100% - 300px); */
+  margin: auto;
+  margin-top: -30px;
+  padding: 3px 5px 3px 5px;
+}
+
+.filteredSearchbox {
+  background-color: white;
+  justify-content: center;
+  align-self: center;
+  width: calc(100% / 2 - 50px);
+  height: 45px;
+  border-radius: 5px;
+}
+
+.filteredSearchbox i {
+  padding-left: 10px;
+}
+
+input {
+  border: none;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 500;
+  /* max-width: 100%; */
+  width: auto;
+  /* grid-area: auto; */
+  /* line-height: 10px; */
+  align-self: center;
+  justify-content: center;
+  margin: 10px 10px 10px 5px;
+}
+
+.dragBackground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(to left top, #ffbe98, #cb99c9);
+  padding: 0 15px;
+  border-radius: 10px;
+}
+
+.dragBackground .item4 {
+  height: 180px;
+}
+
+.dragBackground .bodyTitle {
+  color: white;
+  font-size: 32px;
+}
+
+.dragBackground i {
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+
+.dragBackground i:active {
+  transform: translateY(-50%) scale(0.85);
+}
+.dragBackground i:first-child {
+  left: -22px;
+}
+.dragBackground i:last-child {
+  right: -22px;
+}
+
+.item4 {
+  position: relative;
+  height: 200px;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.item4 .bodyTitle {
+  font-size: 20px;
+}
+
+.row-scroll .item4 img {
+  width: 264px;
+  height: 85%;
+  object-position: top;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: inset 10px 10px 15px 10px #000;
+}
+
+.row-scroll .item4 {
+  margin-top: 15px;
+  align-self: center;
+}
+
+.bodyTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #92308f;
+  margin: 40px 0px 0px 0px;
+}
+
+.bodyLowTitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #b95cb7;
+  margin: 10px 0px 5px 0px;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.rowP {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.item {
+  position: relative;
+  height: 235px;
+  margin-right: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0px 0px 10px #ffbe98; */
+}
+
+.item:first-child {
+  margin-left: 0;
+}
+
+.item:last-child {
+  margin-right: 0;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item2 {
+  position: fixed;
+  margin-top: 0;
+  position: relative;
+  margin-right: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0px 0px 10px #ffbe98; */
+}
+
+.item2 span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.row-scroll .item2 img {
+  height: 175px;
+  object-position: top;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.row-scroll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #ffbe98;
+}
+
+.row-scroll .item {
+  display: block;
+  height: 220px;
+}
+
+.row-scroll .item img {
+  height: 160px;
+  object-position: top;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+}
+
+.more {
+  display: flex;
+  margin-bottom: 0;
+  margin-right: 0;
+  align-items: center;
+  justify-content: center;
+}
+.more a {
+  text-decoration: none;
+  color: #cb99c9;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.row-scroll2 {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  height: fit-content;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.row-scroll2 .item2 {
+  position: relative;
+  margin-right: 15px;
+}
+
+.row-scroll2 .item2 img {
+  display: block;
+  object-position: center right;
+  object-fit: cover;
+  width: 170px;
+  height: 270px;
+  border-radius: 10px;
+}
+
+.item2_first {
+  position: relative;
+  margin-right: 15px;
+}
+.row-scroll2 .item2_first img {
+  display: block;
+  object-position: center right;
+  object-fit: cover;
+  height: 375px;
+  width: 320px;
+  border-radius: 10px;
+}
+
+.textOverImage {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
+  left: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  border-radius: 10px;
+}
+
+.registerBanner {
+  display: flex;
+  margin-top: 40px;
+  padding: 5 10 5 10px;
+  height: fit-content;
+  max-height: 180px;
+  border-radius: 15px;
+  background-color: #cb99c9;
+  box-shadow: 0px 0px 10px #cb99c9;
+}
+
+.registerBanner img {
+  width: 180px;
+  height: auto;
+  display: block;
+  margin-left: 20px;
+}
+
+.registerBanner .bodyTitle {
+  margin-top: 20px;
+}
+
+.registerBannerText {
+  height: 180px;
+  align-items: center;
+}
+
+.registerBannerText p {
+  max-height: 52px;
+  overflow-y: scroll;
+}
+
+footer {
+  padding-top: 20px;
+  margin-top: 40px;
+  background-color: #cb99c9;
+  color: black;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex-basis: 25%;
+  padding: 0 20px;
+}
+
+.footer-section h4 {
+  font-size: 120%;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.contact-icons {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.contact-icons li {
+  margin-right: 20px;
+}
+
+.contact-icons li:last-child {
+  margin-right: 0;
+}
+
+.contact-icons li button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.contact-icons li button i {
+  color: black;
+  font-size: 24px;
+}
+
+.contact-icons li button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

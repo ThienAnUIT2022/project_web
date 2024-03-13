@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <!-- <link rel="stylesheet" href="./NT208.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="https://img.icons8.com/bubbles/50/backpack.png"
+    />
+
+    <style>
+      * {
+        .patrick-hand sc-regular {
+          font-family: "Patrick Hand SC", cursive;
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        scrollbar-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .margin {
+        margin: 0 15% 0 15%;
+      }
+
+      .bodyHome {
+        margin: 0 15% 0 15%;
+      }
+
+      .webHeader {
+        margin: 0 auto;
+        padding-bottom: 20px;
+      }
+
+      .navHeader {
+        margin: 0;
+        padding: 0;
+        height: 124px;
+        background: #cb99c9;
+      }
+
+      .topNav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .botNav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: fit-content;
+        margin-top: auto;
+        padding-top: 15px;
+      }
+
+      .webName {
+        padding-top: 10px;
+        color: white;
+        font-size: 24px;
+        display: inline-block;
+      }
+
+      .roundButton button {
+        border-radius: 25px;
+        background-color: transparent;
+        padding: 5px;
+        font-size: 20px;
+        font-weight: 400;
+        color: #ffbe98;
+      }
+
+      .roundButton button:focus {
+        border: 2px solid #ffbe98;
+        font-weight: 500;
+      }
+
+      .roundButton button:hover {
+        background-color: #b95cb7;
+      }
+
+      .rectangleButton button {
+        margin: 0;
+        border-radius: 3px;
+        display: inline-flex;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        align-items: center;
+      }
+
+      .topNav .rectangleButton button {
+        color: #cb99c9;
+      }
+
+      .searchbox .rectangleButton button {
+        background-color: #cb99c9;
+        height: 45px;
+        padding: 0px 10px 0 10px;
+        border-radius: 5px;
+      }
+
+      .registerBanner .rectangleButton button {
+        display: inline-block;
+        color: #ffbe98;
+        border-radius: 3px;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        margin-right: 5px;
+      }
+
+      .registerBannerText .rectangleButton :focus {
+        display: block;
+        border: 2px solid #ffbe98;
+        border-radius: 5px;
+      }
+
+      .registerBanner .rectangleButton :hover {
+        background-color: #cb99c9;
+      }
+
+      .botNav .roundButton button {
+        padding: 10px 16px;
+        color: white;
+        display: inline-flex;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .botnav .roundButton button:hover {
+        background-color: #cb99c9;
+      }
+
+      .botNav .roundButton button:focus {
+        border: 2px white solid;
+      }
+
+      .botNav i {
+        padding: 0 10px 0 5px;
+      }
+
+      .bannerHeader {
+        background-image: url(https://images.squarespace-cdn.com/content/v1/580424dcb3db2b0146970fd3/1609511670233-7IXSUKJ5BVVEKZMJ5WS6/vahid-kanani-4XXBsFCmo7w-unsplash.jpg);
+        background-size: cover;
+        height: 375px;
+        background-position: center 70%;
+      }
+
+      .slogan {
+        padding-top: 15px;
+        font-size: 46px;
+        font-weight: 700;
+        font-style: oblique;
+        text-shadow: #000 2px 2px 1px;
+        margin-left: 15px;
+        color: white;
+      }
+
+      .subSlogan {
+        padding-top: 15px;
+        font-size: 24px;
+        font-weight: 700;
+        /* text-shadow: #000 2px 2px 1px; */
+        margin-left: 15px;
+        color: white;
+      }
+
+      .searchbox {
+        background-color: #ffbe98;
+        box-shadow: 0px 2px 8px 0px #000;
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        height: 52px;
+        /* max-width: calc(100% - 300px); */
+        margin: auto;
+        margin-top: -30px;
+        padding: 3px 5px 3px 5px;
+      }
+
+      .filteredSearchbox {
+        background-color: white;
+        justify-content: center;
+        align-self: center;
+        width: calc(100% / 2 - 50px);
+        height: 45px;
+        border-radius: 5px;
+      }
+
+      .filteredSearchbox i {
+        padding-left: 10px;
+      }
+
+      input {
+        border: none;
+        font-style: normal;
+        font-size: 18px;
+        font-weight: 500;
+        /* max-width: 100%; */
+        width: auto;
+        /* grid-area: auto; */
+        /* line-height: 10px; */
+        align-self: center;
+        justify-content: center;
+        margin: 10px 10px 10px 5px;
+      }
+
+      .dragBackground {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: linear-gradient(to left top, #ffbe98, #cb99c9);
+        padding: 0 15px;
+        border-radius: 10px;
+      }
+
+      .dragBackground .item4 {
+        height: 180px;
+      }
+
+      .dragBackground .bodyTitle {
+        color: white;
+        font-size: 32px;
+      }
+
+      .dragBackground i {
+        top: 50%;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        font-size: 1.25rem;
+        cursor: pointer;
+        text-align: center;
+        background: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+        position: absolute;
+        transform: translateY(-50%);
+        transition: transform 0.1s linear;
+      }
+
+      .dragBackground i:active {
+        transform: translateY(-50%) scale(0.85);
+      }
+      .dragBackground i:first-child {
+        left: -22px;
+      }
+      .dragBackground i:last-child {
+        right: -22px;
+      }
+
+      .item4 {
+        position: relative;
+        height: 200px;
+        margin-right: 20px;
+        padding: 10px;
+      }
+
+      .item4 .bodyTitle {
+        font-size: 20px;
+      }
+
+      .row-scroll .item4 img {
+        width: 264px;
+        height: 85%;
+        object-position: top;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: inset 10px 10px 15px 10px #000;
+      }
+
+      .row-scroll .item4 {
+        margin-top: 15px;
+        align-self: center;
+      }
+
+      .bodyTitle {
+        font-size: 24px;
+        font-weight: 700;
+        color: #92308f;
+        margin: 40px 0px 0px 0px;
+      }
+
+      .bodyLowTitle {
+        font-size: 18px;
+        font-weight: 400;
+        color: #b95cb7;
+        margin: 10px 0px 5px 0px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-inline-start: 0;
+      }
+
+      .rowP {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .item {
+        position: relative;
+        height: 235px;
+        margin-right: 20px;
+        border-radius: 10px;
+        /* box-shadow: 0px 0px 10px #ffbe98; */
+      }
+
+      .item:first-child {
+        margin-left: 0;
+      }
+
+      .item:last-child {
+        margin-right: 0;
+      }
+
+      .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .item2 {
+        position: fixed;
+        margin-top: 0;
+        position: relative;
+        margin-right: 20px;
+        border-radius: 10px;
+        /* box-shadow: 0px 0px 10px #ffbe98; */
+      }
+
+      .item2 span {
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .row-scroll .item2 img {
+        height: 175px;
+        object-position: top;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 5px;
+        font-size: 24px;
+        font-weight: 400;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+      }
+
+      .row-scroll {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: fit-content;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px #ffbe98;
+      }
+
+      .row-scroll .item {
+        display: block;
+        height: 220px;
+      }
+
+      .row-scroll .item img {
+        height: 160px;
+        object-position: top;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      button {
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        text-align: center;
+        padding: 5px 5px 5px 5px;
+      }
+
+      .more {
+        display: flex;
+        margin-bottom: 0;
+        margin-right: 0;
+        align-items: center;
+        justify-content: center;
+      }
+      .more a {
+        text-decoration: none;
+        color: #cb99c9;
+        margin-bottom: 0;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .row-scroll2 {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        height: fit-content;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+      }
+
+      .row-scroll2 .item2 {
+        position: relative;
+        margin-right: 15px;
+      }
+
+      .row-scroll2 .item2 img {
+        display: block;
+        object-position: center right;
+        object-fit: cover;
+        width: 170px;
+        height: 270px;
+        border-radius: 10px;
+      }
+
+      .item2_first {
+        position: relative;
+        margin-right: 15px;
+      }
+      .row-scroll2 .item2_first img {
+        display: block;
+        object-position: center right;
+        object-fit: cover;
+        height: 375px;
+        width: 320px;
+        border-radius: 10px;
+      }
+
+      .textOverImage {
+        display: block;
+        position: absolute;
+        overflow: hidden;
+        bottom: 0;
+        left: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        color: white;
+        border-radius: 10px;
+      }
+
+      .registerBanner {
+        display: flex;
+        margin-top: 40px;
+        padding: 5 10 5 10px;
+        height: fit-content;
+        max-height: 180px;
+        border-radius: 15px;
+        background-color: #cb99c9;
+        box-shadow: 0px 0px 10px #cb99c9;
+      }
+
+      .registerBanner img {
+        width: 180px;
+        height: auto;
+        display: block;
+        margin-left: 20px;
+      }
+
+      .registerBanner .bodyTitle {
+        margin-top: 20px;
+      }
+
+      .registerBannerText {
+        height: 180px;
+        align-items: center;
+      }
+
+      .registerBannerText p {
+        max-height: 52px;
+        overflow-y: scroll;
+      }
+
+      footer {
+        padding-top: 20px;
+        margin-top: 40px;
+        background-color: #cb99c9;
+        color: black;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .footer-section {
+        flex-basis: 25%;
+        padding: 0 20px;
+      }
+
+      .footer-section h4 {
+        font-size: 120%;
+        color: black;
+        margin-bottom: 10px;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-section ul li a {
+        color: black;
+        text-decoration: none;
+      }
+
+      .footer-section ul li a:hover {
+        color: #fff;
+      }
+
+      .contact-icons {
+        display: flex;
+        list-style: none;
+        padding: 0;
+      }
+
+      .contact-icons li {
+        margin-right: 20px;
+      }
+
+      .contact-icons li:last-child {
+        margin-right: 0;
+      }
+
+      .contact-icons li button {
+        border: none;
+        background: transparent;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+
+      .contact-icons li button i {
+        color: black;
+        font-size: 24px;
+      }
+
+      .contact-icons li button:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="webHeader">
+      <div class="navHeader">
+        <div class="margin">
+          <nav class="topNav">
+            <div class="webName"><b>VNBackpacking.com</b></div>
+            <div class="rectangleButton">
+              <button>Register</button>
+              <button>Sign in</button>
+            </div>
+          </nav>
+          <nav class="botNav">
+            <div class="roundButton">
+              <button>
+                <img
+                  width="20"
+                  height="20"
+                  src="https://img.icons8.com/ios-filled/50/FFFFFF/point-objects.png"
+                  alt="point-objects"
+                />Destination
+              </button>
+              <button>
+                <img
+                  width="20"
+                  height="20"
+                  src="https://img.icons8.com/ios-filled/50/FFFFFF/motorcycle.png"
+                  alt="motorcycle"
+                />Transport
+              </button>
+              <button>
+                <img
+                  width="20"
+                  height="20"
+                  src="https://img.icons8.com/ios-glyphs/30/FFFFFF/waypoint-map.png"
+                  alt="waypoint-map"
+                />Maps
+              </button>
+              <button>
+                <img
+                  width="20"
+                  height="20"
+                  src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/64/FFFFFF/external-idea-user-interface-flatart-icons-solid-flatarticons.png"
+                  alt="external-idea-user-interface-flatart-icons-solid-flatarticons"
+                />Guides & Tips
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="bannerHeader">
+        <div class="margin">
+          <p class="slogan">
+            Just put your stuff <br />
+            in your backpack
+          </p>
+          <p class="subSlogan">We'll help you plan a great road trip!</p>
+          <!-- <div class="bannerButton">
+            <button>Discover holiday rentals</button>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="margin">
+        <div class="searchbox">
+          <div class="filteredSearchbox">
+            <i class="fa-solid fa-hotel"></i>
+            <input type="text" placeholder="Sea, mountain, plain etc" />
+          </div>
+          <div class="filteredSearchbox">
+            <i class="fa-solid fa-calendar-days"></i>
+            <input type="datetime" placeholder="Date & time" />
+          </div>
+          <div class="rectangleButton"><button>Search</button></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="bodyHome">
+      <div class="bodyTitle">Search based on destination type</div>
+      <div class="dragBackground">
+        <i id="left" class="fa-solid fa-angle-left"> </i>
+        <ul class="row-scroll">
+          <li class="item4">
+            <img
+              src="https://www.bambooairways.com/documents/20122/1165110/cung-duong-bien-dep-nhat-viet-nam-8.jpg/3cee8b39-4168-2492-6b11-c18a222eba60?t=1694774145113"
+              draggable="false"
+            />
+            <span class="bodyTitle"> Sea </span>
+          </li>
+          <li class="item4">
+            <img
+              src="https://images.pexels.com/photos/775201/pexels-photo-775201.jpeg?auto=compress&cs=tinysrgb&w=600"
+              draggable="false"
+            />
+            <span class="bodyTitle"> Forest </span>
+          </li>
+          <li class="item4">
+            <img
+              src="https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&w=600"
+              draggable="false"
+            />
+            <span class="bodyTitle"> Moutain </span>
+          </li>
+          <li class="item4">
+            <img
+              src="https://localvietnam.com/wp-content/uploads/2019/08/hoa-binh-lake-2.jpg"
+              draggable="false"
+            />
+            <span class="bodyTitle"> Lake and river </span>
+          </li>
+          <li class="item4">
+            <img
+              src="https://png.pngtree.com/thumb_back/fw800/background/20240108/pngtree-a-scenic-road-through-a-forest-image_13098718.png"
+              draggable="false"
+            />
+            <span class="bodyTitle"> Empty avenue</span>
+          </li>
+          <li class="item4">
+            <img
+              src="https://images.pexels.com/photos/20448103/pexels-photo-20448103/free-photo-of-canh-d-ng-hoa-mua-he-m-t-tr-i.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              draggable="false"
+            />
+            <span class="bodyTitle"> Flower season</span>
+          </li>
+          <li class="item4">
+            <img
+              src="https://mia.vn/media/uploads/blog-du-lich/chinh-phuc-deo-ma-pi-leng-tu-dai-dinh-deo-cua-vung-nui-dat-bac-1-1642064878.jpeg"
+              draggable="false"
+            />
+            <span class="bodyTitle"> Pass road </span>
+          </li>
+        </ul>
+        <i id="right" class="fa-solid fa-angle-right"></i>
+      </div>
+
+      <div class="bodyTitle">Trending destinations</div>
+      <div class="bodyLowTitle">
+        Travellers often search for the following places
+      </div>
+
+      <div class="rowP">
+        <div class="item">
+          <img
+            src="https://statics.vinwonders.com/du-lich-vinh-Ha-Long-hinh-anh3_1625912082_1661247765.jpg"
+            alt="Ho Chi Minh City"
+          />
+          <span class="overlay">Ha Long Bay</span>
+        </div>
+
+        <div class="item">
+          <img
+            src="https://images2.thanhnien.vn/528068263637045248/2023/4/4/hoi-an-1680591517857660432696.jpg"
+            alt="Ha Noi City"
+          />
+          <span class="overlay">Ancient Town Hoi An</span>
+        </div>
+      </div>
+
+      <div class="rowP">
+        <div class="item">
+          <img
+            src="https://dalatcity.org/wp-content/uploads/2023/08/ho-nuoc-da-lat-8.png"
+            alt="Image 3"
+          />
+          <span class="overlay">Da Lat</span>
+        </div>
+        <div class="item">
+          <img
+            src="https://cdn.pixabay.com/photo/2018/07/21/18/13/sapa-3553138_960_720.jpg"
+            alt="Image 4"
+          />
+          <span class="overlay">Sapa</span>
+        </div>
+        <div class="item">
+          <img
+            src="https://sohagroup.vn/wp-content/uploads/2023/08/canh-dong-coi-xay-gio-bac-lieu-a.jpg"
+            alt="Image 5"
+          />
+          <span class="overlay">Bac Lieu</span>
+        </div>
+      </div>
+
+      <div class="bodyTitle">Other places you might like</div>
+      <ul class="row-scroll">
+        <li class="item">
+          <img
+            src="https://statics.vinwonders.com/phuot-viet-nam-6_1692167771.jpg"
+          />
+          <h4>Ha Giang</h4>
+          <span> Ma Pi Leng pass road</span>
+        </li>
+
+        <li class="item">
+          <img
+            src="https://statics.vinpearl.com/phuot-viet-nam-8_1692167819.jpeg"
+          />
+          <h4>Moc Chau</h4>
+          <span> Moc Chau plateau </span>
+        </li>
+
+        <li class="item">
+          <img
+            src="https://cdn-v2.theculturetrip.com/1200x630/wp-content/uploads/2017/07/ham-ninh-1050828_1280.webp"
+          />
+          <h4>Phu Quoc</h4>
+          <span> Ham Ning fishing village </span>
+        </li>
+
+        <li class="item">
+          <img
+            src="https://gcs.tripi.vn/public-tripi/tripi-feed/img/474351MYd/hinh-anh-canh-dong-hoa-sen_024513245.jpg"
+          />
+          <h4>Dong Thap Muoi</h4>
+          <span>Lotus Lake</span>
+        </li>
+
+        <li class="item">
+          <img
+            src="https://vietchallenge.com/images/uploads/hoa-da-quy-dalat1.jpg"
+          />
+          <h4>Da Lat</h4>
+          <span> Wild sunflower road</span>
+        </li>
+      </ul>
+
+      <div class="bodyTitle">Quick and easy trip tips</div>
+      <div class="bodyLowTitle">
+        Prepare the necessary things for the best experience
+      </div>
+      <div class="roundButton">
+        <button>Clothes</button>
+        <button>Foods</button>
+        <button>Repair tools</button>
+        <button>Energys</button>
+      </div>
+
+      <ul class="row-scroll">
+        <li class="item2">
+          <div class="filtered 1">
+            <img
+              src="https://media.istockphoto.com/id/1339264709/photo/flat-lay-with-womans-clothes-and-accessories.jpg?s=612x612&w=0&k=20&c=U8Utjln5ILh2hy-J_hZAUCkjMIR6lzbh79bpFmxr6Fk="
+            />
+            <span> Clothes </span>
+          </div>
+        </li>
+
+        <li class="item2">
+          <div class="filtered 1">
+            <img
+              src="https://nanaacademy.org/wp-content/uploads/2021/01/pexels-pixabay-162553-e1611711905282.jpg"
+            />
+            <span> Repair tools </span>
+          </div>
+        </li>
+
+        <li class="item2">
+          <div class="filtered 2">
+            <img
+              src="https://listonic.com/wp-content/uploads/2019/02/calle-macarone-783246-unsplash.jpg"
+            />
+            <span> Foods </span>
+          </div>
+        </li>
+
+        <li class="item2">
+          <div class="filtered 2">
+            <img
+              src="https://media.cnn.com/api/v1/images/stellar/prod/220131092040-underscored-power-bank-travel-lead.jpg?c=16x9"
+            />
+            <span> Energys </span>
+          </div>
+        </li>
+
+        <li class="item2">
+          <div class="filtered 3">
+            <img
+              src="https://i0.wp.com/www.additudemag.com/wp-content/uploads/2016/12/188_14_Adult_Organize_35-Ways-to-Bust-Chaos_SS_188_messy-floor.jpg?resize=1280%2C720px&ssl=1"
+            />
+            <span> Shoes </span>
+          </div>
+        </li>
+
+        <li class="item2">
+          <div class="filtered 3">
+            <img
+              src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/05/12/00/fizzy-drinks.jpg"
+            />
+            <span> Drinks </span>
+          </div>
+        </li>
+
+        <!-- <li class="item2">
+          <div class="filtered 4">
+            <img
+              src="https://preview.redd.it/stelle-in-da-trash-can-by-v0-j2afsx9rdl8b1.png?auto=webp&s=fbbd2115d2a935c1a7f6536f263b36301ecdfac5"
+            />
+            <span>
+              Information <br />
+              Information
+            </span>
+          </div>
+        </li>
+
+        <li class="item2">
+          <div class="filtered 4">
+            <img
+              src="https://preview.redd.it/stelle-in-da-trash-can-by-v0-j2afsx9rdl8b1.png?auto=webp&s=fbbd2115d2a935c1a7f6536f263b36301ecdfac5"
+            />
+            <span>
+              Information <br />
+              Information
+            </span>
+          </div>
+        </li> -->
+      </ul>
+
+      <div class="registerBanner">
+        <img
+          src="https://png2.cleanpng.com/sh/3d4a0fed6be78084301df356393d5b05/L0KzQoS3VsI0N5Nmj5H9cnHxg8HokvVvfF5xjdlwYXfoPbTokr10dZJxhJ9sYYKwfMbuhBFobV55itNBZXywRoWCVcRlOGdqedg9OEexR4q9WMk0Pmo2TqoCNUC5QYm5WcYzPF91htk=/transparent-luggage-car-small-car-luggage-travel-64954d06eaf487.7968936916875061829624.png"
+          alt=""
+        />
+        <div class="registerBannerText">
+          <p class="bodyTitle">Get instant discounts</p>
+          <p>
+            Simply sign into your Booking.com account and look for the blue
+            Genius logo to save
+          </p>
+          <br />
+          <div class="rectangleButton">
+            <button>Sign in</button>
+            <button>Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="margin">
+        <div class="footer-container">
+          <div class="footer-section">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Travel handbook</a></li>
+              <li><a href="#">Common questions</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="#">Province</a></li>
+              <li><a href="#">Natural</a></li>
+              <li><a href="#">Popular Destination</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Help</h4>
+            <ul>
+              <li><a href="#">Planning</a></li>
+              <li><a href="#">Help center</a></li>
+              <li><a href="#">Customer services</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact us</h4>
+            <ul class="contact-icons">
+              <li>
+                <a href="#"
+                  ><button><i class="fab fa-facebook-f"></i></button
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><button><i class="fab fa-twitter"></i></button
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><button><i class="fab fa-instagram"></i></button
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><button><i class="far fa-envelope"></i></button
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+        const rows = document.querySelectorAll(".rowP");
+        rows.forEach((row) => {
+          const items = row.querySelectorAll(".item");
+          const width = 100 / items.length;
+          items.forEach((item) => {
+            item.style.width = `${width}%`;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
