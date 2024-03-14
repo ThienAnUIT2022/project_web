@@ -115,6 +115,16 @@ body {
   letter-spacing: -0.05rem;
 }
 
+/* Footer */
+.bi {
+  vertical-align: -0.125em;
+  fill: white;
+}
+
+.card-footer {
+  background-color: #563d7c;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
