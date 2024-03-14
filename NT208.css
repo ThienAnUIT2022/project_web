@@ -12,6 +12,22 @@ body {
   color: #5a5a5a;
 }
 
+.navbar {
+  background-color: #563d7c;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -28,6 +44,10 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
+}
+
+.carousel-caption {
+  text-shadow: 0px 0px 10px #454545;
 }
 
 .carousel-item:nth-child(2) .carousel-caption {
@@ -53,12 +73,32 @@ body {
 .marketing h2 {
   font-weight: 400;
 }
-/* rtl:begin:ignore */
+
 .marketing .col-lg-4 p {
   margin-right: 0.75rem;
   margin-left: 0.75rem;
 }
-/* rtl:end:ignore */
+
+/* Card modified */
+.card-body {
+  background-color: #563d7c;
+  border-radius: 0.25rem;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #ffbe98;
+  color: #563d7c;
+}
+
+.card-title {
+  color: white;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 225px;
+}
 
 /* Featurettes
 ------------------------- */
@@ -73,14 +113,6 @@ body {
   line-height: 1;
   /* rtl:remove */
   letter-spacing: -0.05rem;
-}
-
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
 }
 
 /* RESPONSIVE CSS
