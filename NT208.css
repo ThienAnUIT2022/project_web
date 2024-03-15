@@ -8,7 +8,6 @@ body {
 
 body {
   padding-top: 3rem;
-  padding-bottom: 3rem;
   color: #5a5a5a;
 }
 
@@ -35,6 +34,7 @@ body {
 .carousel {
   margin-bottom: 4rem;
 }
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
@@ -62,33 +62,14 @@ body {
   width: 100%;
 }
 
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: 400;
-}
-
-.marketing .col-lg-4 p {
-  margin-right: 0.75rem;
-  margin-left: 0.75rem;
-}
-
 /* Card modified */
 .card-body {
-  background-color: #563d7c;
   border-radius: 0.25rem;
-  color: white;
+  color: #563d7c;
 }
 
-.btn-secondary {
-  background-color: #ffbe98;
-  color: #563d7c;
+.album .btn-secondary {
+  background-color: #563d7c;
 }
 
 .card-title {
@@ -115,14 +96,39 @@ body {
   letter-spacing: -0.05rem;
 }
 
-/* Footer */
-.bi {
-  vertical-align: -0.125em;
-  fill: white;
+.advice-icon {
+  padding: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffbe89;
+  margin-right: 2rem;
 }
 
+.advice .bi {
+  align-self: center;
+  font-size: 30px;
+}
+
+.advice a,
+.advice p {
+  color: #563d7c;
+}
+
+.list-group-item {
+  border: none;
+  height: 10rem;
+}
+
+/* Footer */
 .card-footer {
   background-color: #563d7c;
+  /* max-height: 3rem; */
+}
+
+.card-footer .bi {
+  vertical-align: -0.125em;
+  fill: white;
 }
 
 /* RESPONSIVE CSS
@@ -143,7 +149,7 @@ body {
   }
 
   .featurette-heading {
-    font-size: 50px;
+    font-size: 30px;
   }
 }
 
