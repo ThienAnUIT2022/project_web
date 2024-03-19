@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VN-Backpacking</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/bootstrap-icons.svg"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="jss/FAQs.css" />
+    <link rel="stylesheet" href="jss/home.css" />
+    <link href="jss/FAQs.js" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./home.HTML">VN-Backpacking</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./home.HTML"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./destionation.HTML">Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./schedule.html">Schedule</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./quicktips.html">Quick tips</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./FAQs.html">FAQs</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+            </form>
+            <div class="text-end">
+              <a href="./login.html" target="_blank">
+                <button type="button" class="btn btn-outline-light me-2">
+                  Log in
+                </button>
+              </a>
+              <a href="./register.html" target="_blank">
+                <button type="button" class="btn btn-light">Sign up</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar -->
+    </header>
+    <main>
+      <section class="section-wrapper faq-help">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="faq-content">
+              <a class="faq-nav-link bui_font_heading" href="./register.html"
+                >Registration</a
+              >
+              <br />
+              <a class="faq-nav-link bui_font_heading" href="./destination.html"
+                >Photos</a
+              >
+              <br />
+              <!-- <a class="faq-nav-link bui_font_heading" href=""
+                >Online trên VN-Backpacking</a
+              >
+              <br />
+              <a class="faq-nav-link bui_font_heading" href="">Hoa hồng</a>
+              <br />
+              <a class="faq-nav-link bui_font_heading" href=""
+                >Xác nhận đặt phòng</a
+              >
+              <br /> -->
+              <!-- <a class="faq-nav-link bui_font_heading" href="">Hủy</a>
+              <br /> -->
+              <a class="faq-nav-link bui_font_heading" href="">No-shows</a>
+              <br />
+              <a class="faq-nav-link bui_font_heading" href="">Damages</a>
+              <br />
+            </div>
+          </div>
+          <div class="col-md-7 col-sm-9 col-xs-12">
+            <h2>Frequently questions asked</h2>
+            <div class="faq-section" id="registration">
+              <h3>What will happen after I sign up?</h3>
+              <p class="faq-answer bui-f-color-black">Here's how it works:</p>
+              <div class="faq-reg-scheme">
+                <ul>
+                  <li class="bui-f-color-grayscale">
+                    <span class="bi bi-house"></span>
+                    You sign up for an account and create your listing
+                  </li>
+                  <li class="bui-f-color-grayscale">
+                    <span class="bi bi-calendar"></span>
+                    You can update your calendar and prices, and confirm that
+                    your listing is accurate
+                  </li>
+                  <li class="bui-f-color-grayscale">
+                    <span class="bi bi-globe"></span>
+                    When you’re ready, you open your property for bookings. In
+                    some cases we’ll need to verify your location before you can
+                    start accepting guests.
+                  </li>
+                </ul>
+              </div>
+              <p class="faq-answer">
+                Our team is here to provide advice to get your property up and
+                running, and to help you avoid common mistakes.
+              </p>
+            </div>
+            <div class="faq-section" id="later">
+              <h3>
+                Will I be able to update my registration details at a later
+                date?
+              </h3>
+              <p class="faq-answer">
+                Once you’ve registered with us, you can update your details at
+                any time. For example, if you add a new facility or if you want
+                to tell us more about the area – you can add this information
+                whenever you want to.
+              </p>
+            </div>
+            <div class="faq-section" id="photos">
+              <h3>What kinds of photos should I upload?</h3>
+              <p class="answer">
+                When you sign up, we ask you to upload photos of your space.
+                This is because we know our guests love browsing through photos
+                when looking for a place to stay. We recommend that you upload
+                photos that showcase both the inside and the outside of your
+                property. They don’t need to be professional photos – photos
+                with a smartphone will still give your guests a good impression
+                of the space.
+              </p>
+            </div>
+            <div class="faq-section" id="online">
+              <h3>When will my property go online?</h3>
+              <p class="faq-answer">
+                Once you finish creating your listing, you can open your
+                property for bookings on our site. We may ask you to verify your
+                property before you can start accepting bookings, but you can
+                use this time to get familiar with the Extranet and prepare for
+                your first guests.
+              </p>
+            </div>
+            <div class="faq-section" id="comission">
+              <h3>What do I get for the commission I pay?</h3>
+              <div class="why-comission">
+                <dl>
+                  <dt>
+                    <span class="bi bi-check"></span>
+                    A Powerful Online Presence
+                  </dt>
+                  <dd>
+                    At VN-Backpacking we actively market your property page on
+                    search engines such as Google, Bing and Yahoo to make sure
+                    that it's visible to a global audience, exposing you to the
+                    highest possible number of potential bookers.
+                  </dd>
+                  <dt>
+                    <span class="bi bi-check"></span>
+                    Innovative Tools and Features
+                  </dt>
+                  <dd>
+                    Highly skilled experts are constantly working on the website
+                    and mobile apps to keep up with the latest developments in
+                    the online world, ensuring that your page is optimized to
+                    encourage bookings.
+                  </dd>
+                  <dt>
+                    <span class="bi bi-check"></span>
+                    Instant confirmation
+                  </dt>
+                  <dd>
+                    All bookings made through VN-Backpacking are instantly
+                    confirmed, so you don't have to take any extra steps on your
+                    side.
+                  </dd>
+                  <dt>
+                    <span class="bi bi-check"></span>
+                    Verified guest reviews
+                  </dt>
+                  <dd>
+                    A dedicated team verifies guest reviews, making sure they
+                    are legitimate. This gives you credibility and helps future
+                    guests make the decision to stay with you.
+                  </dd>
+                  <dt>
+                    <span class="bi bi-check"></span>
+                    24/7 Support
+                  </dt>
+                  <dd class="last">
+                    Our round-the-clock support team is here for you and your
+                    guests – in up to 41 languages.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="faq-section">
+              <h3>
+                How do I find out how much commission I'll pay for bookings?
+              </h3>
+              <p class="faq-answer">
+                When you add your property to VN-Backpacking, you pay commission
+                for each booking. The commission percentage will be shown at the
+                "Agreement" step of the registration process. At the end of each
+                month, we’ll send you an invoice with the amount of commission
+                owed.
+              </p>
+            </div>
+            <div class="faq-section" id="confirmation">
+              <h3>Do I have to confirm all of my bookings?</h3>
+              <p class="faq-answer">
+                You don’t need to confirm any of your bookings. When a customer
+                books a stay at your property, it is instantly confirmed online.
+                This gives you the convenience of not having to check every
+                request from every potential guest.
+              </p>
+            </div>
+            <div class="faq-section" id="cancellation">
+              <h3>What happens if a guest cancels?</h3>
+              <p class="faq-answer">
+                Two things may happen when a guest cancels a reservation. If a
+                guest cancels and your property has a free cancellation policy,
+                the guest pays nothing and you don’t pay commission. If a guest
+                cancels and your property doesn’t have a free cancellation
+                policy, the guest pays a fee, and you pay commission on the
+                amount that the guest pays you.
+              </p>
+            </div>
+            <div class="faq-section" id="not_came">
+              <h3>What happens if a guest doesn't show up (a no-show)?</h3>
+              <p class="faq-answer">
+                No-show? No problem. You won't pay commission for guests who
+                don't show up – unless you've set up a "no-show charge" for your
+                guests.
+              </p>
+            </div>
+            <div class="faq-section" id="damages">
+              <h3>What happens if my property is damaged by a guest?</h3>
+              <p class="faq-answer">
+                Property owners can request damage deposits from guests.
+                Deposits help cover any potential damage caused by a guest,
+                offering some reassurance that your property will be treated
+                respectfully. If anything goes wrong, it can be reported to our
+                team through our misconduct reporting feature.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="clearfix"></div>
+
+      <div class="card-footer">
+        <footer
+          class="d-flex flex-wrap justify-content-between align-items-center border-top"
+        >
+          <p class="col-md-4 mb-0 text-white">&copy; Group 5, NT208</p>
+
+          <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-white" href="#"
+                ><i class="bi bi-instagram"></i>
+              </a>
+            </li>
+            <li class="ms-3">
+              <a class="text-white" href="#">
+                <i class="bi bi-facebook"></i>
+              </a>
+            </li>
+            <li class="ms-3">
+              <a class="text-white" href="#">
+                <i class="bi bi-twitter-x"></i
+              ></a>
+            </li>
+          </ul>
+
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item">
+              <a href="./home.HTML" class="nav-link px-2 text-white">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="./schedule.html" class="nav-link px-2 text-white"
+                >Schedule</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="./destination.html" class="nav-link px-2 text-white"
+                >Destinations</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="./FAQs.html" class="nav-link px-2 text-white">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a href="./about.html" class="nav-link px-2 text-white">About</a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
