@@ -1,6 +1,6 @@
 
 # Vietnam Backpacking Website
-![](./home_page.jpg)
+![](home_page.png)
 
 ## 📝 Introduce:
 **Vietnam Backpacking Website** is a basic web programming subject project of group 5, class NT208.O23.ANTT. This is a website that synthesizes places to visit, travel, sightsee extremely chill and supports trip scheduling.
@@ -13,7 +13,7 @@
 - [Phạm Trần Hồng Phúc 22521138](https://github.com/CamNhungJB)
 
 ## ⭐ Features
-![](./web_design.jpg)
+![](web_design.jpg)
 - Search for destinations: (Update soon) Search by area name, place name, destination type or season of the year.
 - Add location to favorites list: (Update soon) Add to favorites list to review and schedule trips.
 - Blog site for locations: Click "Destinations" on the header bar to go to the blog post summary page, click on any post you are interested in to see detailed content.
