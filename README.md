@@ -1,70 +1,52 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Vietnam Backpacking Website
+![](./home_page.jpg)
 
-## Available Scripts
+## 📝 Introduce:
+**Vietnam Backpacking Website** is a basic web programming subject project of group 5, class NT208.O23.ANTT. This is a website that synthesizes places to visit, travel, sightsee extremely chill and supports trip scheduling.
 
-In the project directory, you can run:
+## 👏 Members
+- [Phạm Trường Thiên Ân 22520028](https://github.com/ThienAnUIT2022)
+- [Nguyễn Hữu Bình 22520132](https://github.com/binhboxbot)
+- [Trần Tuấn Anh 22520080](https://github.com/ViWjin)
+- [Lăng Thị Cẩm Nhung 22521057](https://github.com/epicycloid55)
+- [Phạm Trần Hồng Phúc 22521138](https://github.com/CamNhungJB)
 
-### `npm start`
+## ⭐ Features
+![](./web_design.jpg)
+- Search for destinations: (Update soon) Search by area name, place name, destination type or season of the year.
+- Add location to favorites list: (Update soon) Add to favorites list to review and schedule trips.
+- Blog site for locations: Click "Destinations" on the header bar to go to the blog post summary page, click on any post you are interested in to see detailed content.
+- Add trip plans to the Google calendar: Create events in Google Calendar right on the website, easily manage time.
+- Invite other users: Invite other users to join the trip for more fun or organize a group trip.
+- Export PDF/JPG files: Easily share and save memories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Contribute
+We welcome your contribution to the project. If you would like to contribute, please create a pull request. Before creating a pull request, make sure your code complies with the project's coding conventions and code architecture.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ⚠️ Error
+If you find an error, please create a new issue on GitHub. Or you can contact us via email thienanfa4869@gmail.com and attach your documents. We will try to resolve the issue as soon as possible.
 
-### `npm test`
+We welcome your constructive contributions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚓ Start working
 
-### `npm run build`
+1. Clone repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```console
+git clone https://github.com/ThienAnUIT2022/project_web.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Create a new branch 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```console
+git branch <branch-name>
+```
+**Note:** Format branch name `Name-StudentID` or `Username`
 
-### `npm run eject`
+3. Switch to the newly created branch and work on that branch
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```console
+git checkout <branch-name>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
