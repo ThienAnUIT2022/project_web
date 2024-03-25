@@ -370,11 +370,76 @@
 
       <div class="container">
         <hr class="featurette-divider" />
-        <div class="row mb-2">
-          <div class="col-md-12 text-center">
-            <h2>Comming soon</h2>
-          </div>
+        <div
+          id="search-container"
+          style="transform: translateY(150%); z-index: 10"
+        >
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Nhập địa điểm để tìm kiếm"
+          />
+          <button id="search-button">Search</button>
         </div>
+        <div id="map">
+          <iframe
+            style="border: 0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyC_fbpfcmQgSR99exGtHkNXPLw3bT1zV2o&q=Space+Needle,Seattle+WA"
+          >
+          </iframe>
+        </div>
+
+        <script>
+          function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+              center: { lat: 10.88399, lng: 106.78315 }, // Tọa độ trung tâm ban đầu của bản đồ
+              zoom: 15, // Độ phóng ban đầu
+            });
+
+            // const searchContainer = document.getElementById("search-container");
+            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+            //   searchContainer
+            // );
+
+            const searchInput = document.getElementById("search-input");
+            searchInput.addEventListener("keypress", function (event) {
+              if (event.key === "Enter") {
+                searchLocation();
+              }
+            });
+
+            const searchButton = document.getElementById("search-button");
+            searchButton.addEventListener("click", () => {
+              searchLocation();
+            });
+
+            function searchLocation() {
+              const geocoder = new google.maps.Geocoder();
+              geocoder.geocode(
+                { address: searchInput.value },
+                (results, status) => {
+                  if (status === "OK") {
+                    map.setCenter(results[0].geometry.location);
+                    new google.maps.Marker({
+                      map: map,
+                      position: results[0].geometry.location,
+                    });
+                  } else {
+                    alert("Không tìm thấy địa điểm!");
+                  }
+                }
+              );
+            }
+          }
+        </script>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_fbpfcmQgSR99exGtHkNXPLw3bT1zV2o&callback=initMap"
+          async
+          defer
+        ></script>
       </div>
 
       <div class="advice mb-5">
