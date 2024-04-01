@@ -33,6 +33,55 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="jss/home.css" />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script>
+      /**
+       * @license
+       * Copyright 2019 Google LLC. All Rights Reserved.
+       * SPDX-License-Identifier: Apache-2.0
+       */
+      let map;
+      const KTX = { lat: 10.88399, lng: 106.78315 };
+
+      /**
+       * Creates a control that recenters the map on Chicago.
+       */
+      function createCenterControl(map) {
+        const controlButton = document.createElement("button");
+        // Set CSS for the control.
+        controlButton.classList.add("buttonStyle");
+
+        controlButton.textContent = "Center Map";
+        controlButton.title = "Click to recenter the map";
+        controlButton.type = "button";
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlButton.addEventListener("click", () => {
+          map.setCenter(KTX);
+        });
+        return controlButton;
+      }
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: { lat: 10.88399, lng: 106.78315 },
+        });
+
+        // Create the DIV to hold the control.
+        const centerControlDiv = document.createElement("div");
+        // Create the control.
+        const centerControl = createCenterControl(map);
+
+        // Append the control to the DIV.
+        centerControlDiv.appendChild(centerControl);
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(
+          centerControlDiv
+        );
+      }
+
+      window.initMap = initMap;
+    </script>
   </head>
   <body>
     <header>
@@ -191,10 +240,6 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
 
       <div class="album py-5 bg-light">
         <div class="container">
@@ -370,76 +415,21 @@
 
       <div class="container">
         <hr class="featurette-divider" />
-        <div
-          id="search-container"
-          style="transform: translateY(150%); z-index: 10"
-        >
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Nhập địa điểm để tìm kiếm"
-          />
-          <button id="search-button">Search</button>
-        </div>
         <div id="map">
-          <iframe
+          <!-- <iframe
+            height="560px"
+            width="100%"
             style="border: 0"
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyC_fbpfcmQgSR99exGtHkNXPLw3bT1zV2o&q=Space+Needle,Seattle+WA"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyC_fbpfcmQgSR99exGtHkNXPLw3bT1zV2o
+            &q=Dĩ+An,Bình+Dương,Vietnam
+            &center=10.88399,106.78315
+            &zoom=15"
           >
-          </iframe>
+          </iframe> -->
         </div>
-
-        <script>
-          function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
-              center: { lat: 10.88399, lng: 106.78315 }, // Tọa độ trung tâm ban đầu của bản đồ
-              zoom: 15, // Độ phóng ban đầu
-            });
-
-            // const searchContainer = document.getElementById("search-container");
-            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(
-            //   searchContainer
-            // );
-
-            const searchInput = document.getElementById("search-input");
-            searchInput.addEventListener("keypress", function (event) {
-              if (event.key === "Enter") {
-                searchLocation();
-              }
-            });
-
-            const searchButton = document.getElementById("search-button");
-            searchButton.addEventListener("click", () => {
-              searchLocation();
-            });
-
-            function searchLocation() {
-              const geocoder = new google.maps.Geocoder();
-              geocoder.geocode(
-                { address: searchInput.value },
-                (results, status) => {
-                  if (status === "OK") {
-                    map.setCenter(results[0].geometry.location);
-                    new google.maps.Marker({
-                      map: map,
-                      position: results[0].geometry.location,
-                    });
-                  } else {
-                    alert("Không tìm thấy địa điểm!");
-                  }
-                }
-              );
-            }
-          }
-        </script>
-        <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_fbpfcmQgSR99exGtHkNXPLw3bT1zV2o&callback=initMap"
-          async
-          defer
-        ></script>
       </div>
 
       <div class="advice mb-5">
@@ -615,6 +605,10 @@
     </main>
 
     <script src="jss/home.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_fbpfcmQgSR99exGtHkNXPLw3bT1zV2o&callback=initMap&v=weekly&solution_channel=GMP_CCS_customcontrols_v1"
+      defer
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
