@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JQuery Demo</title>
+  <link rel="stylesheet" href="Demo_JQuery.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+  <!--Dùng cho input searching-->
+  <script>
+    $( function() {
+      var availableTags = [
+        "Mục lục 1",
+        "Mục lục 2",
+        "Mục lục 3",
+        "Mục lục 4"
+      ];
+      $( "#Search" ).autocomplete({
+        source: availableTags,
+        select: function(event, ui){
+          $('a[href="#tab_' + ui.item.value + '"]').click();
+        }
+      });
+      var inputVal = $('input').val();
+        $('button').click(function(){
+          alert(inputVal);
+        });
+      });
+      $( function() {
+        $( ".tabs" ).resizable();
+      } );
+  </script>
+
+  <!--Dùng để tạo các thẻ content-->
+  <script>
+    $(document).ready(function(){
+      //Dấu các nội dung p đi
+      $( '.tab-content-item').hide();
+      //Hàm xử lý sự kiện khi ấn vào mục lục
+      $( '.nav-tabs li' ).click(function(){
+          //Tạo class active khi ấn vào.
+          //Xóa id active nếu không click vào thẻ mục lục
+          $( '.nav-tabs li' ).removeClass('active');
+          //Thêm id  active cho thẻ mục lục đang ấn vào
+          $(this).addClass('active');
+  
+          // Show tab content (Wrapper)
+          let id_tab_content = $(this).children('a').attr('href');
+          // alert(id_tab_content);
+          $( '.tab-content-item').hide();
+          $(id_tab_content).fadeIn();
+          return false;
+      });
+    });
+  </script>
+  <!--Cách nhanh hơn-->
+  <!--<script>
+    $( function() {
+      $( ".tabs" ).tabs();
+    } );
+    </script>
+
+  <script>
+    $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+  -->
+  
+</head>
+<body>
+  <div id="wrapper">
+    <h1>JQuery Demo</h1>
+      <div class="ui-widget">
+        <label for="Search">Search: </label>
+        <input id="Search" title="If you want to chosse the content that will be displayed, please type here."/>
+        <button>Search</button>
+      </div>
+      <div class="tabs">
+        <ul class="nav-tabs">
+          <li><a href="#tabs_1">Mục lục 1</a></li>
+          <li><a href="#tabs_2">Mục lục 2</a></li>
+          <li><a href="#tabs_3">Mục lục 3</a></li>
+          <li><a href="#tabs_4">Mục lục 4</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="tabs_1" class="tab-content-item">
+            <h2>Mục lục 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellat molestias minima, impedit fuga unde! Ab mollitia quis facere alias saepe eligendi minus quaerat qui? Fugit officia voluptate quo labore?</p>
+            <p>Fugiat quisquam esse quo asperiores alias aut atque rerum sed ducimus exercitationem eaque laboriosam cupiditate perferendis est ipsam pariatur ullam hic accusamus commodi, cumque adipisci nisi assumenda tempora. Quae, consequatur!</p>
+            <p>Maiores totam magni nesciunt laudantium voluptate consectetur perferendis adipisci omnis vero sed ad nemo impedit illo nulla ullam fugit tempore animi, similique dolor aut officia corporis ratione debitis? Laborum, unde.</p>
+            <p>Nemo quod, animi vero sequi eligendi, quaerat illo debitis, temporibus aperiam cumque quia! Minima quidem perspiciatis tempore possimus expedita aliquam, tempora hic modi, saepe, pariatur dolorem dignissimos. Dolorem, tempore est?</p>
+          </div>
+          <div id="tabs_2" class="tab-content-item">
+            <h2>Mục lục 2</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint necessitatibus laborum autem hic qui rem doloremque commodi doloribus pariatur, cupiditate possimus porro culpa inventore placeat velit. Quisquam nemo optio ea.</p>
+            <p>Eveniet adipisci deserunt aperiam placeat quia iste voluptates quisquam veniam error totam blanditiis, recusandae et assumenda id, numquam corporis sapiente nisi ab vel iusto. Incidunt iusto provident officia sunt officiis?</p>
+            <p>Odio voluptas vitae nostrum enim qui impedit, molestiae fuga id officiis quis iusto consectetur adipisci. Repudiandae tempora consectetur blanditiis cumque. Officia error molestias reiciendis explicabo minus sed iure, eius enim.</p>
+            <p>Impedit vel dolore, beatae earum distinctio temporibus. Harum, laudantium. Aliquam, omnis! Corrupti ab dicta id? Illum architecto neque cum vero labore voluptas error velit ratione incidunt, asperiores aperiam consectetur. Et!</p>
+            <p>Hic fugit voluptas ipsam dolorum dolores, illo iure similique aspernatur optio explicabo accusantium quaerat molestiae cumque esse, ipsa labore velit corporis cum vel eos obcaecati voluptatibus eveniet tempore! Aut, perferendis!</p>
+            <p>Corrupti delectus culpa, aliquid consectetur minus expedita nobis. Distinctio nemo, officiis repellendus dolorum rem eius neque ullam sapiente, ipsa cum voluptatibus necessitatibus sequi totam, vitae perferendis fuga quam natus dicta?</p>
+          </div>
+          <div id="tabs_3" class="tab-content-item">
+            <h2>Mục lục 3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aspernatur consectetur soluta accusamus corrupti excepturi expedita alias debitis, quis animi pariatur, quidem neque impedit! Non, numquam vitae. Incidunt, commodi sunt.</p>
+            <p>Itaque, distinctio reprehenderit. Deleniti ut quasi tempore vitae at. Nemo repellat quibusdam fuga culpa architecto eos tempore, dolorem blanditiis dicta? Totam, necessitatibus? Velit officia fugiat explicabo, dolorem expedita deserunt quia.</p>
+            <p>Accusantium impedit soluta voluptatum exercitationem nostrum, consequatur sequi accusamus atque blanditiis, facilis reiciendis, amet neque nulla sit cumque aut et nesciunt architecto error. Accusamus unde vitae debitis voluptates incidunt perspiciatis!</p>
+          </div>
+          <div id="tabs_4" class="tab-content-item">
+            <h2>Mục lục 4</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt labore velit corrupti provident alias possimus! Ad dolorem mollitia expedita ipsam vero, sint eveniet, reprehenderit nemo neque in deserunt similique. Laborum?</p>
+            <p>Soluta dolore odio enim nam dicta error veniam maxime, officia nemo atque, ab, qui eos dolorum! Beatae, maiores dolore sint asperiores placeat, quod ducimus perspiciatis at, nisi ipsam repellat incidunt.</p>
+            <p>Modi vero facilis consectetur amet maiores qui quos expedita minima possimus exercitationem iusto quis laboriosam hic odit quod, repellat dolor ex nam tenetur numquam voluptatem eveniet tempora odio. Culpa, consequuntur?</p>
+            <p>Maxime, molestias tempore magni accusamus enim quae recusandae iusto. Necessitatibus, error nemo debitis quo soluta totam sapiente placeat commodi amet ut cumque fugiat eligendi iste a repellendus, earum labore ipsam!</p>
+            <p>Ratione sequi commodi dolor labore odio blanditiis, iste ex accusamus repudiandae explicabo, exercitationem, ullam facilis eos sapiente et ducimus nesciunt architecto amet deserunt saepe minus harum eum. Quisquam, inventore atque!</p>
+            <p>Esse velit quidem facere quo officia expedita veniam quis aliquid sapiente nihil animi itaque vitae ex doloremque, mollitia similique natus inventore harum pariatur. Eum tempora neque omnis adipisci! Debitis, aperiam.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
