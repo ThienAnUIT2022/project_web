@@ -165,7 +165,7 @@ header a:hover {
 label.error{
   font-weight: 700;
   display: block;
-  color: #f00;
+  color: rgb(251, 255, 0);
   font-size:14px;
   padding-bottom: 10px;
 }
