@@ -1,74 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="jss/profile.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!">
+    <meta
+      name="keywords"
+      content="calendar, events, reminders, javascript, html, css, open source coding">
     <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
-    />
-    <title>VN-Backpacking</title>
-  </head>
-  <body>
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="profiles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
     <header class="header">
-      <a href="./home.HTML" class="logo">User</a>
+        <a href="#" class="logo">User.</a>
 
-      <nav class="navbar">
-        <a href="./profile.html" class="active">Information</a>
-        <a href="./destination.html" class="destination"
-          >Your recent searches</a
-        >
-        <a href="./home.HTML">Home</a>
-      </nav>
+        <nav class="navbar">
+            <a href="#" class="active">Information</a>
+            <a href="#" class="destination">Your recent searches</a>
+            <a href="#">Home</a>
+
+        </nav>
     </header>
 
     <section class="information">
-      <div class="information-content">
-        <div class="information-content2">
-          <div class="image">
-            <img
-              src="https://mimosawedding.net/wp-content/uploads/2022/07/cach-chup-anh-chan-dung-6.jpg"
-              alt=""
-            />
-            <i class="bx bx-camera"></i>
-          </div>
-          <h1>Hi, customers</h1>
-          <h3>Welcome your information</h3>
-
-          <div class="wrapper">
-            <form action="">
-              <div class="two-form">
-                <div class="input-box">
-                  <input type="text" value="First name" required />
-                  <i class="bx bxs-user"></i>
+        <div class="information-content">
+            <div class="information-content2">
+                <div class="image">
+                    <img src="https://mimosawedding.net/wp-content/uploads/2022/07/cach-chup-anh-chan-dung-6.jpg" id="photo" alt="">  
+                    <input type="file" id="file">
+                    <label for="file" id="upLoadbtn"><i class='bx bx-camera'></i></label>
                 </div>
-                <div class="input-box">
-                  <input type="text" value="Last name" required />
-                  <i class="bx bxs-user"></i>
-                </div>
-              </div>
-              <div class="input-box">
-                <input type="text" value="Phone number" required />
-                <i class="bx bxs-lock-alt"></i>
-              </div>
-              <div class="input-box">
-                <input type="text" value="Email" required />
-                <i class="bx bxs-envelope"></i>
-              </div>
-              <div class="input-box">
-                <input type="password" value="Password" required />
-                <i class="bx bxs-lock-alt"></i>
-              </div>
-            </form>
-          </div>
+                <h1>Hi, customers</h1>
+                <h3>Welcome your information</h3>
 
-          <div class="btn-box">
-            <a href="#">Edit your avatar</a>
-            <a href="#">Remove account</a>
-          </div>
+                <div class="wrapper">
+                    <form action="">
+                        <div class="two-form">
+                            <div class="input-box">
+                                <input type="text" required>
+                                <i class='bx bxs-user'></i>
+                                <label>First Name</label>
+                            </div>
+                            <div class="input-box">
+                                <input type="text" required>
+                                <i class='bx bxs-user'></i>
+                                <label>Last Name</label>
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" required>
+                            <i class='bx bxs-lock-alt' ></i>
+                            <label>Phone Number</label>
+                        </div>
+                        <div class="two-forms">
+                            <div class="input-box">
+                                <input type="date" class="birthday" value="Your birthday" required>
+                                <i class='bx bxs-cake'></i>
+                            </div>
+                            <div class="input-box">
+                                <input type="text" required>
+                                <i class='bx bx-male-female'></i>
+                                <label>Male/Female</label>
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" required>
+                            <i class='bx bxs-home'></i>
+                            <label>Address</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" required>
+                            <i class='bx bxs-envelope' ></i>
+                            <label>Email</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" id="password" required>
+                            <i class='bx bxs-lock-alt' id="eyeicon"></i>
+                            <label>Password</label>
+                        </div>
+                        
+                    </form>
+                </div>
+
+                <div class="btn-box">
+                    <a href="#">Edit your profile</a>
+                    <a href="#">Remove account</a>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="body-calendar">
+            <div class="container-calendar">
+                <div class="left">
+                  <div class="calendar">
+                    <div class="month">
+                      <i class="fas fa-angle-left prev"></i>
+                      <div class="date">december 2015</div>
+                      <i class="fas fa-angle-right next"></i>
+                    </div>
+                    <div class="weekdays">
+                      <div>Sun</div>
+                      <div>Mon</div>
+                      <div>Tue</div>
+                      <div>Wed</div>
+                      <div>Thu</div>
+                      <div>Fri</div>
+                      <div>Sat</div>
+                    </div>
+                    <div class="days"></div>
+                    <div class="goto-today">
+                      <div class="goto">
+                        <input type="text" placeholder="mm/yyyy" class="date-input" />
+                        <button class="goto-btn">Go</button>
+                      </div>
+                      <button class="today-btn">Today</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="right">
+                  <div class="today-date">
+                    <div class="event-day">wed</div>
+                    <div class="event-date">12th december 2022</div>
+                  </div>
+                  <div class="events"></div>
+                  <div class="add-event-wrapper">
+                    <div class="add-event-header">
+                      <div class="title">Add Event</div>
+                      <i class="fas fa-times close"></i>
+                    </div>
+                    <div class="add-event-body">
+                      <div class="add-event-input">
+                        <input type="text" placeholder="Event Name" class="event-name" />
+                      </div>
+                      <div class="add-event-input">
+                        <input
+                          type="text"
+                          placeholder="Event Time From"
+                          class="event-time-from"
+                        />
+                      </div>
+                      <div class="add-event-input">
+                        <input
+                          type="text"
+                          placeholder="Event Time To"
+                          class="event-time-to"
+                        />
+                      </div>
+                    </div>
+                    <div class="add-event-footer">
+                      <button class="add-event-btn">Add Event</button>
+                    </div>
+                  </div>
+                </div>
+                <button class="add-event">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+        </div>
+      
     </section>
-  </body>
+    <script src="profiless.js"></script>
+</body>
 </html>
