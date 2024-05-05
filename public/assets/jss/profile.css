@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #563d7c;
+    color: #ededed;
+
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100px;
+}
+
+.logo {
+    position: relative;
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #563d7c;
+    animation: showRight 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #ffbe89;
+}
+
+.information {
+    /* background: url('https://www.vietnamworks.com/hrinsider/wp-content/uploads/2023/12/hinh-nen-dep-cho-dien-thoai-voi-hinh-anh-thien-nhien-phong-cach-truyen-tranh.jpg') no-repeat;
+    background-size: cover;
+    background-position: center; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.information-content {
+    max-width: 600px;
+}
+
+.image  img {
+    cursor: pointer;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0.8;
+    border: 3px solid #FFF;
+}
+
+.image i {
+    margin-left: -10px;
+    font-size: 25px;
+}
+
+.image i:hover {
+    cursor: pointer;
+}
+
+.information-content h1 {
+    position: relative;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.information-content h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #563d7c;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+.information-content h3 {
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffbe89;
+}
+
+.information-content h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #563d7c;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.7s;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.wrapper form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #563d7c;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.7s;
+}
+
+.two-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: -30px;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 16px;
+    color: #FFF;
+    padding: 0 10px 0 40px;
+}
+
+.input-box input::placeholder {
+    color: #FFF;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.information-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 425px;
+    height: 50px;
+}
+
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+    background: #ffbe89;
+    border: 2px solid #ffbe89;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #563d7c;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.btn-box a:nth-child(1):hover {
+    color: #ffbe89;
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #ffbe89;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #563d7c;
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #ffbe89;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #563d7c;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn-box a:hover:before {
+    width: 100%;
+
+}
+
+
+
+@keyframes showRight {
+    100% {
+        width: 0;
+    }
+}
