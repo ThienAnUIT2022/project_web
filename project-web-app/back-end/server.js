@@ -13,11 +13,8 @@ const db = mysql.createConnection({
   database: 'backpackprj'
 });
 
-db.connect(function(err){
-  (err) ? console.log(err) : console.log(db);
-});
 
-app.post("/example", (req, res) => {
+app.post("/register", (req, res) => {
   const sql =
     "INSERT INTO login (`firstName`, `lastName`, `email`, `password`) VALUES (?)";
   const values = [
@@ -56,4 +53,4 @@ app.get('/api/blog', (req, res) => {
   });
 });
 
-app.listen(4000, () => console.log('App listening on port 4000'));
+app.listen(8081, () => console.log('App listening on port 8081'));

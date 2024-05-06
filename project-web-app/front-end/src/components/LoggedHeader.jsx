@@ -1,7 +1,6 @@
 import React from 'react';
-import '../assets/css/Header.css';
 
-function Header() {
+function LoggedHeader() {
     return (
         <div>
             <header >
@@ -42,19 +41,20 @@ function Header() {
                                     <a className="nav-link" href="/FAQs">FAQs</a>
                                 </li>
                             </ul>
-                            <form className="d-flex">
-                                <input
-                                    className="form-control me-2"
-                                    type="search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                />
-                            </form>
                             <div className="text-end">
                                 <a href="/login" target="_blank">
                                     <button type="button" className="btn btn-outline-light me-2">
-                                    Log in
+                                    Log out
                                     </button>
+                                </a>
+
+                                <a href='/profile' target='_blank'>
+                                    <img src='https://gamek.mediacdn.vn/zoom/600_315/133514250583805952/2023/5/16/avatar1684223366100-16842233662941543551172-0-76-274-515-crop-16842272399221546766838.jpg'
+                                        className='rounded-circle' 
+                                        alt='Avatar'
+                                        height='50px'
+                                        width='50px'
+                                    ></img>
                                 </a>
                             </div>
                         </div>
@@ -66,4 +66,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default LoggedHeader;
