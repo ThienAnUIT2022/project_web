@@ -1,0 +1,8 @@
+.card-footer {
+  background-color: #563d7c;
+}
+
+.card-footer .bi {
+  vertical-align: -0.125em;
+  fill: white;
+}

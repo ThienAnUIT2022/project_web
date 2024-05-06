@@ -1,0 +1,144 @@
+.Schedule .navbar {
+  background-color: #563d7c;
+}
+
+.Schedule .navbar-brand {
+  font-weight: 700;
+}
+.Schedule .container {
+  padding-top: 50px;
+}
+.Schedule .feature-bnt {
+  padding-bottom: 30px;
+}
+.Schedule .row {
+  padding: 0;
+}
+
+.Schedule h5 {
+  color: antiquewhite;
+  padding: 15px;
+}
+
+.Schedule .text-body-secondary {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #535353;
+}
+.Schedule .scrollar-bg {
+  height: -webkit-fill-available;
+  min-width: 24vh;
+  max-height: 98vh;
+  max-width: 50vh;
+  border-radius: 10px;
+}
+.Schedule .scrollar-div {
+  height: -webkit-fill-available;
+  max-height: 80vh;
+  border-radius: 5px;
+
+  overflow-x: auth2o;
+  overflow-y: scroll;
+}
+
+.Schedule .list-group {
+  height: 98vh;
+  height: -webkit-fill-available;
+  max-height: 98vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.Schedule h1 {
+  padding: 15px;
+  font-weight: 900;
+  color: #ffbe89;
+}
+.Schedule .fs-5 {
+  font-weight: 600;
+  font-size: xx-large;
+}
+.Schedule .mid {
+  padding-left: auto;
+  padding-right: auto;
+  padding-bottom: 50px;
+}
+.Schedule .Schedule-button {
+  color: #ffbe89;
+  padding: 10px 32px;
+  background-color: #563d7c;
+  width: 60px;
+  height: 30px;
+  font-size: 20px;
+
+  border-width: 50px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.Schedule .Schedule-button:focus {
+  background-color: #442f62;
+  color: white;
+}
+.Schedule .bg-box-top {
+  width: 81em;
+  height: 13em;
+  max-width: 81em;
+  max-height: 15em;
+  border-radius: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(183, 108, 215, 0.6)),
+    url("https://th.bing.com/th/id/R.be2ec03d9d554ca1d6f80a2f290e79a8?rik=1paWjiM8UScjwA&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fHD-Jungle-Picture.jpg&ehk=k%2bqK9HzsJqQ7SnJ%2bDLnKJxpoCFoNOp8DRXTER9Esto8%3d&risl=&pid=ImgRaw&r=0");
+  /* background:linear-gradient(); 
+  background-color: #563d7c; */
+}
+.Schedule .box-top-btn {
+  width: 100px;
+  height: 100px;
+  color: #535353;
+  background-color: #ffbe89;
+  padding-left: 15px;
+  border-radius: 4px;
+  align-items: center;
+}
+.Schedule .btn {
+  padding-left: 15px;
+}
+.Schedule a {
+  color: #563d7c;
+}
+.Schedule .pb-2.h1 {
+  padding-left: 15px;
+  margin-top: 20px;
+}
+.Schedule .px-2 {
+  margin-left: 15px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.Schedule .px-l {
+  margin-right: 5px;
+}
+.Schedule .px-1 {
+  margin-top: 20px;
+}
+.Schedule .text {
+  color: #ffbe89;
+}
+.Schedule .lead {
+  color: #ffbe89;
+  margin-left: 15px;
+}
+
+.Schedule.bg-pupl {
+  background-color: #563d7c;
+}
+.Schedule .rownd {
+  border-radius: 10px;
+  background-color: #563d7c;
+  margin-right: 5px;
+}
+.Schedule .cl {
+  color: #ffbe89;
+}
+.Schedule .fw-semibold {
+  color: #ffbe89;
+}

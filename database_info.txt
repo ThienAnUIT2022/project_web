@@ -1,0 +1,4 @@
+username: "user_bpprj"
+password: "nt208group5"
+host mặc định: localhost
+tên DB: backpackprj
