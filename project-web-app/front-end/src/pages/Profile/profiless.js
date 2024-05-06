@@ -274,7 +274,7 @@ export function proFile() {
     //function to add event
     addEventBtn.addEventListener("click", () => {
       const addEventWrapper = document.querySelector(".add-event-wrapper");
-      addEventWrapper.classList.toggle("active");
+      addEventWrapper.classList.add("active");
     });
 
     addEventCloseBtn.addEventListener("click", () => {

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { validation } from "./loginValidation"; 
+import { AuthContext } from "../../context/AuthContext"; // Import AuthContext
+import axios from "axios";
 import "./login.css";
 import "./loginValidation";
-import { validation } from "./loginValidation";
-import axios from "axios";
 
 function Login() {
   //Show/Hide password
@@ -25,6 +26,8 @@ function Login() {
     password: "",
   });
 
+  const {setIsLoggedIn} = useContext(AuthContext); // Lấy setIsLoggedIn từ AuthContext
+
   const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
@@ -45,7 +48,8 @@ function Login() {
       .post("http://localhost:8081/login", values)
       .then((res) => {
         if (res.data === "Success") {
-          navigate("/home");
+          setIsLoggedIn(true);
+          navigate("/");
         } else {
           alert("No record existed");
         }

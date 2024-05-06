@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { AuthContext } from '../context/AuthContext';
 import Map from '../components/Map';
+import LoggedHeader from '../components/LoggedHeader';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../assets/css/home.css';
 import images from '../assets/images';
 
 function Home() {
+    const { isLoggedIn } = useContext(AuthContext);
+
     return (
         <div className="Homepage">
-            <Header></Header>
+            {isLoggedIn ?<LoggedHeader></LoggedHeader>:  <Header></Header> }
             <main>
                 <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">

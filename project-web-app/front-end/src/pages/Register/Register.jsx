@@ -45,7 +45,7 @@ function Register() {
       errors.password === ""
     ) {
       axios
-        .post("http://localhost:8081/example", values)
+        .post("http://localhost:8081/register", values)
         .then((res) => {
           navigate("/");
         })
