@@ -53,7 +53,7 @@ const locations = [
 
 const Map = () => {
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: "AIzaSyCbw_qYDfRAJF07xTJLboIWdSQG5jz87Vw",
+        googleMapsApiKey: "",
         libraries,
       });
     
