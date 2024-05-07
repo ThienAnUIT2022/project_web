@@ -1,0 +1,19 @@
+.Tipspage {
+  font-family: "K2D", sans-serif;
+  padding-top: 3rem;
+}
+
+.Tipspage .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.Tipspage .card-title {
+  color: #7b57b1;
+  font-weight: 600;
+  text-shadow: #fd9535 2px 1px 5px;
+}
+
+.Tipspage .card-text {
+  color: #666;
+}
