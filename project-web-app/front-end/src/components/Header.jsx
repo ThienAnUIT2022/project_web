@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import images from '../assets/images';
 import '../assets/css/Header.css';
 
 function Header() {
+    const location = useLocation();
+    const { isLoggedIn } = useContext(AuthContext);
     return (
         <div>
             <header >
@@ -23,31 +28,38 @@ function Header() {
                         <div className="collapse navbar-collapse" id="navbarCollapse">
                             <ul className="navbar-nav me-auto mb-2 mb-md-0">
                                 <li className="nav-item">
-                                    <a
-                                    className="nav-link active"
-                                    aria-current="page"
-                                    href="/"
-                                    >Home</a>
+                                    <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} to="/">Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/destination">Destinations</a>
+                                    <Link className={`nav-link ${location.pathname === '/destination' ? 'active' : ''}`} to="/destination">Destinations</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/schedule">Schedule</a>
+                                    <Link className={`nav-link ${location.pathname === '/schedule' ? 'active' : ''}`} to="/schedule">Schedule</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/quicktips">Quick tips</a>
+                                    <Link className={`nav-link ${location.pathname === '/quicktips' ? 'active' : ''}`} to="/quicktips">Quick tips</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/FAQs">FAQs</a>
+                                    <Link className={`nav-link ${location.pathname === '/FAQs' ? 'active' : ''}`} to="/FAQs">FAQs</Link>
                                 </li>
                             </ul>
                             <div className="text-end">
+                            {isLoggedIn ? (
+                                <a href='/profile' target='_blank'>
+                                    <img src={images['avtHeader.png']}
+                                        className='rounded-circle' 
+                                        alt='Avatar'
+                                        height='40px'
+                                        width='40px'
+                                    />
+                                </a>
+                            ) : (
                                 <a href="/login" target="_blank">
                                     <button type="button" className="btn btn-outline-light me-2">
-                                    Log in
+                                        Log in
                                     </button>
                                 </a>
+                            )}
                             </div>
                         </div>
                     </div>

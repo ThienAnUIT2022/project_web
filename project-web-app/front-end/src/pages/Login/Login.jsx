@@ -26,8 +26,7 @@ function Login() {
     password: "",
   });
 
-  const {setIsLoggedIn} = useContext(AuthContext); // Lấy setIsLoggedIn từ AuthContext
-
+  const { setIsLoggedIn } = useContext(AuthContext);
   const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
