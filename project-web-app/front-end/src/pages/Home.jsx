@@ -10,7 +10,7 @@ function Home() {
         <div className="Homepage">
             <Header></Header>
             <main>
-                <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+                <div id="myCarousel" className="carousel slide mb-6" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                     <button
                         type="button"
@@ -37,75 +37,61 @@ function Home() {
                     <div className="carousel-item active">
                         <img src={images['carousel_left.jpg']} alt="" />
                         <div className="container">
-                        <div className="carousel-caption text-start">
-                            <h1>What's in your backpack?</h1>
-                            <p>We'll help you prepare the necessary things for the trip.</p>
-                            <p>
-                            <a className="btn btn-lg btn-primary" href="/quicktips"
-                                >Check now</a>
-                            </p>
-                        </div>
+                            <div className="carousel-caption d-md-block text-start">
+                                <h1>What's in your backpack?</h1>
+                                <p>We'll help you prepare the necessary things for the trip.</p>
+                                <p>
+                                    <a className="btn btn-lg btn-primary" href="/quicktips">Check now</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img src={images['carousel_mid.jpg']} alt="" />
                         <div className="container">
-                        <div className="carousel-caption">
-                            <h1>Go far away together</h1>
-                            <p>
-                            Easily search for places, schedule trips, and send invitations
-                            to others.
-                            </p>
-                            <p>
-                            <a className="btn btn-lg btn-primary" href="/destination"
-                                >Try now</a>
-                            </p>
-                        </div>
+                            <div className="carousel-caption d-md-block">
+                                <h1>Go far away together</h1>
+                                <p>
+                                Easily search for places, schedule trips, and send invitations
+                                to others.
+                                </p>
+                                <p>
+                                    <a className="btn btn-lg btn-primary" href="/destination">Try now</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img src={images['carousel_right.jpg']} alt="" />
                         <div className="container">
-                        <div className="carousel-caption text-end">
-                            <h1>Many impressive locations</h1>
-                            <p>
-                            Selected locations are suitable for sightseeing, relaxation or
-                            exploration.
-                            </p>
-                            <p>
-                            <a className="btn btn-lg btn-primary" href="/destination"
-                                >See more</a>
-                            </p>
-                        </div>
+                            <div className="carousel-caption d-md-block text-end">
+                                <h1>Many impressive locations</h1>
+                                <p>
+                                Selected locations are suitable for sightseeing, relaxation or
+                                exploration.
+                                </p>
+                                <p>
+                                    <a className="btn btn-lg btn-primary" href="/destination">See more</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                     </div>
-                    <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#myCarousel"
-                    data-bs-slide="prev"
-                    >
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
                     </button>
-                    <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#myCarousel"
-                    data-bs-slide="next"
-                    >
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
+                    <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
                     </button>
                 </div>
 
                 <div className="album py-5 bg-light">
                     <div className="container">
-                    <hr />
-                    <div className="row mb-2">
+                       <div className="row mb-2">
                         <div className="col-md-12 text-center mb-5">
-                        <h2>Popular destinations</h2>
+                        <h1>Popular destinations</h1>
                         </div>
                     </div>
                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

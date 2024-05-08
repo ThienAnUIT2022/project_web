@@ -26,8 +26,16 @@ function Login() {
     password: "",
   });
 
-  const { setIsLoggedIn } = useContext(AuthContext);
   const [errors, setErrors] = useState({});
+  const { setIsLoggedIn } = useContext(AuthContext);
+
+  useEffect(() => {
+    // Check if user is already logged in (after page reload)
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn === "true") {
+      setIsLoggedIn(true);
+    }
+  }, [setIsLoggedIn]);
 
   const handleInput = (event) => {
     setValues((prev) => ({
@@ -47,6 +55,7 @@ function Login() {
       .post("http://localhost:8081/login", values)
       .then((res) => {
         if (res.data === "Success") {
+          localStorage.setItem("isLoggedIn", "true");
           setIsLoggedIn(true);
           navigate("/");
         } else {

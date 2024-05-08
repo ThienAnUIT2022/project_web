@@ -23,39 +23,25 @@
   margin-top: 10px;
 }
 
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
 /* Carousel base class */
 .Homepage .carousel {
-  margin-bottom: 2rem;
-}
-
-/* Since positioning the image, we need to help out the caption */
-.Homepage .carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.Homepage .carousel-item {
-  height: 32rem;
+  margin-bottom: 4rem;
 }
 
 .Homepage .carousel-caption {
   text-shadow: 0px 0px 10px #454545;
+  bottom: 3rem;
+  z-index: 10;
 }
 
-.Homepage .carousel-item:nth-child(2) .carousel-caption {
-  bottom: 13rem;
+.Homepage .carousel-item {
+  height: 32rem;
 }
 
 .Homepage .carousel-item > img {
   position: absolute;
-  margin-top: -4rem;
-  min-width: 100%;
-  /* height: 32rem; */
-  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
 }
 
 /* Card modified */
@@ -86,6 +72,7 @@
 
 .Homepage .card-img-overlay {
   height: fit-content;
+  background: linear-gradient(rgba(0, 0, 0, 0.404), rgba(255, 255, 255, 0));
 }
 
 /* Featurettes
@@ -127,27 +114,13 @@
   height: 10rem;
 }
 
-/* Footer */
-.Homepage .card-footer {
-  background-color: #563d7c;
-  /* max-height: 3rem; */
-}
-
-.Homepage .card-footer .bi {
-  vertical-align: -0.125em;
-  fill: white;
-}
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
 @media (min-width: 768px) {
   .Homepage .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
 }
 
-@media (min-width: 40em) {
+@media (min-width: 40rem) {
   /* Bump up size of carousel content */
   .Homepage .carousel-caption p {
     margin-bottom: 1.25rem;
@@ -160,7 +133,7 @@
   }
 }
 
-@media (min-width: 62em) {
+@media (min-width: 62rem) {
   .Homepage .featurette-heading {
     margin-top: 7rem;
   }

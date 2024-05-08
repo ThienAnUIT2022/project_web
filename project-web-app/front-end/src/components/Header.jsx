@@ -45,20 +45,20 @@ function Header() {
                             </ul>
                             <div className="text-end">
                             {isLoggedIn ? (
-                                <a href='/profile' target='_blank'>
+                                <Link to='/profile'>
                                     <img src={images['avtHeader.png']}
-                                        className='rounded-circle' 
+                                        className='rounded-circle'
                                         alt='Avatar'
                                         height='40px'
                                         width='40px'
                                     />
-                                </a>
+                                </Link>
                             ) : (
-                                <a href="/login" target="_blank">
+                                <Link to="/login">
                                     <button type="button" className="btn btn-outline-light me-2">
                                         Log in
                                     </button>
-                                </a>
+                                </Link>
                             )}
                             </div>
                         </div>
