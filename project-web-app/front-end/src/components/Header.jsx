@@ -11,7 +11,7 @@ function Header() {
         <div>
             <header >
                 {/* Navbar */}
-                <nav className="navbar navbar-expand-md navbar-dark fixed-top">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
                     <div className="container-fluid">
                         <a className="navbar-brand" href="/">VN-Backpacking</a>
                         <button
@@ -43,6 +43,11 @@ function Header() {
                                     <Link className={`nav-link ${location.pathname === '/FAQs' ? 'active' : ''}`} to="/FAQs">FAQs</Link>
                                 </li>
                             </ul>
+
+                            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search"/>
+                            </form>
+
                             <div className="text-end">
                             {isLoggedIn ? (
                                 <Link to='/profile'>
