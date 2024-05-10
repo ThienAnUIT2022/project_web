@@ -6,45 +6,16 @@ import '../assets/css/home.css';
 import images from '../assets/images';
 import PopularDestinations from '../components/PopularDestination';
 
-const destinations = [
-    {
-      imageSrc: "PopDes1.jpg",
-      title: "Coastal road 702",
-      description:
-        "With a length of about 80km connecting Phan Rang to Cam Ranh, this is one of the most beautiful and famous Ninh Thuan coastal roads.",
-    },
-    {
-        imageSrc: "PopDes2.jpg",
-        title: "Tà Nung pass",
-        description:
-        "Belonging to route 725, located on the Langbiang plateau of Da Lat, Ta Nung pass brings the wild beauty of the mountains and forests.",
-    },
-    {
-        imageSrc: "PopDes3.jpg",
-        title: "Mã Pí Lèng pass",
-        description:
-        "Located on National Highway 4C, the road connecting Ha Giang city with Dong Van town, is considered the king of passes.",
-    },
-    {
-        imageSrc:"PopDes4.jpg",
-        title:"Hàm Ninh fishing village",
-        description:
-        "Located in Phu Quoc district, Kien Giang province, it possesses wild and peaceful beauty, suitable for watching the sea and enjoying many fresh seafood dishes.",
-    },
-    {
-        imageSrc:"PopDes5.jpg",
-        title:"Bạc Liêu Wind Power Field",
-        description:"About 20km from Bac Lieu city center, it is considered one of the largest wind power projects in Vietnam. Bringing a modern scene no less than Europe.",
-    },
-    {
-        imageSrc:"PopDes6.jpeg",
-        title:"Sim flower hill in Da Lat",
-        description:"Each year, sim flowers bloom around March - April and around October - November. The weather is cool and the scenery is romantic and poetic, suitable for recording memories.",
-    }
+const Home = ({blogs}) => {
+    const sortedBlogs = blogs.data.sort((a, b) => b.attributes.popular - a.attributes.popular);
+    const popularBlogs = sortedBlogs.slice(0, 6);
 
-  ];
+    const popDes = popularBlogs.map(item => ({
+        imageSrc: `http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`,
+        title: item.attributes.title,
+        description: item.attributes.description
+    }));
 
-function Home() {
     return (
         <div className="Homepage">
             <Header></Header>
@@ -126,155 +97,7 @@ function Home() {
                     </button>
                 </div>
 
-                {/* <div className="album py-5 bg-light">
-                    <div className="container">
-                       <div className="row mb-2">
-                        <div className="col-md-12 text-center mb-5">
-                        <h1>Popular destinations</h1>
-                        </div>
-                    </div>
-
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div className="col">
-                            <div className="card shadow-sm">
-                                <img className="card-img-top" src={images['PopDes1.jpg']} alt="" />
-                                <div className="card-img-overlay">
-                                <h4 className="card-title">Coastal road 702</h4>
-                                </div>
-                                <div className="card-body">
-                                <p className="card-text">
-                                    With a length of about 80km connecting Phan Rang to Cam
-                                    Ranh, this is one of the most beautiful and famous Ninh
-                                    Thuan coastal roads.
-                                </p>
-                                <div className="d-flex flex-row-reverse">
-                                    <a href="/destination">
-                                    <button type="button" className="btn btn-sm btn-secondary">
-                                        See more
-                                    </button>
-                                    </a>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                        <div className="card shadow-sm">
-                            <img className="card-img-top" src={images['PopDes2.jpg']} alt="" />
-                            <div className="card-img-overlay">
-                            <h4 className="card-title">Tà Nung pass</h4>
-                            </div>
-                            <div className="card-body">
-                            <p className="card-text">
-                                Belonging to route 725, located on the Langbiang plateau of
-                                Da Lat, Ta Nung pass brings the wild beauty of the mountains
-                                and forests.
-                            </p>
-                            <div className="d-flex flex-row-reverse">
-                                <a href="/destination">
-                                <button type="button" className="btn btn-sm btn-secondary">
-                                    See more
-                                </button>
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        
-                        <div className="col">
-                        <div className="card shadow-sm">
-                            <img className="card-img-top" src={images['PopDes3.jpg']} alt=""/>
-                            <div className="card-img-overlay">
-                            <h4 className="card-title">Mã Pí Lèng pass</h4>
-                            </div>
-                            <div className="card-body">
-                            <p className="card-text">
-                                Located on National Highway 4C, the road connecting Ha Giang
-                                city with Dong Van town, is considered the king of passes.
-                            </p>
-                            <div className="d-flex flex-row-reverse">
-                                <a href="/destination">
-                                <button type="button" className="btn btn-sm btn-secondary">
-                                    See more
-                                </button>
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        
-                        <div className="col">
-                        <div className="card shadow-sm">
-                            <img className="card-img-top" src={images['PopDes4.jpg']} alt="" />
-                            <div className="card-img-overlay">
-                            <h4 className="card-title">Hàm Ninh fishing village</h4>
-                            </div>
-                            <div className="card-body">
-                            <p className="card-text">
-                                Located in Phu Quoc district, Kien Giang province, it
-                                possesses wild and peaceful beauty, suitable for watching
-                                the sea and enjoying many fresh seafood dishes.
-                            </p>
-                            <div className="d-flex flex-row-reverse">
-                                <a href="/destination">
-                                <button type="button" className="btn btn-sm btn-secondary">
-                                    See more
-                                </button>
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        
-                        <div className="col">
-                        <div className="card shadow-sm">
-                            <img className="card-img-top" src={images['PopDes5.jpg']} alt="" />
-                            <div className="card-img-overlay">
-                            <h4 className="card-title">Bạc Liêu Wind Power Field</h4>
-                            </div>
-                            <div className="card-body">
-                            <p className="card-text">
-                                About 20km from Bac Lieu city center, it is considered one
-                                of the largest wind power projects in Vietnam. Bringing a
-                                modern scene no less than Europe.
-                            </p>
-                            <div className="d-flex flex-row-reverse">
-                                <a href="/destination">
-                                <button type="button" className="btn btn-sm btn-secondary">
-                                    See more
-                                </button>
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        
-                        <div className="col">
-                        <div className="card shadow-sm">
-                            <img className="card-img-top" src={images['PopDes6.jpeg']} alt="" />
-                            <div className="card-img-overlay">
-                            <h4 className="card-title">Sim flower hill in Da Lat</h4>
-                            </div>
-                            <div className="card-body">
-                            <p className="card-text">
-                                Each year, sim flowers bloom around March - April and around
-                                October - November. The weather is cool and the scenery is
-                                romantic and poetic, suitable for recording memories.
-                            </p>
-                            <div className="d-flex flex-row-reverse">
-                                <a href="/destination">
-                                <button type="button" className="btn btn-sm btn-secondary">
-                                    See more
-                                </button>
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div> */}
-                <PopularDestinations destinations={destinations} />
+                <PopularDestinations destinations={popDes} />
             
                 <div className="container">
                     <hr className="featurette-divider" />

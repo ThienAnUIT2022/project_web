@@ -1,11 +1,10 @@
 import React from 'react';
-import images from '../assets/images';
 
 const DestinationCard = ({ imageSrc, title, description }) => {
     return (
       <div className="col">
         <div className="card shadow-sm">
-            <img className="card-img-top" src={images[imageSrc]} alt="" />
+            <img className="card-img-top" src={imageSrc} alt="" />
             <div className="card-img-overlay">
                 <h4 className="card-title">{title}</h4>
             </div>

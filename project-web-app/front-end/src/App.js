@@ -9,14 +9,20 @@ import Register from './pages/Register/Register.jsx'
 import Profile from './pages/Profile/Profile.jsx';
 import { AuthProvider } from './context/AuthContext.js';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import useFetch from './hooks/useFetch.js';
 
 function App(props) {
+
+  let {loading, error, data} = useFetch('http://localhost:1337/api/blogs?populate=*');
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error!</p>
+
   return (
     <div> 
       <AuthProvider>
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home blogs={data?data:""} />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/quicktips" element={<Quicktips />} />
             <Route path="/destination" element={<Destination />} />
