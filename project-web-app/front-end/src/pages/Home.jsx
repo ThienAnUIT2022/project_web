@@ -1,5 +1,4 @@
 import React from 'react';
-import Map from '../components/Map';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../assets/css/home.css';
@@ -101,7 +100,6 @@ const Home = ({blogs}) => {
             
                 <div className="container">
                     <hr className="featurette-divider" />
-                    <Map/>
                 </div> 
                 
                 <div className="advice mb-5">

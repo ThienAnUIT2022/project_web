@@ -13,26 +13,26 @@ import useFetch from './hooks/useFetch.js';
 
 function App(props) {
 
-  let {loading, error, data} = useFetch('http://localhost:1337/api/blogs?populate=*');
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error!</p>
+  let {data} = useFetch('http://localhost:1337/api/blogs?populate=*');
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error!</p>
 
   return (
-    <div> 
-      <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Home blogs={data?data:""} />} />
-            <Route path="/schedule" element={<Schedule />} />
-            <Route path="/quicktips" element={<Quicktips />} />
-            <Route path="/destination" element={<Destination />} />
-            <Route path="/faqs" element={<FAQs />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </BrowserRouter>
-      </AuthProvider>
+    <div>
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home blogs={data?data:""} />} />
+                <Route path="/schedule" element={<Schedule />} />
+                <Route path="/quicktips" element={<Quicktips />} />
+                <Route path="/destination" element={<Destination />} />
+                <Route path="/faqs" element={<FAQs />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<Profile />} />
+            </Routes>
+        </BrowserRouter>
+        </AuthProvider>
     </div>
   );
 }

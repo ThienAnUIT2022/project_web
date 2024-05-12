@@ -1,109 +1,83 @@
-body {
+.FAQpage {
   font-family: "K2D", sans-serif;
-}
-
-/* GLOBAL STYLES
-  -------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
-body {
-  padding-top: 3rem;
+  padding-top: 10rem;
   color: #5a5a5a;
 }
 
-.navbar {
-  background-color: #563d7c;
-}
-
-.navbar-brand {
-  font-weight: 700;
-}
-
-div {
+.FAQpage section,
+.FAQpage div {
   display: block;
 }
 
-section {
-  display: block;
-}
-
-.faq-help {
+.FAQpage .faq-help {
   background-color: #fff;
-  padding-bottom: 80px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 30px;
+  padding: 30px;
 }
 
-.faq-help .bread-crumbs {
-  padding-left: 0;
-}
-
-.bread-crumbs {
-  color: #003580;
-  padding: 12px 30px;
+.FAQpage .faq-help .bread-crumbs {
+  padding: 12px 0;
   font-size: 13px;
-  line-height: 1;
+  color: #003580;
 }
 
-.bread-crumbs a {
+.FAQpage .bread-crumbs a {
   color: #0071c2;
   text-decoration: underline;
 }
 
-.bread-crumbs .separator {
+.FAQpage .bread-crumbs .separator {
   color: #febb02;
   padding: 0 5px;
 }
 
-.faq-help .faq-content {
+.FAQpage .faq-help .faq-content {
   margin-top: 100px;
-  line-height: 19px;
   margin-bottom: 50px;
+  line-height: 19px;
 }
 
-.faq-help .faq-content a {
+.FAQpage .faq-help .faq-content a {
   display: block;
 }
 
-body .bui_font_heading {
+.FAQpage .bui_font_heading {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   text-decoration: none;
 }
 
-.faq-help h2 {
+.FAQpage .faq-help h2 {
   margin-top: 20px;
 }
 
-.faq-help h3 {
+.FAQpage .faq-help h3 {
   margin-top: 30px;
   margin-bottom: 20px;
   padding-top: 20px;
   font-size: 20px;
 }
 
-.bui-f-color-black {
+.FAQpage .bui-f-color-black {
   color: #000 !important;
 }
 
-.faq-help .faq-reg-scheme ul {
+.FAQpage .faq-help .faq-reg-scheme ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 20px;
   line-height: 30px;
 }
 
-.faq-help .faq-reg-scheme li {
+.FAQpage .faq-help .faq-reg-scheme li {
   color: #8e8e8e;
 }
 
-.bui-f-color-grayscale {
+.FAQpage .bui-f-color-grayscale {
   color: #6b6b6b !important;
 }
 
-.bi {
+.FAQpage .bi {
   position: relative;
   top: 1px;
   display: inline-block;
@@ -113,49 +87,57 @@ body .bui_font_heading {
   line-height: 1;
 }
 
-.faq-help h3 {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  font-size: 20px;
-}
-
-.why-commission dl {
+.FAQpage .why-commission dl {
   max-width: 55em;
   margin: auto;
   position: relative;
   padding-left: 2em;
 }
 
-.why-commission dd {
+.FAQpage .why-commission dd {
   margin-bottom: 0.85em;
 }
 
-dd {
+.FAQpage dd {
   margin-left: 0;
   display: block;
   margin-inline-start: 20px;
 }
 
-.list-inline {
+.FAQpage .list-inline {
   padding-left: 0;
   list-style: none;
 }
 
-.pull-right {
+.FAQpage .pull-right {
   float: right !important;
 }
 
-.pull-left {
+.FAQpage .pull-left {
   float: left !important;
 }
 
-a {
+.FAQpage a {
   text-decoration: none;
 }
 
-.list-inline > li {
+.FAQpage .list-inline > li {
   display: inline-block;
   padding-right: 5px;
   padding-left: 5px;
+}
+
+/* Định dạng cho form control */
+.FAQpage .faq_search_input {
+  border: 2px solid #563d7c;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.FAQpage .faq_search_input:focus {
+  border-color: #febb02;
+  outline: none;
 }
