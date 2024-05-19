@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import { proFile } from "./profiless";
 import "./profiles.css";
 
@@ -13,40 +15,49 @@ function Profile() {
         proFile();
       }, []);
 
+      let navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear user session or authentication token here
+    localStorage.removeItem('isLoggedIn');
+
+    // Redirect to login page
+    navigate('/login');
+  }
+
     return (
         <div className="Profilepage">
-            <nav className="navbar navbar-expand-md border-bottom">
-                <div className="container d-flex justify-content-between">
-                    <a className="navbar-brand fs-2 fw-3 text-start" href="/">User.</a>
-                    <div className="text-end">
-                        <button
-                                className="navbar-toggler"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#navbarCollapse"
-                                aria-controls="navbarCollapse"
-                                aria-expanded="false"
-                                aria-label="Toggle navigation"
-                            >
-                                <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarCollapse">
-                            <ul className="navbar-nav me-auto mb-2 mb-md-0 fs-4 fw-3">
-                                <li className="nav-item">
-                                    <a href="/profile" className="active">Information</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/destination"> Your recent searches</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/">Home</a>
-                                </li>
-                            </ul>
+            <header>
+                <nav className="navbar navbar-expand-md border-bottom">
+                    <div className="container-fluid d-flex justify-content-between">
+                    {/*  */}
+                        <a className="navbar-brand fs-2 fw-3 text-start " href="/">User.</a>
+                        <div className="text-end">
+                            <button
+                                    className="navbar-toggler"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#navbarCollapse"
+                                    aria-controls="navbarCollapse"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation"
+                                >
+                                    <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarCollapse">
+                                <ul className="text-end navbar-nav me-auto mb-2 mb-md-0 fs-4 fw-3">
+                                    <li className="nav-item">
+                                        <a href="/profile" className="active">Information</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a href="/">Home</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
-
+                </nav>
+            </header>
             {/* ------------------------------------------------------------------------ */}
 
             <main className="container-fluid content">
@@ -157,8 +168,8 @@ function Profile() {
                         </div>
 
                         <div className="btn-box col-12">
-                            <a className="me-2" href="??">Edit your profile</a>
-                            <a href="??">Remove account</a>
+                            <a className="me-2" href="??">Save edit</a>
+                            <a className="me-2" href="??" onClick={handleLogout}>Log out</a>
                         </div>
                     </div>
 

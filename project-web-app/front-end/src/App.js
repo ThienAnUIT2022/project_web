@@ -13,9 +13,9 @@ import useFetch from './hooks/useFetch.js';
 
 function App(props) {
 
-  let {data} = useFetch('http://localhost:1337/api/blogs?populate=*');
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error!</p>
+  let {loading, error, data} = useFetch('http://localhost:1337/api/blogs?populate=*');
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>
 
   return (
     <div>
@@ -25,7 +25,7 @@ function App(props) {
                 <Route path="/" element={<Home blogs={data?data:""} />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/quicktips" element={<Quicktips />} />
-                <Route path="/destination" element={<Destination />} />
+                <Route path="/destination" element={<Destination blogs={data?data:""} />} />
                 <Route path="/faqs" element={<FAQs />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

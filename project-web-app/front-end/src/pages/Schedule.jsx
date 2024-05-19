@@ -46,7 +46,7 @@ function Schedule()
                         />
                       </span>
                     </div>
-                    <iframe title="anh dau trang schedule" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FHo_Chi_Minh&bgcolor=%23ffffff&src=MjI1MjEwNTdAZ20udWl0LmVkdS52bg&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=Y19iMWU4YTkwYmEwZTNjOThhYzZjNTE3NDE4ZjU0MzZkYzc1ODFiYzgxNzJkZTNkYmZmZjQzM2EzZmUzMmRkYzJhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4udmlldG5hbWVzZSNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y19jbGFzc3Jvb201ZmFmYjczNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%23AD1457&color=%230B8043&color=%230047a8" style={{ border: "solid 1px #777" }} width="920" height="500" frameborder="0" scrolling="no"></iframe>
+                    {/* <iframe title="anh dau trang schedule" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FHo_Chi_Minh&bgcolor=%23ffffff&src=MjI1MjEwNTdAZ20udWl0LmVkdS52bg&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=Y19iMWU4YTkwYmEwZTNjOThhYzZjNTE3NDE4ZjU0MzZkYzc1ODFiYzgxNzJkZTNkYmZmZjQzM2EzZmUzMmRkYzJhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4udmlldG5hbWVzZSNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y19jbGFzc3Jvb201ZmFmYjczNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%23AD1457&color=%230B8043&color=%230047a8" style={{ border: "solid 1px #777" }} width="920" height="500" frameborder="0" scrolling="no"></iframe> */}
                   </div>
 
                   <div className="col-md-3 col-sm-12">

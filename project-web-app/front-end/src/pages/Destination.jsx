@@ -5,7 +5,7 @@ import '../assets/css/destination.css';
 import images from '../assets/images';
 
 
-function destination() {
+const destination = ({blogs}) => {
   return (
     <div className="Destination">
       <Header></Header>
