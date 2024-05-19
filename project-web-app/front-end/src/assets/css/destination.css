@@ -1,97 +1,138 @@
-* {
+.Destination {
   font-family: "K2D", sans-serif;
-}
-body {
   padding-top: 3rem;
-  color: #5a5a5a;
 }
 
-.navbar {
-  background-color: #563d7c;
-}
-
-.navbar-brand {
-  font-weight: 700;
-}
-.card-footer {
-  background-color: #563d7c;
-  padding: 1rem;
-}
-
-.card-footer .bi {
-  vertical-align: -0.125em;
-  fill: white;
-}
-
-.container {
+.Destination .container {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
-.featured-destinations {
+.Destination .featured-destinations {
   margin-top: 30px;
 }
 
-.featured-destinations h3 {
+.Destination .featured-destinations h3 {
   margin-bottom: 15px;
 }
 
-.list-group-item {
+.Destination .list-group-item {
   border-color: #ddd;
 }
 
 /* Side section */
-.img-fluid {
+.Destination .img-fluid {
   width: 100%;
 }
 
-.planning-your-trip {
+.Destination .planning-your-trip {
   margin-top: 20px;
 }
 
-.planning-your-trip ul {
+.Destination .planning-your-trip ul {
   list-style: none;
   padding: 0;
 }
 
-/* .planning-your-trip li {
-    margin- */
-.container {
+.Destination .planning-your-trip li .container {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
 /* Main content area */
-.featured-destinations {
+.Destination .featured-destinations {
   margin-top: 30px;
 }
 
-.featured-destinations h3 {
+.Destination .featured-destinations h3 {
   margin-bottom: 15px;
 }
 
-.list-group-item {
+.Destination .list-group-item {
   border-color: #ddd;
 }
 
 /* Side section */
-.img-fluid {
+.Destination .img-fluid {
   width: 100%;
 }
 
-.planning-your-trip {
+.Destination .planning-your-trip {
   margin-top: 20px;
 }
 
-.planning-your-trip ul {
+.Destination .planning-your-trip ul {
   list-style: none;
   padding: 0;
 }
 
-.published-date {
-  color: #5a5a5a;
-  position: absolute;
+.Destination .comments-section {
+  max-width: 880px;
+}
+
+.Destination .btn-primary {
+  background-color: #563d7c;
+  color: white;
+  border-color: #ffffff;
+}
+
+.Destination .btn-primary:hover {
+  background-color: #ffffff;
+  color: black;
+  border-color: black;
+}
+
+.Destination .sticky-wrapper {
+  position: sticky;
   top: 0;
-  right: 0;
-  margin-top: 0rem;
+}
+
+.Destination .btn.clicked {
+  background-color: #dc3545;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.Destination .btn .bi-heart {
+  margin-right: 5px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.replies {
+  margin-left: 50px;
+}
+
+.comment-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-button {
+  border: none;
+  background: none;
+  color: #007bff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  transition: color 0.3s;
+}
+
+.comment-button:hover {
+  color: #0056b3;
+}
+
+.comment-button .fas {
+  font-size: 16px;
 }
