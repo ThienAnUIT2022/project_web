@@ -141,3 +141,18 @@
   border-color: #febb02;
   outline: none;
 }
+
+/* Định dạng cho form control */
+.faq_search_input {
+  border: 2px solid #563d7c;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.faq_search_input:focus {
+  border-color: #febb02;
+  outline: none;
+}

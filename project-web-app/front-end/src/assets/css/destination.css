@@ -82,12 +82,57 @@
   border-color: black;
 }
 
-.Destination .image {
-  width: 850px;
-  height: 500px;
-}
-
 .Destination .sticky-wrapper {
   position: sticky;
   top: 0;
+}
+
+.Destination .btn.clicked {
+  background-color: #dc3545;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.Destination .btn .bi-heart {
+  margin-right: 5px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.replies {
+  margin-left: 50px;
+}
+
+.comment-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-button {
+  border: none;
+  background: none;
+  color: #007bff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  transition: color 0.3s;
+}
+
+.comment-button:hover {
+  color: #0056b3;
+}
+
+.comment-button .fas {
+  font-size: 16px;
 }
