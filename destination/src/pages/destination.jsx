@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import SearchSuggestions from '../components/SearchSuggestions';
 import '../assets/css/destination.css';
 import CommentsSection from '../components/CommentsSection';
+import LikeButton from '../components/LikeButton'
 
 
 function destination() {
@@ -16,12 +17,7 @@ function destination() {
             <article className="blog-post">
               <h2 className="display-5 fw-bold text-body-emphasis">Vietnam</h2>
               <div>
-                <button type="button" id="myButton" className="btn btn-outline-danger">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"></path>
-                  </svg>
-                  <span id="likeText">Like</span>
-                </button>
+                <LikeButton></LikeButton>
               </div>
               <p className="text-end published-end">Published on <time datetime="2024-03-28">March 28, 2024</time></p>
               <p>Vietnam, a land of breathtaking beauty and rich cultural heritage, beckons travelers with its diverse landscapes and vibrant cities. From the bustling streets of Hanoi to the serene rice paddies of the countryside, Vietnam offers an unforgettable journey for adventurers and culture enthusiasts alike. Explore the stunning natural wonders of Ha Long Bay, immerse yourself in the ancient charm of Hoi An, or trek through the majestic mountains of Sa Pa. Indulge in the flavors of Vietnamese cuisine, from fragrant pho to crispy banh mi, and discover the warmth and hospitality of the Vietnamese people. With its fascinating history, delicious food, and stunning scenery, Vietnam captivates the hearts of visitors from around the world. Let's explore this beautiful country together with us.</p>
@@ -37,7 +33,6 @@ function destination() {
               <li><a className="navbar-brand" href="./Northeast">Northeast Vietnam Geography</a></li>
               <li><a className="navbar-brand" href="./Northwest">Northwest Vietnam</a></li>
               <li><a className="navbar-brand" href="./Red River">Red River Delta</a></li>
-              {/*<img src={images['Northern Vietnam.png']} alt="" vspace="30" className="img-fluid" />*/}
 
               <blockquote className="blockquote">
                 <h3 className="fw-bold text-body-emphasis">Central Vietnam - Blessed with picture-perfect forests and beaches</h3>
@@ -46,7 +41,6 @@ function destination() {
               <li><a className="navbar-brand" href="./North Central">North Central Coast Vietnam Geography</a></li>
               <li><a className="navbar-brand" href="./South Central">South Central Coast Vietnam</a></li>
               <li><a className="navbar-brand" href="./Central Highlands">Central Highlands Geography of Vietnam</a></li>
-              {/*<img src={images['Central Vietnam.png']} alt="" vspace="30" className="img-fluid" />*/}
 
               <blockquote className="blockquote">
                 <h3 className="fw-bold text-body-emphasis">Southern Vietnam - An ideal destination for culture lovers and history buffs</h3>
@@ -54,7 +48,6 @@ function destination() {
               <p>South Vietnam, including Southeast Vietnam and Mekong Delta, is characterized by flat terrain with a dense network of rivers and canals.</p>
               <li><a className="navbar-brand" href="./Southeast">Southeast Vietnam</a></li>
               <li><a className="navbar-brand" href="./Mekong Delta">Mekong Delta Geography of Vietnam</a></li>
-              {/*<img src={images['Southern Vietnam.png']} alt="" vspace="30" className="img-fluid" />*/}
               <br/>
 
             </article>
