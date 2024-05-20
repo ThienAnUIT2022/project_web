@@ -176,13 +176,19 @@ app.post("/upload", upload.single("imgAvatar"), (req, res) => {
   }
 });
 
-// app.get("/uploadAvatar", verifyUser, (req, res) => {
-//   const sql = "SELECT `imgAvatar` FROM profile WHERE `email` = ?";
-//   db.query(sql, [req.email], (err, result) => {
-//     if (err) return res.json("Error");
-//     return res.json(result);
-//   });
-// });
+app.get("/uploadAvatar", verifyUser, (req, res) => {
+  const sql = "SELECT `imgAvatar` FROM profile WHERE `email` = ?";
+  db.query(sql, [req.email], (err, result) => {
+    if (err) {
+      return res.json({ Error: "Error" });
+    }
+    if (result.length > 0) {
+      return res.json(result);
+    } else {
+      return res.json({ imgAvatar: null });
+    }
+  });
+});
 
 app.listen(8081, () => {
   console.log("listening");
