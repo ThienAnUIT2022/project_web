@@ -5,6 +5,7 @@ import SearchSuggestions from '../components/SearchSuggestions';
 import '../assets/css/destination.css';
 import CommentsSection from '../components/CommentsSection';
 import LikeButton from '../components/LikeButton'
+import images from '../assets/images'
 
 
 function destination() {
@@ -33,6 +34,7 @@ function destination() {
               <li><a className="navbar-brand" href="./Northeast">Northeast Vietnam Geography</a></li>
               <li><a className="navbar-brand" href="./Northwest">Northwest Vietnam</a></li>
               <li><a className="navbar-brand" href="./Red River">Red River Delta</a></li>
+              <img src={images['Northern Vietnam.png']} alt="" vspace="30" className="image"/>
 
               <blockquote className="blockquote">
                 <h3 className="fw-bold text-body-emphasis">Central Vietnam - Blessed with picture-perfect forests and beaches</h3>
@@ -41,6 +43,7 @@ function destination() {
               <li><a className="navbar-brand" href="./North Central">North Central Coast Vietnam Geography</a></li>
               <li><a className="navbar-brand" href="./South Central">South Central Coast Vietnam</a></li>
               <li><a className="navbar-brand" href="./Central Highlands">Central Highlands Geography of Vietnam</a></li>
+              <img src={images['Central Vietnam.png']} alt="" vspace="30" className="image"/>
 
               <blockquote className="blockquote">
                 <h3 className="fw-bold text-body-emphasis">Southern Vietnam - An ideal destination for culture lovers and history buffs</h3>
@@ -48,6 +51,7 @@ function destination() {
               <p>South Vietnam, including Southeast Vietnam and Mekong Delta, is characterized by flat terrain with a dense network of rivers and canals.</p>
               <li><a className="navbar-brand" href="./Southeast">Southeast Vietnam</a></li>
               <li><a className="navbar-brand" href="./Mekong Delta">Mekong Delta Geography of Vietnam</a></li>
+              <img src={images['Southern Vietnam.png']} alt="" vspace="30" className="image"/>
               <br/>
 
             </article>
