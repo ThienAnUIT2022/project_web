@@ -45,6 +45,7 @@ function Login() {
   };
 
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -57,7 +58,7 @@ function Login() {
         if (res.data === "Success") {
           localStorage.setItem("isLoggedIn", "true");
           setIsLoggedIn(true);
-          navigate("/profile");
+          navigate("/");
         } else {
           alert("No record existed");
         }

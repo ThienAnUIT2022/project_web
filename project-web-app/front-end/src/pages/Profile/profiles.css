@@ -74,17 +74,17 @@
 }
 
 .Profilepage .form-control {
-  height: 3.5rem;
+  /* height: 3.5rem;
   font-size: large;
   font-weight: 500;
-  color: white;
+  color: white; */
 }
 
 .Profilepage .detail label {
-  font-size: large;
+  /* font-size: large;
   font-weight: 500;
   color: #fff;
-  pointer-events: none;
+  pointer-events: none; */
 }
 
 .Profilepage .detail i {

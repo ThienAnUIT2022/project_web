@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signupValidation } from "./signupValidation";
 import axios from "axios";
+import "./login.css";
 
 function Register() {
   useEffect(() => {
@@ -18,10 +19,10 @@ function Register() {
   }, []);
 
   const [values, setValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
   });
 
   const navigate = useNavigate();
@@ -47,6 +48,7 @@ function Register() {
       axios
         .post("http://localhost:8081/register", values)
         .then((res) => {
+          console.log(res.data);
           navigate("/login");
         })
         .catch((err) => console.log(err));
@@ -58,7 +60,7 @@ function Register() {
       <div className="body-Login">
         <header>
           <button type="submit" className="head-button">
-            Home
+            <a href="/">Home</a>
           </button>
         </header>
         <div className="wrapper-register ">
