@@ -44,37 +44,6 @@
   object-fit: cover;
 }
 
-/* Card modified */
-.Homepage .card-body {
-  border-radius: 0.25rem;
-  /* height: 10.5rem; */
-  overflow-y: hidden;
-  color: #563d7c;
-}
-
-.Homepage .album .btn-secondary {
-  background-color: #563d7c;
-}
-
-.Homepage .card-title {
-  color: white;
-}
-
-.Homepage .card-img-top {
-  object-fit: cover;
-  height: 225px;
-}
-
-.Homepage .card-text {
-  height: 8rem;
-  overflow-y: hidden;
-}
-
-.Homepage .card-img-overlay {
-  height: fit-content;
-  background: linear-gradient(rgba(0, 0, 0, 0.404), rgba(255, 255, 255, 0));
-}
-
 /* Featurettes
 ------------------------- */
 

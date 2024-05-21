@@ -1,63 +1,83 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SearchSuggestions from '../components/SearchSuggestions';
 import '../assets/css/destination.css';
 import CommentsSection from '../components/CommentsSection';
+import DestinationCard from '../components/DestinationCard';
+// import LikeButton from '../components/LikeButton'
+// import axios from 'axios';
 
+const Destination = ({ blogs = { data: [] } }) => {
+  const DesList = blogs && Array.isArray(blogs.data)
+    ? blogs.data.map(item => ({
+        imageSrc: `http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`,
+        title: item.attributes.title,
+        description: item.attributes.description,
+        id: item.id,
+      }))
+    : [];
 
-function destination() {
+    console.log(DesList);
+
+  const itemsPerPage = 12;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const totalPages = Math.ceil(DesList.length / itemsPerPage);
+  const paginatedList = DesList.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+  // const [blogs, setBlogs] = useState([]);
+  
+  // useEffect(() => {
+  //   const fetchBlogs = async () => {
+  //     try {
+  //       const response = await axios.get('http://localhost:1337/api/blogs');
+  //       setBlogs(response.data.data);
+  //     } catch (error) {
+  //       console.error('Error fetching blogs:', error);
+  //     }
+  //   };
+    
+  //   fetchBlogs();
+  // }, []);
+  
   return (
     <div className="Destination">
-      <Header></Header>
+      <Header />
       <main className="container">
         <div className="row">
           <div className="col-md-8">
-            <article className="blog-post">
-              <h2 className="display-5 fw-bold text-body-emphasis">Vietnam</h2>
-              <div>
-                <button type="button" id="myButton" className="btn btn-outline-danger">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"></path>
-                  </svg>
-                  <span id="likeText">Like</span>
+            <div className="row">
+            {paginatedList.map((item, index) => (
+                <div className="col-md-4 mb-3" key={index}>
+                  <DestinationCard
+                    imageSrc={item.imageSrc}
+                    title={item.title}
+                    description={item.description}
+                    id={item.id}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="pagination">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  className={`btn ${
+                    currentPage === index + 1 ? 'btn-primary' : 'btn-secondary'
+                  } mx-1`}
+                  onClick={() => handlePageChange(index + 1)}
+                >
+                  {index + 1}
                 </button>
-              </div>
-              <p className="text-end published-end">Published on <time datetime="2024-03-28">March 28, 2024</time></p>
-              <p>Vietnam, a land of breathtaking beauty and rich cultural heritage, beckons travelers with its diverse landscapes and vibrant cities. From the bustling streets of Hanoi to the serene rice paddies of the countryside, Vietnam offers an unforgettable journey for adventurers and culture enthusiasts alike. Explore the stunning natural wonders of Ha Long Bay, immerse yourself in the ancient charm of Hoi An, or trek through the majestic mountains of Sa Pa. Indulge in the flavors of Vietnamese cuisine, from fragrant pho to crispy banh mi, and discover the warmth and hospitality of the Vietnamese people. With its fascinating history, delicious food, and stunning scenery, Vietnam captivates the hearts of visitors from around the world. Let's explore this beautiful country together with us.</p>
-              <hr />
-
-              <h2 className="fw-bold text-body-emphasis">Regions of Vietnam</h2>
-              <p>Vietnam is divided into 3 regions and 8 areas:</p>
-
-              <blockquote className="blockquote">
-                <h3 className="fw-bold text-body-emphasis">Northern Vietnam - A haven for adventure seekers</h3>
-              </blockquote>
-              <p>Northern Vietnam includes the mountainous terrain of Northeast and Northwest Vietnam, as well as the fertile Red River Delta that stretches along the northern coast.</p>
-              <li><a className="navbar-brand" href="./Northeast">Northeast Vietnam Geography</a></li>
-              <li><a className="navbar-brand" href="./Northwest">Northwest Vietnam</a></li>
-              <li><a className="navbar-brand" href="./Red River">Red River Delta</a></li>
-              {/*<img src={images['Northern Vietnam.png']} alt="" vspace="30" className="img-fluid" />*/}
-
-              <blockquote className="blockquote">
-                <h3 className="fw-bold text-body-emphasis">Central Vietnam - Blessed with picture-perfect forests and beaches</h3>
-              </blockquote>
-              <p>The geography of Vietnam in Central Vietnam is divided into the North Central Coast, South Central Coast, and Central Highlands, each with its own unique natural features.</p>
-              <li><a className="navbar-brand" href="./North Central">North Central Coast Vietnam Geography</a></li>
-              <li><a className="navbar-brand" href="./South Central">South Central Coast Vietnam</a></li>
-              <li><a className="navbar-brand" href="./Central Highlands">Central Highlands Geography of Vietnam</a></li>
-              {/*<img src={images['Central Vietnam.png']} alt="" vspace="30" className="img-fluid" />*/}
-
-              <blockquote className="blockquote">
-                <h3 className="fw-bold text-body-emphasis">Southern Vietnam - An ideal destination for culture lovers and history buffs</h3>
-              </blockquote>
-              <p>South Vietnam, including Southeast Vietnam and Mekong Delta, is characterized by flat terrain with a dense network of rivers and canals.</p>
-              <li><a className="navbar-brand" href="./Southeast">Southeast Vietnam</a></li>
-              <li><a className="navbar-brand" href="./Mekong Delta">Mekong Delta Geography of Vietnam</a></li>
-              {/*<img src={images['Southern Vietnam.png']} alt="" vspace="30" className="img-fluid" />*/}
-              <br/>
-
-            </article>
+              ))}
+            </div>
           </div>
 
           <div className="col-md-4">
@@ -65,18 +85,18 @@ function destination() {
               <div className='card px-2 py-2 mb-3'>
                 <h4 className='card-header'>Search</h4>
                 <div className='card-body'>
-                  <SearchSuggestions></SearchSuggestions>
+                  <SearchSuggestions blogs={Array.isArray(blogs.data) ? blogs.data : []} />
                 </div>
               </div>
 
               <div className='card px-2 py-2 mb-3'>
                 <div className='row d-flex justify-content-between'>
                   <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" class="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       <h6 className='text-start'>Geography</h6>
-                      <svg class="bi me-2 text-end" width="40" height="32"></svg>
+                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
                     </a>
-                    <ul class="dropdown-menu text-small">
+                    <ul className="dropdown-menu text-small">
                       <label className="dropdown-item"><input type="checkbox" value="mountains" /> Mountains </label>
                       <label className="dropdown-item"><input type="checkbox" value="beaches" /> Beaches </label>
                       <label className="dropdown-item"><input type="checkbox" value="rivers" /> Rivers </label>
@@ -85,12 +105,11 @@ function destination() {
                     </ul>
                   </div>
                   <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" class="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       <h6 className='text-start'>Activities</h6>
-                      <svg class="bi me-2 text-end" width="40" height="32"></svg>
+                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
                     </a>
-                    <ul class="dropdown-menu text-small">
-
+                    <ul className="dropdown-menu text-small">
                       <label className="dropdown-item"><input type="checkbox" value="hiking" /> Hiking </label>
                       <label className="dropdown-item"><input type="checkbox" value="surfing" /> Surfing </label>
                       <label className="dropdown-item"><input type="checkbox" value="diving" /> Diving </label>
@@ -99,28 +118,27 @@ function destination() {
                     </ul>
                   </div>
                   <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" class="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       <h6 className='text-start'>Transposition</h6>
-                      <svg class="bi me-2 text-end" width="40" height="32"></svg>
+                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
                     </a>
-                    <ul class="dropdown-menu text-small">
-
+                    <ul className="dropdown-menu text-small">
                       <label className="dropdown-item"><input type="checkbox" value="bus" /> Bus </label>
                       <label className="dropdown-item"><input type="checkbox" value="airports" /> Airports </label>
                     </ul>
                   </div>
                   <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" class="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       <h6 className='text-start'>Cost</h6>
-                      <svg class="bi me-2 text-end" width="40" height="32"></svg>
+                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
                     </a>
-                    <ul class="dropdown-menu text-small">
-
+                    <ul className="dropdown-menu text-small">
                       <label className="dropdown-item"><input type="checkbox" value="free" /> Free </label>
                       <label className="dropdown-item"><input type="checkbox" value="paid" /> Paid </label>
                     </ul>
                   </div>
                 </div>
+                <button type="submit" className='btn btn-primary my-2 ms-1 me-2'>Filter</button>
               </div>
 
               <div className='card px-2 py-2 mb-3'>
@@ -141,15 +159,15 @@ function destination() {
               <br/>
             </div>
           </div>
-          
+
           <div className="comments-section">
             <CommentsSection />
           </div>
         </div>
       </main>
-      <Footer></Footer>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default destination
+export default Destination;

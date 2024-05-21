@@ -47,7 +47,7 @@ function Register() {
       axios
         .post("http://localhost:8081/register", values)
         .then((res) => {
-          navigate("/");
+          navigate("/login");
         })
         .catch((err) => console.log(err));
     }
@@ -97,7 +97,7 @@ function Register() {
               {errors.email && (
                 <span className="text-danger">{errors.email}</span>
               )}
-              <i className="bx bxs-envelope"></i>
+              <i class="bi bi-envelope-fill"></i>
               <label>Email</label>
             </div>
             <div className="input-box">
@@ -111,7 +111,7 @@ function Register() {
               {errors.password && (
                 <span className="text-danger">{errors.password}</span>
               )}
-              <i className="bx bxs-lock-alt" id="eyeicons"></i>
+              <i class="bi bi-eye-fill" id="eyeicons"></i>
               <label>Password</label>
             </div>
             <div className="remember-forgot">

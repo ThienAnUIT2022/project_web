@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../assets/css/card.css';
 
-const DestinationCard = ({ imageSrc, title, description }) => {
+const DestinationCard = ({ imageSrc, title, description, id }) => {
+    console.log(id);
     return (
       <div className="col">
-        <div className="card shadow-sm">
+        <div className="card shadow-sm" id={id}>
             <img className="card-img-top" src={imageSrc} alt="" />
             <div className="card-img-overlay">
                 <h4 className="card-title">{title}</h4>
@@ -11,11 +14,11 @@ const DestinationCard = ({ imageSrc, title, description }) => {
             <div className="card-body">
                 <p className="card-text">{description}</p>
                 <div className="d-flex flex-row-reverse">
-                    <a href="/destination">
+                    <Link to={`/destination/${id}`}>
                         <button type="button" className="btn btn-sm btn-secondary">
                             See more
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

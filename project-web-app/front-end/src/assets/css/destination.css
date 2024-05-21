@@ -97,27 +97,27 @@
   margin-right: 5px;
 }
 
-.avatar {
+.Destination .avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.comment {
+.Destination .comment {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
-.replies {
+.Destination .replies {
   margin-left: 50px;
 }
 
-.comment-buttons {
+.Destination .comment-buttons {
   display: flex;
   gap: 10px;
 }
 
-.comment-button {
+.Destination .comment-button {
   border: none;
   background: none;
   color: #007bff;
@@ -129,10 +129,10 @@
   transition: color 0.3s;
 }
 
-.comment-button:hover {
+.Destination .comment-button:hover {
   color: #0056b3;
 }
 
-.comment-button .fas {
+.Destination .comment-button .fas {
   font-size: 16px;
 }

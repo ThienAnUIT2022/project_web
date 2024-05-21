@@ -57,7 +57,7 @@ function Login() {
         if (res.data === "Success") {
           localStorage.setItem("isLoggedIn", "true");
           setIsLoggedIn(true);
-          navigate("/");
+          navigate("/profile");
         } else {
           alert("No record existed");
         }
@@ -88,7 +88,7 @@ function Login() {
               {errors.email && (
                 <span className="text-danger">{errors.email}</span>
               )}
-              <i className="bx bxs-user"></i>
+              <i class="bi bi-envelope-fill"></i>
               <label>Email</label>
             </div>
             <div className="form-group">
@@ -103,7 +103,7 @@ function Login() {
               {errors.password && (
                 <span className="text-danger">{errors.password}</span>
               )}
-              <i className="bx bxs-lock-alt" id="eyeicon"></i>
+              <i class="bi bi-eye-fill" id="eyeicon"></i>
               <label>Password</label>
             </div>
             <div className="remember-forgot">

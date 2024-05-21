@@ -10,7 +10,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'user_bpprj',
   password: 'nt208group5',
-  database: 'backpackprj'
+  database: 'backpackprj',
 });
 
 
@@ -42,14 +42,6 @@ app.post("/login", (req, res) => {
     } else {
       return res.json("Fail");
     }
-  });
-});
-
-app.get('/api/blog', (req, res) => {
-  var sql = "SELECT * FROM blog ORDER BY id";
-  db.query(sql, function(err, results) {
-    if (err) throw err;
-    res.json({blog: results});
   });
 });
 

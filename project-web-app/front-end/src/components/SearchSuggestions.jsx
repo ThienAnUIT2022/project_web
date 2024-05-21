@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const SearchSuggestions = () => {
+const SearchSuggestions = ({ blogs }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  useEffect(() => {
+    if (searchTerm) {
+      const filteredSuggestions = blogs
+        .map(blog => blog.attributes.title)
+        .filter(title => title.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      setSuggestions(filteredSuggestions);
+      setShowSuggestions(filteredSuggestions.length > 0);
+    } else {
+      setShowSuggestions(false);
+    }
+  }, [searchTerm, blogs]);
+
   const handleInputChange = (event) => {
-    const { value } = event.target;
-    setSearchTerm(value);
-
-    const suggestions = ['mountain','beach','lake'].filter((suggestion) =>
-      suggestion.toLowerCase().includes(value.toLowerCase())
-    );
-
-    setSuggestions(suggestions);
-    setShowSuggestions(suggestions.length > 0);
+    setSearchTerm(event.target.value);
   };
 
   const handleSuggestionClick = (suggestion) => {

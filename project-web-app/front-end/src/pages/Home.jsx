@@ -12,7 +12,8 @@ const Home = ({blogs}) => {
     const popDes = popularBlogs.map(item => ({
         imageSrc: `http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`,
         title: item.attributes.title,
-        description: item.attributes.description
+        description: item.attributes.description,
+        id: item.id
     }));
 
     return (

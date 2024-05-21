@@ -16,6 +16,8 @@ const filterComment = (comment) => {
 const CommentsSection = () => {
   const [comments, setComments] = useState([]);
   const [commentContent, setCommentContent] = useState('');
+  const [replyContent, setReplyContent] = useState('');
+  const [replyingTo, setReplyingTo] = useState(null);
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -57,7 +59,7 @@ const CommentsSection = () => {
     await axios.put(`http://localhost:1337/api/comments/${newComments[index].id}`, updatedComment);
   };
 
-  const handleReply = async (index, replyContent) => {
+  const handleReply = async (index) => {
     const newComments = [...comments];
     if (replyContent.trim()) {
       newComments[index].attributes.replies.push({
@@ -73,6 +75,8 @@ const CommentsSection = () => {
       };
 
       await axios.put(`http://localhost:1337/api/comments/${newComments[index].id}`, updatedComment);
+      setReplyContent('');
+      setReplyingTo(null);
     }
   };
 
@@ -98,87 +102,86 @@ const CommentsSection = () => {
   };
 
   return (
-    <div className="comments-section">
-      <div className="comments-list mt-3">
-        {comments.length > 0 ? (
-          comments.map((comment, index) => (
-            <div key={index} className="comment mb-2">
-              <div className="d-flex align-items-start">
-                <div className="comment-avatar">
-                  <img src={comment.attributes.avatar} alt="Avatar" className='avatar me-2'/>
-                </div>
-                <div className="comment-content">
-                  <p>{comment.attributes.content}</p>
-                  <div className="comment-metadata">
-                    <span>{format(new Date(comment.attributes.createdAt), 'dd-MM-yyyy hh:mm:ss a')}</span>
-                    <div className="comment-buttons">
-                      <button 
-                        onClick={() => handleLike(index)} 
-                        className="comment-button"> 
-                          <i class="bi bi-hand-thumbs-up"></i> {comment.attributes.likes}
-                      </button>
-                      <button
-                        onClick={() => {
-                          const replyContent = prompt('Enter your reply:');
-                          handleReply(index, replyContent);
-                        }}
-                        className="comment-button"
-                      >
-                        Reply <i class="bi bi-reply"></i>
-                      </button>
-                      <button 
-                        onClick={() => handleDeleteComment(comment.id)} 
-                        className="comment-button text-danger">
-                        Delete 
-                      </button>
-                    </div>
-                  </div>
-                  <div className="replies-section">
-                    {comment.attributes.replies.length > 0 && (
-                      <div className='replies mt-2'>
-                        {comment.attributes.replies.map((reply, replyIndex) => (
-                        <div key={replyIndex} className="d-flex align-items-start mb-2">
-                          <img 
-                            src={reply.avatar} 
-                            alt="User Avatar" 
-                            className="avatar me-2" 
-                          />
-                            <div>
-                              <p>{reply.content}</p>
-                              <button 
-                              onClick={() => handleDeleteReply(index, replyIndex)} 
-                              className="comment-button text-danger">
-                                Delete <i class="bi bi-trash"></i>
-                              </button>
-                            </div>
-                        </div>
-                      ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="no-comments">No comments yet! Be the first comment here!</p>
-        )}
-      </div>
-        <h3>Comments</h3>
-        <form className="add-comment-form" onSubmit={handleSubmit}>
-          <div className="mb-3">
+    <section className="pt-5 my-5">
+      <div className="card bg-light">
+        <div className="card-body">
+          <form className="mb-4" onSubmit={handleSubmit}>
             <textarea
               className="form-control"
-              id="commentContent"
               rows="3"
-              placeholder="Write a comment..."
+              placeholder="Join the discussion and leave a comment!"
               value={commentContent}
               onChange={(e) => setCommentContent(e.target.value)}
             ></textarea>
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+            <button type="submit" className="btn btn-primary mt-2">Submit</button>
+          </form>
+          {comments.length > 0 ? (
+            comments.map((comment, index) => (
+              <div key={index} className="d-flex mb-4">
+                <div className="flex-shrink-0">
+                  <img className="rounded-circle" src={comment.attributes.avatar} alt="..." />
+                </div>
+                <div className="ms-3">
+                  <div className="fw-bold">Commenter Name</div>
+                  {comment.attributes.content}
+                  <div className="comment-metadata">
+                    <span>{format(new Date(comment.attributes.createdAt), 'dd-MM-yyyy hh:mm:ss a')}</span>
+                    <div className="comment-buttons">
+                      <button onClick={() => handleLike(index)} className="comment-button">
+                        <i className="bi bi-hand-thumbs-up"></i> {comment.attributes.likes}
+                      </button>
+                      <button
+                        onClick={() => setReplyingTo(index)}
+                        className="comment-button"
+                      >
+                        Reply <i className="bi bi-reply"></i>
+                      </button>
+                      <button onClick={() => handleDeleteComment(comment.id)} className="comment-button text-danger">
+                        Delete <i className="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                  {replyingTo === index && (
+                    <form className="mt-3 w-100" onSubmit={(e) => {
+                      e.preventDefault();
+                      handleReply(index);
+                    }}>
+                      <textarea
+                        className="form-control"
+                        cols="12"
+                        rows="2"
+                        placeholder="Write a reply..."
+                        value={replyContent}
+                        onChange={(e) => setReplyContent(e.target.value)}
+                      ></textarea>
+                      <button type="submit" className="btn btn-primary mt-2">Submit</button>
+                    </form>
+                  )}
+                  {comment.attributes.replies.length > 0 && (
+                    comment.attributes.replies.map((reply, replyIndex) => (
+                      <div key={replyIndex} className="d-flex mt-4">
+                        <div className="flex-shrink-0">
+                          <img className="rounded-circle" src={reply.avatar} alt="..." />
+                        </div>
+                        <div className="ms-3">
+                          <div className="fw-bold">Commenter Name</div>
+                          {reply.content}
+                          <button onClick={() => handleDeleteReply(index, replyIndex)} className="comment-button text-danger">
+                            Delete <i className="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="no-comments">No comments yet! Be the first comment here!</p>
+          )}
+        </div>
       </div>
+    </section>
   );
 };
 

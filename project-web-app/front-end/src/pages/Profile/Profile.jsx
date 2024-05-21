@@ -65,15 +65,15 @@ function Profile() {
                     <div className="col-lg-6 col-md-12">
                         <div className="top-detail">
                             <img
-                                className="rounded-circle object-fit-cover"
-                                src="https://mimosawedding.net/wp-content/uploads/2022/07/cach-chup-anh-chan-dung-6.jpg"
+                                className="rounded-circle object-fit-cover border border-3 border-white"
+                                src="https://thumbor.4gamers.com.tw/TFt__wWV-rvpW3QDhrXoD34jRSY=/adaptive-fit-in/1600x1600/filters:format(avif):quality(60):no_upscale()/https%3A%2F%2Fimg.4gamers.com.tw%2Fckfinder-vn%2Fimage2%2Fauto%2F2024-02%2FFirefly-Honkai-Star-Rail-1024x576-240208-145120.jpg%3FversionId%3D7kOURqBzm2bm4dUggmLfmcHbk3wAFa1t"
                                 id="photo"
                                 alt=''
-                                style = {{ height:'100px', width:'100px', border:'solid 3px #fff'}}
+                                style = {{ height:'100px', width:'100px'}}
                             />
                             
                             <input className="d-none" type="file" id="file"/>
-                            <label  className="" for="file" id="upLoadbtn">
+                            <label  className="" htmlFor="file" id="upLoadbtn">
                                 <i className="position-absolute bi bi-camera fs-2 ms-4"></i>
                             </label>
 
@@ -105,7 +105,7 @@ function Profile() {
                                         <label className="ms-4 position-absolute ">Phone Number</label>
                                         <div className="flex-row-reverse d-flex flex-fill align-items-center">
                                             <input className="form-control bg-transparent border border-2 rounded" type="text" required />
-                                            <i class="position-absolute bi bi-lock-fill me-2"></i>
+                                            <i class="position-absolute bi bi-phone-fill me-2"></i>
                                         </div>
                                     </div>
                                 </div>

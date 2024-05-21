@@ -10,6 +10,7 @@ import Profile from './pages/Profile/Profile.jsx';
 import { AuthProvider } from './context/AuthContext.js';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import useFetch from './hooks/useFetch.js';
+import BlogContent from './pages/BlogContent.jsx';
 
 function App(props) {
 
@@ -25,7 +26,9 @@ function App(props) {
                 <Route path="/" element={<Home blogs={data?data:""} />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/quicktips" element={<Quicktips />} />
+                <Route path="/quicktips" element={<Quicktips />} />
                 <Route path="/destination" element={<Destination blogs={data?data:""} />} />
+                <Route path="/destination/:id" element={<BlogContent blogs={data?data:""} />} />
                 <Route path="/faqs" element={<FAQs />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

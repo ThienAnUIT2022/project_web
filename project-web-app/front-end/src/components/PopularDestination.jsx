@@ -17,6 +17,7 @@ const PopularDestinations = ({ destinations }) => {
               imageSrc={destination.imageSrc}
               title={destination.title}
               description={destination.description}
+              id={destination.id}
             />
           ))}
         </div>
