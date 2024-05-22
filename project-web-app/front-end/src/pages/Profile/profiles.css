@@ -1,22 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
+:root {
+  font-size: 16px; /* Adjust this value to scale the entire layout */
+}
+
 .Profilepage {
-  font-family: "Poppins", sans-serif;
+  height: 100%;
+  width: 100%;
   padding: 0 3rem 3rem 3rem;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
   background: #563d7c;
   color: #ededed;
   overflow: auto;
 }
 
-.Profilepage .navbar {
+.Profilepage .header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 5rem;
   background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100px;
+}
+
+.Profilepage .logo {
+  position: relative;
+  font-size: 2rem;
+  color: #ededed;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.Profilepage .logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #563d7c;
+  animation: showRight 1s ease forwards;
+  animation-delay: 0.4s;
 }
 
 .Profilepage .navbar a {
+  font-size: 1.5rem;
   color: #ededed;
   text-decoration: none;
-  margin-left: 35px;
+  font-weight: 500;
+  margin-left: 2.5rem;
   transition: 0.3s;
 }
 
@@ -25,18 +62,52 @@
   color: #ffbe89;
 }
 
-.Profilepage .content {
-  margin-top: 5rem;
+.Profilepage .information {
+  /* height: 100vh; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0 5rem; */
+  margin-top: 3rem;
 }
 
-.Profilepage h1 {
+.Profilepage .information-content {
+  max-width: 80rem;
+}
+
+.Profilepage .image img {
+  cursor: pointer;
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.8;
+  border: 0.2rem solid #fff;
+  /* margin-top: 28rem; */
+}
+
+.Profilepage .image i {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.Profilepage .image i:hover {
+  cursor: pointer;
+}
+
+.Profilepage .image #file {
+  display: none;
+}
+
+.Profilepage .information-content h1 {
   position: relative;
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
-.Profilepage h1::before {
+.Profilepage .information-content h1::before {
   content: "";
   position: absolute;
   top: 0;
@@ -48,14 +119,14 @@
   animation-delay: 1.2s;
 }
 
-.Profilepage h3 {
+.Profilepage .information-content h3 {
   position: relative;
   font-size: 2rem;
   font-weight: 700;
   color: #ffbe89;
 }
 
-.Profilepage h3::before {
+.Profilepage .information-content h3::before {
   content: "";
   position: absolute;
   top: 0;
@@ -67,34 +138,85 @@
   animation-delay: 1.7s;
 }
 
-@keyframes showRight {
-  100% {
-    width: 0;
-  }
+.Profilepage .wrapper {
+  position: relative;
 }
 
-.Profilepage .form-control {
-  /* height: 3.5rem;
-  font-size: large;
-  font-weight: 500;
-  color: white; */
-}
-
-.Profilepage .detail label {
-  /* font-size: large;
-  font-weight: 500;
-  color: #fff;
-  pointer-events: none; */
-}
-
-.Profilepage .detail i {
-  font-size: 1.25rem;
-}
-
-.Profilepage .btn-box {
-  display: flex;
+.Profilepage .wrapper form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
-  height: 3.5rem;
+  height: 100%;
+  background: #563d7c;
+  animation: showRight 1s ease forwards;
+  animation-delay: 1.7s;
+}
+
+.Profilepage .two-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: -2rem;
+}
+
+.Profilepage .two-forms {
+  margin-top: -2rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: -2rem;
+}
+
+.Profilepage .wrapper .input-box {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  margin: 2rem 0;
+}
+
+.Profilepage .input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 0.1rem solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0 1rem 0 2rem;
+}
+
+.Profilepage .input-box label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.Profilepage .input-box input:focus ~ label,
+.Profilepage .input-box input:valid ~ label {
+  top: -1rem;
+}
+
+.Profilepage .input-box i {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+.Profilepage .information-content .btn-box {
+  display: flex;
+  justify-content: space-between;
+  width: 35rem;
+  height: 3rem;
 }
 
 .Profilepage .btn-box a {
@@ -102,12 +224,12 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 12rem;
-  height: 3.5rem;
+  width: 16rem;
+  height: 100%;
   background: #ffbe89;
-  border: 2px solid #ffbe89;
-  border-radius: 8px;
-  font-size: 1.15rem;
+  border: 0.1rem solid #ffbe89;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
   color: #563d7c;
   text-decoration: none;
   font-weight: 600;
@@ -150,8 +272,10 @@
   width: 100%;
 }
 
-:root {
-  --primary-clr: #b38add;
+@keyframes showRight {
+  100% {
+    width: 0;
+  }
 }
 
 /* nice scroll bar */

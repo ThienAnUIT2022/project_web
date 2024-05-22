@@ -1,31 +1,31 @@
 /* Card modified */
-.card-body {
+.DesCard .card-body {
   border-radius: 0.25rem;
   /* height: 10.5rem; */
   overflow-y: hidden;
   color: #563d7c;
 }
 
-.album .btn-secondary {
+.DesCard .album .btn-secondary {
   background-color: #563d7c;
 }
 
-.card-title {
+.DesCard .card-title {
   color: white;
   font-size: 1.25rem;
 }
 
-.card-img-top {
+.DesCard .card-img-top {
   object-fit: cover;
   height: 225px;
 }
 
-.card-text {
+.DesCard .card-text {
   height: 8rem;
   overflow-y: auto;
 }
 
-.card-img-overlay {
+.DesCard .card-img-overlay {
   height: fit-content;
   background: linear-gradient(rgba(0, 0, 0, 0.404), rgba(255, 255, 255, 0));
 }

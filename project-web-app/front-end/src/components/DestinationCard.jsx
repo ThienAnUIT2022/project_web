@@ -5,7 +5,7 @@ import '../assets/css/card.css';
 const DestinationCard = ({ imageSrc, title, description, id }) => {
     console.log(id);
     return (
-      <div className="col">
+      <div className="DesCard col">
         <div className="card shadow-sm" id={id}>
             <img className="card-img-top" src={imageSrc} alt="" />
             <div className="card-img-overlay">
