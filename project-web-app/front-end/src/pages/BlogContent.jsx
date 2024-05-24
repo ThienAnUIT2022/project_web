@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../assets/css/destination.css';
@@ -7,6 +7,7 @@ import CommentsSection from '../components/CommentsSection';
 import SearchSuggestions from '../components/SearchSuggestions';
 import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const renderContent = (content) => {
     return content.map((item, index) => {
@@ -32,63 +33,78 @@ const renderContent = (content) => {
     });
 };
 
-const BlogContent = ({blogs}) => {
-    const {id} = useParams();
-    let blog = {};
-    if (blog) {
-        let arr = blogs.data.filter(blog => blog.id == id);
-        blog = arr[0];
-    } else { 
-        blog = {};
-    }
-    console.log(blog);
+const BlogContent = ({ blogs }) => {
+    const { id } = useParams();
+    const [blog, setBlog] = useState({});
+    const [popular, setPopular] = useState(0);
+
+    useEffect(() => {
+        const blogData = blogs.data.find(blog => blog.id == id);
+        if (blogData) {
+            setBlog(blogData);
+            setPopular(blogData.attributes.popular);
+        }
+    }, [id, blogs.data]);
+
+    const handleLike = async () => {
+        try {
+            const newPopular = popular + 1;
+            await axios.put(`http://localhost:1337/api/blogs/${id}`, {
+                data: { popular: newPopular }
+            });
+            setPopular(newPopular);
+        } catch (error) {
+            console.error('Error updating popular count', error);
+        }
+    };
+
     return (
         <div className="Destination">
-      <Header />
-      <main className="container">
-        <div className="row">
-          <div className="col-md-8">
-          <article className="blog-post">
-              <h2 className="display-5 fw-bold text-body-emphasis">{blog.attributes.title}</h2>
-              <div className='mt-3 row flex-row justify-content-between'>
-                <span className='fs-6'>{format(new Date(blog.attributes.createdAt), 'dd-MM-yyyy hh:mm:ss a')}</span>
-                <MyButton></MyButton>
-              </div>
-              <p>{blog.attributes.description}</p>
-              <hr />
+            <Header />
+            <main className="container">
+                <div className="row">
+                    <div className="col-md-8">
+                        <article className="blog-post">
+                            <h2 className="display-5 fw-bold text-body-emphasis">{blog.attributes?.title}</h2>
+                            <div className='mt-3 row flex-row justify-content-between'>
+                                <span className='fs-6'>{blog.attributes ? format(new Date(blog.attributes.createdAt), 'dd-MM-yyyy hh:mm:ss a') : ''}</span>
+                                <MyButton popular={popular} onLike={handleLike} />
+                            </div>
+                            <p>{blog.attributes?.description}</p>
+                            <hr />
 
-              <div className='py-3'>
-                <img style={{width:"100%"}} src={`http://localhost:1337${blog.attributes.thumbnail.data.attributes.url}`} alt="thumbnail" />
-              </div>
+                            <div className='py-3'>
+                                {blog.attributes?.thumbnail && (
+                                    <img style={{ width: "100%" }} src={`http://localhost:1337${blog.attributes.thumbnail.data.attributes.url}`} alt="thumbnail" />
+                                )}
+                            </div>
 
-              <blockquote className="blockquote">
-              {renderContent(blog.attributes?.content || [])}
-              </blockquote>
-              <br/>
+                            <blockquote className="blockquote">
+                                {renderContent(blog.attributes?.content || [])}
+                            </blockquote>
+                            <br />
+                        </article>
+                    </div>
 
-            </article>
-          </div>
+                    <div className="col-md-4">
+                        <div className="sticky-wrapper" style={{ top: "5rem" }}>
+                            <div className='card px-2 py-2 mb-3'>
+                                <h4 className='card-header'>Search</h4>
+                                <div className='card-body'>
+                                    <SearchSuggestions blogs={Array.isArray(blogs.data) ? blogs.data : []} />
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
 
-          <div className="col-md-4">
-            <div className="sticky-wrapper" style={{top: "5rem"}}>
-              <div className='card px-2 py-2 mb-3'>
-                <h4 className='card-header'>Search</h4>
-                <div className='card-body'>
-                  <SearchSuggestions blogs={Array.isArray(blogs.data) ? blogs.data : []} />
+                    <div className="comments-section">
+                        <CommentsSection />
+                    </div>
                 </div>
-              </div>
-
-              <br/>
-            </div>
-          </div>
-
-          <div className="comments-section">
-            <CommentsSection />
-          </div>
+            </main>
+            <Footer />
         </div>
-      </main>
-      <Footer />
-    </div>
     );
 };
 
