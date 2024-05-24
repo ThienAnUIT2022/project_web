@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SearchSuggestions from '../components/SearchSuggestions';
 import '../assets/css/destination.css';
-import CommentsSection from '../components/CommentsSection';
 import DestinationCard from '../components/DestinationCard';
-// import LikeButton from '../components/LikeButton'
-// import axios from 'axios';
 
 const Destination = ({ blogs = { data: [] } }) => {
   const DesList = blogs && Array.isArray(blogs.data)
@@ -15,47 +12,87 @@ const Destination = ({ blogs = { data: [] } }) => {
         title: item.attributes.title,
         description: item.attributes.description,
         id: item.id,
+        geography: item.attributes.geography ? item.attributes.geography.split(", ") : [],
+        transportation: item.attributes.transportation ? item.attributes.transportation.split(", ") : [],
+        cost: item.attributes.cost ? item.attributes.cost.split(", ") : []
       }))
     : [];
-
-    console.log(DesList);
-
-  const itemsPerPage = 12;
+  
+  const [filteredDesList, setFilteredDesList] = useState(DesList);
   const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
+
+  const [selectedGeography, setSelectedGeography] = useState([]);
+  const [selectedTransportation, setSelectedTransportation] = useState([]);
+  const [selectedCost, setSelectedCost] = useState([]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  const totalPages = Math.ceil(DesList.length / itemsPerPage);
-  const paginatedList = DesList.slice(
+  const handleSearch = (searchTerm) => {
+    filterDestinations(searchTerm, selectedGeography, selectedTransportation, selectedCost);
+    setCurrentPage(1);
+  };
+
+  const handleFilterChange = (filterType, value, isChecked) => {
+    let updatedFilters;
+    switch (filterType) {
+      case 'geography':
+        updatedFilters = isChecked
+          ? [...selectedGeography, value]
+          : selectedGeography.filter(item => item !== value);
+        setSelectedGeography(updatedFilters);
+        filterDestinations('', updatedFilters, selectedTransportation, selectedCost);
+        break;
+      case 'transportation':
+        updatedFilters = isChecked
+          ? [...selectedTransportation, value]
+          : selectedTransportation.filter(item => item !== value);
+        setSelectedTransportation(updatedFilters);
+        filterDestinations('', selectedGeography, updatedFilters, selectedCost);
+        break;
+      case 'cost':
+        updatedFilters = isChecked
+          ? [...selectedCost, value]
+          : selectedCost.filter(item => item !== value);
+        setSelectedCost(updatedFilters);
+        filterDestinations('', selectedGeography, selectedTransportation, updatedFilters);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const filterDestinations = (searchTerm, geographyFilters, transportationFilters, costFilters) => {
+    const filtered = DesList.filter(item =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (geographyFilters.length === 0 || geographyFilters.some(filter => item.geography.includes(filter))) &&
+      (transportationFilters.length === 0 || transportationFilters.some(filter => item.transportation.includes(filter))) &&
+      (costFilters.length === 0 || costFilters.some(filter => item.cost.includes(filter)))
+    );
+    setFilteredDesList(filtered);
+  };
+
+  useEffect(() => {
+    filterDestinations('', selectedGeography, selectedTransportation, selectedCost);
+  }, [DesList]);
+
+  const totalPages = Math.ceil(filteredDesList.length / itemsPerPage);
+  const paginatedList = filteredDesList.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-  // const [blogs, setBlogs] = useState([]);
-  
-  // useEffect(() => {
-  //   const fetchBlogs = async () => {
-  //     try {
-  //       const response = await axios.get('http://localhost:1337/api/blogs');
-  //       setBlogs(response.data.data);
-  //     } catch (error) {
-  //       console.error('Error fetching blogs:', error);
-  //     }
-  //   };
-    
-  //   fetchBlogs();
-  // }, []);
-  
+
   return (
     <div className="Destination">
       <Header />
       <main className="container">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-lg-9 col-md-12">
             <div className="row">
-            {paginatedList.map((item, index) => (
-                <div className="col-md-4 mb-3" key={index}>
+              {paginatedList.map((item, index) => (
+                <div className="col-lg-4 col-md-6 mb-3" key={index}>
                   <DestinationCard
                     imageSrc={item.imageSrc}
                     title={item.title}
@@ -65,7 +102,7 @@ const Destination = ({ blogs = { data: [] } }) => {
                 </div>
               ))}
             </div>
-            <div className="pagination">
+            <div className="pagination d-flex justify-content-center pb-5">
               {Array.from({ length: totalPages }, (_, index) => (
                 <button
                   key={index}
@@ -80,88 +117,90 @@ const Destination = ({ blogs = { data: [] } }) => {
             </div>
           </div>
 
-          <div className="col-md-4">
-            <div className="sticky-wrapper" style={{top: "5rem"}}>
+          <div className="col-lg-3 col-12">
+            <div className="sticky-wrapper" style={{ top: "5rem" }}>
               <div className='card px-2 py-2 mb-3'>
                 <h4 className='card-header'>Search</h4>
                 <div className='card-body'>
-                  <SearchSuggestions blogs={Array.isArray(blogs.data) ? blogs.data : []} />
+                  <SearchSuggestions blogs={Array.isArray(blogs.data) ? blogs.data : []} onSearch={handleSearch} />
                 </div>
               </div>
 
               <div className='card px-2 py-2 mb-3'>
                 <div className='row d-flex justify-content-between'>
-                  <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <h6 className='text-start'>Geography</h6>
-                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
-                    </a>
-                    <ul className="dropdown-menu text-small">
-                      <label className="dropdown-item"><input type="checkbox" value="mountains" /> Mountains </label>
-                      <label className="dropdown-item"><input type="checkbox" value="beaches" /> Beaches </label>
-                      <label className="dropdown-item"><input type="checkbox" value="rivers" /> Rivers </label>
-                      <label className="dropdown-item"><input type="checkbox" value="lakes" /> Lakes </label>
-                      <label className="dropdown-item"><input type="checkbox" value="forests" /> Forests </label>
-                    </ul>
+                  <div className="col-12">
+                    <button className="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#geographyCollapse" aria-expanded="false" aria-controls="geographyCollapse">
+                      <h6 className='text-start text-black'>Geography</h6>
+                    </button>
+                    <div className="collapse" id="geographyCollapse">
+                      <ul className="list-group">
+                        {['mountain', 'coastal', 'delta', 'forest', 'island'].map((geo, idx) => (
+                          <li className="list-group-item" key={idx}>
+                            <div className="form-check">
+                              <input
+                                type="checkbox"
+                                className="form-check-input"
+                                value={geo}
+                                onChange={(e) => handleFilterChange('geography', geo, e.target.checked)}
+                              />
+                              <label className="form-check-label">{geo.charAt(0).toUpperCase() + geo.slice(1)}</label>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <h6 className='text-start'>Activities</h6>
-                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
-                    </a>
-                    <ul className="dropdown-menu text-small">
-                      <label className="dropdown-item"><input type="checkbox" value="hiking" /> Hiking </label>
-                      <label className="dropdown-item"><input type="checkbox" value="surfing" /> Surfing </label>
-                      <label className="dropdown-item"><input type="checkbox" value="diving" /> Diving </label>
-                      <label className="dropdown-item"><input type="checkbox" value="shopping" /> Shopping </label>
-                      <label className="dropdown-item"><input type="checkbox" value="spas" /> Spas </label>
-                    </ul>
+
+                  <div className="col-12">
+                    <button className="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#transportationCollapse" aria-expanded="false" aria-controls="transportationCollapse">
+                      <h6 className='text-start text-black'>Transportation</h6>
+                    </button>
+                    <div className="collapse" id="transportationCollapse">
+                      <ul className="list-group">
+                        {['motorbike', 'bus', 'airport', 'ship'].map((trans, idx) => (
+                          <li className="list-group-item" key={idx}>
+                            <div className="form-check">
+                              <input
+                                type="checkbox"
+                                className="form-check-input"
+                                value={trans}
+                                onChange={(e) => handleFilterChange('transportation', trans, e.target.checked)}
+                              />
+                              <label className="form-check-label">{trans.charAt(0).toUpperCase() + trans.slice(1)}</label>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <h6 className='text-start'>Transposition</h6>
-                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
-                    </a>
-                    <ul className="dropdown-menu text-small">
-                      <label className="dropdown-item"><input type="checkbox" value="bus" /> Bus </label>
-                      <label className="dropdown-item"><input type="checkbox" value="airports" /> Airports </label>
-                    </ul>
-                  </div>
-                  <div className="dropdown col-12 col-lg-auto">
-                    <a href="?" className="d-flex justify-content-between align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <h6 className='text-start'>Cost</h6>
-                      <svg className="bi me-2 text-end" width="40" height="32"></svg>
-                    </a>
-                    <ul className="dropdown-menu text-small">
-                      <label className="dropdown-item"><input type="checkbox" value="free" /> Free </label>
-                      <label className="dropdown-item"><input type="checkbox" value="paid" /> Paid </label>
-                    </ul>
+
+                  <div className="col-12">
+                    <button className="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#costCollapse" aria-expanded="false" aria-controls="costCollapse">
+                      <h6 className='text-start text-black'>Cost</h6>
+                    </button>
+                    <div className="collapse" id="costCollapse">
+                      <ul className="list-group">
+                        {['free', 'paid'].map((cost, idx) => (
+                          <li className="list-group-item" key={idx}>
+                            <div className="form-check">
+                              <input
+                                type="checkbox"
+                                className="form-check-input"
+                                value={cost}
+                                onChange={(e) => handleFilterChange('cost', cost, e.target.checked)}
+                              />
+                              <label className="form-check-label">{cost.charAt(0).toUpperCase() + cost.slice(1)}</label>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                <button type="submit" className='btn btn-primary my-2 ms-1 me-2'>Filter</button>
               </div>
 
-              <div className='card px-2 py-2 mb-3'>
-                <h4 className='card-header'>Choose where you want to go</h4>
-                <div className='card-text'>
-                  <ul className='card-text mb-0'>
-                    <li><a className="text-decoration-none text-dark" href="./Northeast">Northeast Vietnam Geography</a></li>
-                    <li><a className="text-decoration-none text-dark" href="./Northwest">Northwest Vietnam</a></li>
-                    <li><a className="text-decoration-none text-dark" href="./Red River">Red River Delta</a></li>
-                    <li><a className="text-decoration-none text-dark" href="./North Central">North Central Coast Vietnam Geography</a></li>
-                    <li><a className="text-decoration-none text-dark" href="./South Central">South Central Coast Vietnam</a></li>
-                    <li><a className="text-decoration-none text-dark" href="./Central Highlands">Central Highlands Geography of Vietnam</a></li>
-                    <li><a className="text-decoration-none text-dark" href="./Southeast">Southeast Vietnam</a></li>
-                    <li><a className="text-decoration-none text-dark" href="./Mekong Delta">Mekong Delta Geography of Vietnam</a></li>
-                  </ul>
-                </div>
-              </div>
-              <br/>
+              <br />
             </div>
-          </div>
-
-          <div className="comments-section">
-            <CommentsSection />
           </div>
         </div>
       </main>
