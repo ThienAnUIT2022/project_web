@@ -23,8 +23,8 @@ app.use(express.static("public"));
 
 const db = mysql.createConnection({
   host: "localhost",
-  user: "user_bpprj",
-  password: "nt208group5",
+  user: "root",
+  password: "",
   database: "backpackprj",
 });
 
@@ -188,6 +188,10 @@ app.get("/uploadAvatar", verifyUser, (req, res) => {
       return res.json({ imgAvatar: null });
     }
   });
+});
+
+app.get("/verifyUser", verifyUser, (req, res) => {
+  return res.json({ Status: "Success" });
 });
 
 app.listen(8081, () => {

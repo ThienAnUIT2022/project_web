@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { validation } from "./loginValidation"; 
-import { AuthContext } from "../../context/AuthContext"; // Import AuthContext
-import axios from "axios";
 import "./login.css";
 import "./loginValidation";
+import { validation } from "./loginValidation";
+import axios from "axios";
 
 function Login() {
   //Show/Hide password
@@ -27,15 +26,6 @@ function Login() {
   });
 
   const [errors, setErrors] = useState({});
-  const { setIsLoggedIn } = useContext(AuthContext);
-
-  useEffect(() => {
-    // Check if user is already logged in (after page reload)
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn === "true") {
-      setIsLoggedIn(true);
-    }
-  }, [setIsLoggedIn]);
 
   const handleInput = (event) => {
     setValues((prev) => ({
@@ -49,15 +39,12 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
     setErrors(validation(values));
     //if (errors.email === "" && errors.password === "") {
     axios
       .post("http://localhost:8081/login", values)
       .then((res) => {
         if (res.data === "Success") {
-          localStorage.setItem("isLoggedIn", "true");
-          setIsLoggedIn(true);
           navigate("/");
         } else {
           alert("No record existed");
@@ -68,7 +55,7 @@ function Login() {
   };
 
   return (
-    <div className="Loginpage">
+    <div>
       <div className="body-Login">
         <header>
           <button type="submit" className="head-button">
@@ -89,7 +76,7 @@ function Login() {
               {errors.email && (
                 <span className="text-danger">{errors.email}</span>
               )}
-              <i class="bi bi-envelope-fill"></i>
+              <i className="bx bxs-user"></i>
               <label>Email</label>
             </div>
             <div className="form-group">
@@ -104,7 +91,7 @@ function Login() {
               {errors.password && (
                 <span className="text-danger">{errors.password}</span>
               )}
-              <i class="bi bi-eye-fill" id="eyeicon"></i>
+              <i className="bx bxs-lock-alt" id="eyeicon"></i>
               <label>Password</label>
             </div>
             <div className="remember-forgot">

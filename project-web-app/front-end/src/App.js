@@ -7,7 +7,6 @@ import FAQs from './pages/FAQs';
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx'
 import Profile from './pages/Profile/Profile.jsx';
-import { AuthProvider } from './context/AuthContext.js';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import useFetch from './hooks/useFetch.js';
 import BlogContent from './pages/BlogContent.jsx';
@@ -20,7 +19,6 @@ function App(props) {
 
   return (
     <div>
-        <AuthProvider>
           <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home blogs={data?data:""} />} />
@@ -35,7 +33,6 @@ function App(props) {
                 <Route path="/profile" element={<Profile />} />
             </Routes>
         </BrowserRouter>
-        </AuthProvider>
     </div>
   );
 }
