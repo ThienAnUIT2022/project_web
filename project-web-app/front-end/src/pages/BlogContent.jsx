@@ -37,6 +37,62 @@ const BlogContent = ({ blogs }) => {
     const { id } = useParams();
     const [blog, setBlog] = useState({});
     const [popular, setPopular] = useState(0);
+    const [auth, setAuth] = useState(false);
+    const [favorites, setFavorites] = useState([]);
+    const [userData, setUserData] = useState({
+        id: "",
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        birthDay: "",
+        gender: "",
+        address: "",
+        email: "",
+        password: "",
+    });
+
+    useEffect(() => {
+        axios.get("http://localhost:8081/verifyUser", { withCredentials: true })
+        .then(res => {
+            if (res.data.Status === "Success") {
+            setAuth(true);
+            // Fetch the ID and email
+            axios.get("http://localhost:8081/userdata", { withCredentials: true })
+                .then(res => {
+                if (res.data && res.data && res.data.email && res.data.id) {
+                    setUserData(res.data);
+                }
+                })
+                .catch(err => console.log(err));
+            } else {
+            setAuth(false);
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            setAuth(false);
+        });
+    }, []);
+    
+    const addToFavorites = async (userId, postId) => {
+        try {
+            const response = await fetch('/api/favorites', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId, postId }),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                console.log(data.message);
+            } else {
+                console.error(data.error);
+            }
+        } catch (error) {
+            console.error('Error adding favorite:', error);
+        }
+    };
 
     useEffect(() => {
         const blogData = blogs.data.find(blog => blog.id == id);
@@ -53,6 +109,7 @@ const BlogContent = ({ blogs }) => {
                 data: { popular: newPopular }
             });
             setPopular(newPopular);
+            addToFavorites(userData.id, id);
         } catch (error) {
             console.error('Error updating popular count', error);
         }

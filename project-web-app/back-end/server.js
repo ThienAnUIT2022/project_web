@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );
@@ -98,13 +98,14 @@ app.get("/logout", (req, res) => {
 app.get("/userdata", verifyUser, (req, res) => {
   console.log("Request received with email:", req.email);
   const sql =
-    "SELECT `firstName`, `lastName`, `phoneNumber`,  `birthDay`, `gender`, `address`, `email`, `password` FROM profile WHERE `email` = ?";
+    "SELECT * FROM profile WHERE `email` = ?";
   db.query(sql, [req.email], (err, data) => {
     if (err) {
       return res.json({ Error: "Error fetching data" });
     }
     if (data.length > 0) {
       const userData = {
+        id: data[0].id,
         firstName: data[0].firstName,
         lastName: data[0].lastName,
         phoneNumber: data[0].phoneNumber,
@@ -193,6 +194,36 @@ app.get("/uploadAvatar", verifyUser, (req, res) => {
 app.get("/verifyUser", verifyUser, (req, res) => {
   return res.json({ Status: "Success" });
 });
+
+app.post('/api/favorites', (req, res) => {
+  const { userId, postId } = req.body;
+  const query = 'INSERT INTO user_favorites (user_id, post_id) VALUES (?, ?)';
+  db.query(query, [userId, postId], (error, results) => {
+      if (error) return res.status(500).json({ error: error.message });
+      res.status(200).json({ message: 'Favorite added successfully!' });
+  });
+});
+
+app.delete('/api/favorites', (req, res) => {
+  const { userId, postId } = req.body;
+  const query = 'DELETE FROM user_favorites WHERE user_id = ? AND post_id = ?';
+  db.query(query, [userId, postId], (error, results) => {
+      if (error) return res.status(500).json({ error: error.message });
+      res.status(200).json({ message: 'Favorite removed successfully!' });
+  });
+});
+
+// Add this endpoint to your server code
+app.get('/api/favorites/:userId', (req, res) => {
+  const { userId } = req.params;
+  const query = 'SELECT post_id FROM user_favorites WHERE user_id = ?';
+  db.query(query, [userId], (error, results) => {
+      if (error) return res.status(500).json({ error: error.message });
+      res.status(200).json(results);
+  });
+});
+
+
 
 app.listen(8081, () => {
   console.log("listening");

@@ -40,6 +40,7 @@ function Profile() {
           .get("http://localhost:8081/logout")
           .then((res) => {
             setUserData({
+              id: "",
               firstName: "",
               lastName: "",
               phoneNumber: "",
@@ -56,6 +57,7 @@ function Profile() {
       };
     
       const [userData, setUserData] = useState({
+        id: "",
         firstName: "",
         lastName: "",
         phoneNumber: "",
