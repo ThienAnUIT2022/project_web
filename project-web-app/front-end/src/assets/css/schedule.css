@@ -1,6 +1,15 @@
 .Schedule {
   font-family: "K2D", sans-serif;
   padding-top: 3rem;
+  color: #5a5a5a;
+}
+.Schedule main#main-content {
+  position: relative;
+}
+
+.Schedule .favList {
+  background-color: #563d7c;
+  color: #fff;
 }
 
 .Schedule .navbar {
@@ -40,7 +49,6 @@
   height: -webkit-fill-available;
   max-height: 80vh;
   border-radius: 5px;
-
   overflow-x: auth2o;
   overflow-y: scroll;
 }
@@ -53,7 +61,7 @@
   overflow-y: hidden;
 }
 .Schedule h1 {
-  padding: 0 15px 15px 15px;
+  padding: 15px;
   font-weight: 900;
   color: #ffbe89;
 }
@@ -66,38 +74,26 @@
   padding-right: auto;
   padding-bottom: 50px;
 }
-.Schedule .Schedule-button {
+.Schedule .btn.btn-primary {
   color: #ffbe89;
   padding: 10px 32px;
-  background-color: #563d7c;
-  width: 60px;
-  height: 30px;
+  background-color: #563d7c !important;
   font-size: 20px;
-
-  border-width: 50px;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
-.Schedule .Schedule-button:hover {
-  background-color: #442f62;
-  color: white;
+.Schedule .btn.btn-primary:focus {
+  background-color: #c7b0e7;
 }
-
-.Schedule .card-header {
-  background-color: #563d7c;
-  color: #ffbe89;
-}
-
 .Schedule .bg-box-top {
-  /* width: 81rem; */
-  /* height: 13rem; */
-  max-width: 81rem;
-  max-height: 15rem;
+  width: 81em;
+  height: 13em;
+  max-width: 81em;
+  max-height: 15em;
   border-radius: 10px;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(183, 108, 215, 0.6)),
-    url("https://c.wallhere.com/photos/12/6f/forest_trees_green_moss_old-121014.jpg!d");
+    url("https://th.bing.com/th/id/R.be2ec03d9d554ca1d6f80a2f290e79a8?rik=1paWjiM8UScjwA&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fHD-Jungle-Picture.jpg&ehk=k%2bqK9HzsJqQ7SnJ%2bDLnKJxpoCFoNOp8DRXTER9Esto8%3d&risl=&pid=ImgRaw&r=0");
+  /* background:linear-gradient(); 
+  background-color: #563d7c; */
 }
 .Schedule .box-top-btn {
   width: 100px;
@@ -137,7 +133,7 @@
   margin-left: 15px;
 }
 
-.Schedule.bg-pupl {
+.Schedule .bg-pupl {
   background-color: #563d7c;
 }
 .Schedule .rownd {
@@ -145,9 +141,205 @@
   background-color: #563d7c;
   margin-right: 5px;
 }
+.Schedule .scrollar-bg {
+  /* Thay đổi chiều cao của phần tử */
+  height: 500px; /* Hoặc bất kỳ giá trị nào bạn muốn */
+}
 .Schedule .cl {
   color: #ffbe89;
 }
 .Schedule .fw-semibold {
   color: #ffbe89;
+}
+
+/* Footer */
+.Schedule .card-footer {
+  padding: 8px 16px;
+  height: px;
+  background-color: #563d7c;
+  /* max-height: 3rem; */
+}
+.Schedule .nav-link {
+  margin: 0;
+}
+
+.Schedule .card-footer .bi {
+  vertical-align: -0.125em;
+  fill: white;
+}
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .Schedule .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
+.modal {
+  background-color: #c7b0e7;
+}
+
+.btn-close.closebtn {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 10px; /* Căn lề trên 10px */
+  right: 10px; /* Căn lề 10px */
+  font-size: 20px; /* Tăng kích thước chữ */
+  cursor: pointer; /* Thay đổi con trỏ thành hình bàn tay khi hover */
+  background-color: #563d7c;
+}
+.col-9.popupsignout {
+  padding-top: 5px !important;
+}
+
+/* PopupStyles.css */
+.ReactModal__Overlay {
+  z-index: 1000; /* Đảm bảo rằng overlay có z-index cao */
+}
+.ReactModal__Content {
+  z-index: 1001; /* Đảm bảo rằng nội dung modal có z-index cao hơn */
+}
+
+/* ModalStyles.css */
+.ReactModal__Overlay {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ) !important; /* Đảm bảo overlay không bị trong suốt */
+}
+
+.ReactModal__Content {
+  padding: 20px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/*end modalstyle*/
+
+/* CalendarStyles.css */
+
+/* Tùy chỉnh độ rộng của lịch */
+.custom-calendar {
+  max-width: 800px; /* Bạn có thể thay đổi giá trị này theo ý muốn */
+  margin: 0 auto; /* Để căn giữa lịch */
+}
+
+/* Các tuỳ chỉnh khác cho lịch */
+.fc {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Tùy chỉnh đầu trang của lịch */
+.fc-toolbar {
+  background-color: #ac8ebc;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Tùy chỉnh các nút điều hướng */
+.fc-button {
+  /* background-color: #ffffff; */
+  border: none;
+  color: white;
+}
+
+.fc-button:hover {
+  background-color: #7dbcff;
+}
+
+/* Tùy chỉnh các ô ngày */
+.fc-day {
+  border: 1px solid #e1c2f5;
+}
+
+.fc-day-top {
+  font-weight: bold;
+  color: #c889e3;
+}
+
+/* Tùy chỉnh sự kiện */
+.fc-event {
+  background-color: #c897fa;
+  border: none;
+  color: white;
+}
+
+/* Tùy chỉnh tiêu đề sự kiện */
+.fc-event-title {
+  white-space: normal; /* Cho phép tiêu đề hiển thị trên nhiều dòng */
+}
+
+/* Tùy chỉnh khi di chuột vào sự kiện */
+.fc-event:hover {
+  background-color: #66acf8;
+}
+
+/* Tùy chỉnh tiêu đề ngày hiện tại */
+.fc-day-today {
+  background-color: #e6f7ff;
+}
+
+.calendarax {
+  width: 100%;
+  max-width: 1000px; /* Giới hạn chiều rộng */
+  height: 100vh; /* Giới hạn chiều cao */
+  max-height: 90vh;
+  overflow-y: auto; /* Cho phép cuộn theo chiều dọc nếu nội dung vượt quá chiều cao */
+  overflow-x: auto; /* Cho phép cuộn theo chiều ngang nếu nội dung vượt quá chiều rộng */
+  background-color: #fff; /* Đảm bảo nền trắng để lịch hiển thị rõ ràng */
+  padding: 10px; /* Thêm một chút khoảng cách xung quanh lịch */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho lịch */
+  border-radius: 10px; /* Bo tròn các góc */
+}
+
+.calendarpopup {
+  width: 100%;
+  max-width: 800px; /* Giới hạn chiều rộng */
+  height: 70vh; /* Giới hạn chiều cao */
+  max-height: 70vh;
+  overflow-y: auto; /* Cho phép cuộn theo chiều dọc nếu nội dung vượt quá chiều cao */
+  overflow-x: auto; /* Cho phép cuộn theo chiều ngang nếu nội dung vượt quá chiều rộng */
+  background-color: #fff; /* Đảm bảo nền trắng để lịch hiển thị rõ ràng */
+  padding: 10px; /* Thêm một chút khoảng cách xung quanh lịch */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho lịch */
+  border-radius: 10px; /* Bo tròn các góc */
+}
+
+.row.popup {
+  background-color: #fff;
+  border-radius: 10px !important;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho lịch */
+}
+
+.btn.btn-outline-primary.signoutbtn {
+  padding-bottom: 10px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho lịch */
+}
+.fw-bold.text-body-emphasis.popuptitle {
+  font-size: 40px; /* Kích thước chữ */
+  font-weight: bold; /* Độ đậm của chữ */
+  margin-bottom: 20px; /* Khoảng cách phía dưới tiêu đề */
+  text-align: center; /* Căn giữa tiêu đề */
+}
+
+.btn.btn-outline-primary {
+  color: #000000;
+  border-color: #535353;
+  font-size: 20px;
+  max-width: 300px !important;
+}
+.btn.btn-secondary.listev {
+  margin: 10px;
+  background-color: #563d7c;
+  max-width: 200px !important;
+}
+.btn.btn-secondary.createev {
+  background-color: #563d7c;
+  max-width: 200px !important;
+  margin-bottom: 10px;
 }

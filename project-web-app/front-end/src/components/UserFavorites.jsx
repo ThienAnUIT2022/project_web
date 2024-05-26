@@ -42,6 +42,7 @@ const UserFavorites = ({ userId }) => {
                 .then(responses => {
                     const favoriteBlogs = responses.map(res => res.data.data);
                     setFavoriteBlogs(favoriteBlogs);
+                    console.log('Favorite blogs:', favoriteBlogs);
                 })
                 .catch(error => {
                     console.error('Error fetching favorite blogs:', error);
@@ -53,22 +54,28 @@ const UserFavorites = ({ userId }) => {
         <div className="scrollar-bg">
             <div className="row row-cols-1 row-cols-md-1 g-4">
                 <div className="d-flex flex-column align-items-stretch flex-shrink-0 rownd">
-                    <span className="fs-5 fw-semibold">Favorite place</span>
+                    <div className="fs-3 fw-semibold py-2 text-center">
+                        Favorite place
+                    </div>
                     <div className="scrollar-div">
                         <div className="scrollar-object">
                             <div className="list-group list-group-flush border-bottom scrollarea">
                                 {favoriteBlogs.length === 0 ? (
-                                    <p>You have no favorite posts yet.</p>
+                                    <div>
+                                        <div className='list-group-item list-group-item-action py-3 lh-sm'>
+                                            <strong> You have no favorite posts yet. </strong>
+                                        </div>
+                                    </div>
                                 ) : (
-                                    <ul>
+                                    <div>
                                         {favoriteBlogs.map(post => (
-                                        <li key={post.id}>
+                                        <div key={post.id} className='list-group-item list-group-item-action py-3 lh-sm'>
                                             <div className="d-flex w-100 align-items-center justify-content-between">
                                                 <strong className="mb-1">{post.attributes.title}</strong>
                                             </div>
-                                            <p className="mb-1">{post.attributes.cost}</p>
-                                        </li>))}
-                                    </ul>
+                                            <div className="col-10 mb-1">-- {post.attributes.cost} | {post.attributes.transposition} -- </div>
+                                        </div>))}
+                                    </div>
                                     )
                                 }
                             </div>
