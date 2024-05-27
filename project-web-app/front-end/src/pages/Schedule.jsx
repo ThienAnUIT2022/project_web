@@ -8,7 +8,6 @@ import '../assets/css/schedule.css';
 import Modal from 'react-modal';
 import axios from "axios"; 
 
-
 const customStyles = {
   content: {
     top: 'calc(50% + 40px)',
@@ -52,6 +51,30 @@ function Schedule()
   const handleLoginSuccess = () => {
     setUserLoggedIn(true);
   };
+
+ // popup copy link
+
+ const [showModal, setShowModal] = useState(false);
+ const [copied, setCopied] = useState(false);
+
+ const handleOpenModal = () => {
+   setShowModal(true);
+ };
+
+ const handleCloseModal = () => {
+   setShowModal(false);
+   setCopied(false);  // Reset the copied state when closing the modal
+ };
+
+ const handleCopy = () => {
+   const linkInput = document.getElementById("linkInput");
+   linkInput.select();
+   document.execCommand("copy");
+   setCopied(true);
+   setTimeout(() => {
+     setCopied(false);
+   }, 2000); // Reset the copied state after 2 seconds
+ }
 
 // lets make plane button
   const targetRef = useRef(null);
@@ -164,18 +187,32 @@ function Schedule()
                   <div className="row row-cols-1 row-cols-md-1 row-cols-sm-1 g-4">
                     <div className="col-md-6 col-sm-12 d-flex flex-column gap-2">
                       <div className="mid_butt">
-                        <a href="??" className="btn btn-primary" role="button">Invite orthers </a>
+                      <a className="btn btn-primary" role="button" onClick={handleOpenModal} >Introduce us </a>
                         <h4 className="fw-semibold px-1 text-body-emphasis">
-                          Invite your friends
+                        Introducing our website
                         </h4>
                         <p className="text-body-secondary">
-                          Plan this trip together with your friends.
+                        Recommend our website to your friends.
                         </p>
                       </div>
                     </div>
+                    {showModal && (
+                      <div className="modal" onClick={handleCloseModal}>
+                        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                          <span type="button" class="btn-close closebtn" aria-label="Close" onClick={handleCloseModal}>&times;</span>
+                          <p>Copy this link to share to your friend :</p>
+                          <div className="copy-container">
+                            <input type="text" id="linkInput" value="https://vnbackpacking.com" readOnly />
+                            <button className="copy-button" onClick={handleCopy}>
+                              {copied ? <i class="bi bi-check-lg"></i> :  <i class="bi bi-copy"></i> }
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                     <div className="col-md-6 col-sm-12 d-flex flex-column gap-2">
                       <div className="mid_butt">
-                        <a href="./quicktips.html" className="btn btn-primary">Quick tips </a>
+                        <a href="./quicktips" className="btn btn-primary">Quick tips </a>
                         <h4 className="fw-semibold px-1 text-body-emphasis">Little tip</h4>
                         <p className="text-body-secondary" boder>
                           Little tips to help you get things done more easily.

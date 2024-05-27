@@ -99,10 +99,6 @@ const Home = ({blogs}) => {
 
                 <PopularDestinations destinations={popDes} />
             
-                <div className="container">
-                    <hr className="featurette-divider" />
-                </div> 
-                
                 <div className="advice mb-5">
                     <div className="container">
                     <hr className="featurette-divider" />
