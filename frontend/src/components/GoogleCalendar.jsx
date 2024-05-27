@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { gapi } from 'gapi-script';
 
-// xoa cac dong cam
+// xoa dong cam
 
 const GoogleCalendar = ({ setEvents }) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -18,7 +18,10 @@ const GoogleCalendar = ({ setEvents }) => {
     const initClient = async () => {
       try {
         await gapi.client.init({
-         // xoa cac dong cam
+          apiKey: API_KEY,
+          clientId: CLIENT_ID,
+          discoveryDocs: DISCOVERY_DOCS,
+          scope: SCOPES,
         });
         const authInstance = gapi.auth2.getAuthInstance();
         setIsSignedIn(authInstance.isSignedIn.get());
