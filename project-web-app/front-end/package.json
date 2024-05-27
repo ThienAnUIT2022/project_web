@@ -1,4 +1,5 @@
 {
+  "homepage": "https://ThienAnUIT2022.github.io/project-web",
   "name": "project-web-app",
   "version": "0.1.0",
   "private": true,
@@ -12,7 +13,7 @@
     "@react-google-maps/api": "^2.19.3",
     "@react-oauth/google": "^0.12.1",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
     "@vis.gl/react-google-maps": "^0.9.0",
     "axios": "^1.7.2",
@@ -39,6 +40,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -64,6 +67,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-transform-private-property-in-object": "^7.24.1",
-    "@iconify/react": "^4.1.1"
+    "@iconify/react": "^4.1.1",
+    "gh-pages": "^6.1.1"
   }
 }
