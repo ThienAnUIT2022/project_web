@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SearchSuggestions from '../components/SearchSuggestions';
@@ -6,18 +6,20 @@ import '../assets/css/destination.css';
 import DestinationCard from '../components/DestinationCard';
 
 const Destination = ({ blogs = { data: [] } }) => {
-  const DesList = blogs && Array.isArray(blogs.data)
-    ? blogs.data.map(item => ({
-        imageSrc: `http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`,
-        title: item.attributes.title,
-        description: item.attributes.description,
-        id: item.id,
-        geography: item.attributes.geography ? item.attributes.geography.split(", ") : [],
-        transportation: item.attributes.transportation ? item.attributes.transportation.split(", ") : [],
-        cost: item.attributes.cost ? item.attributes.cost.split(", ") : []
-      }))
-    : [];
-  
+  const DesList = useMemo(() => 
+    blogs && Array.isArray(blogs.data)
+      ? blogs.data.map(item => ({
+          imageSrc: `http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`,
+          title: item.attributes.title,
+          description: item.attributes.description,
+          id: item.id,
+          geography: item.attributes.geography ? item.attributes.geography.split(", ") : [],
+          transportation: item.attributes.transportation ? item.attributes.transportation.split(", ") : [],
+          cost: item.attributes.cost ? item.attributes.cost.split(", ") : []
+        }))
+      : []
+  , [blogs]);
+
   const [filteredDesList, setFilteredDesList] = useState(DesList);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -76,7 +78,7 @@ const Destination = ({ blogs = { data: [] } }) => {
 
   useEffect(() => {
     filterDestinations('', selectedGeography, selectedTransportation, selectedCost);
-  }, [DesList]);
+  }, [DesList, selectedGeography, selectedTransportation, selectedCost]);
 
   const totalPages = Math.ceil(filteredDesList.length / itemsPerPage);
   const paginatedList = filteredDesList.slice(
@@ -86,7 +88,7 @@ const Destination = ({ blogs = { data: [] } }) => {
 
   return (
     <div>
-        <Header />
+      <Header />
       <div className="Destination">
         <main className="container">
           <div className="row">
@@ -206,7 +208,7 @@ const Destination = ({ blogs = { data: [] } }) => {
           </div>
         </main>
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };

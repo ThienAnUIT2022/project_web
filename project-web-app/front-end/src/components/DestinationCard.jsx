@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../assets/css/card.css';
 
 const DestinationCard = ({ imageSrc, title, description, id }) => {
-    console.log(id);
     return (
       <div className="DesCard col">
         <div className="card shadow-sm" id={id}>
