@@ -9,7 +9,7 @@ const Destination = ({ blogs = { data: [] } }) => {
   const DesList = useMemo(() => 
     blogs && Array.isArray(blogs.data)
       ? blogs.data.map(item => ({
-          imageSrc: `http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`,
+          imageSrc: `${item.attributes.thumbnail.data.attributes.url}`,
           title: item.attributes.title,
           description: item.attributes.description,
           id: item.id,

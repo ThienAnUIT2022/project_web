@@ -13,10 +13,10 @@ import BlogContent from './pages/BlogContent.jsx';
 
 function App(props) {
 
-  let {loading, error, data} = useFetch('http://localhost:1337/api/blogs?populate=*');
+  let {loading, error, data} = useFetch('https://graceful-authority-3dcf287362.strapiapp.com/api/blogs?populate=*');
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>
-
+  console.log(data);
   return (
     <div>
           <BrowserRouter>

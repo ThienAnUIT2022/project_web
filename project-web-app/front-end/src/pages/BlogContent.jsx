@@ -105,7 +105,7 @@ const BlogContent = ({ blogs }) => {
     const handleLike = async () => {
         try {
             const newPopular = popular + 1;
-            await axios.put(`http://localhost:1337/api/blogs/${id}`, {
+            await axios.put(`https://graceful-authority-3dcf287362.strapiapp.com/api/blogs/${id}`, {
                 data: { popular: newPopular }
             });
             setPopular(newPopular);
@@ -132,7 +132,7 @@ const BlogContent = ({ blogs }) => {
 
                             <div className='py-3'>
                                 {blog.attributes?.thumbnail && (
-                                    <img style={{ width: "100%" }} src={`http://localhost:1337${blog.attributes.thumbnail.data.attributes.url}`} alt="thumbnail" />
+                                    <img style={{ width: "100%" }} src={`https://graceful-authority-3dcf287362.strapiapp.com${blog.attributes.thumbnail.data.attributes.url}`} alt="thumbnail" />
                                 )}
                             </div>
 

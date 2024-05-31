@@ -8,9 +8,10 @@ import PopularDestinations from '../components/PopularDestination';
 const Home = ({blogs}) => {
     const sortedBlogs = blogs.data.sort((a, b) => b.attributes.popular - a.attributes.popular);
     const popularBlogs = sortedBlogs.slice(0, 6);
+    // console.log(popularBlogs);
 
     const popDes = popularBlogs.map(item => ({
-        imageSrc: `http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`,
+        imageSrc: `${item.attributes.thumbnail.data.attributes.url}`,
         title: item.attributes.title,
         description: item.attributes.description,
         id: item.id

@@ -35,7 +35,7 @@ const UserFavorites = ({ userId }) => {
                 })
                 .then(favorites => {
                     const favoritePromises = favorites.map(favorite =>
-                        axios.get(`http://localhost:1337/api/blogs/${favorite.post_id}`)
+                        axios.get(`https://graceful-authority-3dcf287362.strapiapp.com/api/blogs/${favorite.post_id}`)
                     );
                     return Promise.all(favoritePromises);
                 })

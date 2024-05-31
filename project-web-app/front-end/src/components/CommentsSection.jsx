@@ -21,7 +21,7 @@ const CommentsSection = () => {
 
   useEffect(() => {
     const fetchComments = async () => {
-      const response = await axios.get('http://localhost:1337/api/comments?populate=*');
+      const response = await axios.get('https://graceful-authority-3dcf287362.strapiapp.com/api/comments?populate=*');
       setComments(response.data.data);
     };
     fetchComments();
@@ -39,7 +39,7 @@ const CommentsSection = () => {
         },
       };
 
-      const response = await axios.post('http://localhost:1337/api/comments', newComment);
+      const response = await axios.post('https://graceful-authority-3dcf287362.strapiapp.com/api/comments', newComment);
       setComments([...comments, response.data.data]);
       setCommentContent('');
     }
@@ -56,7 +56,7 @@ const CommentsSection = () => {
       },
     };
 
-    await axios.put(`http://localhost:1337/api/comments/${newComments[index].id}`, updatedComment);
+    await axios.put(`https://graceful-authority-3dcf287362.strapiapp.com/api/comments/${newComments[index].id}`, updatedComment);
   };
 
   const handleReply = async (index) => {
@@ -74,7 +74,7 @@ const CommentsSection = () => {
         },
       };
 
-      await axios.put(`http://localhost:1337/api/comments/${newComments[index].id}`, updatedComment);
+      await axios.put(`https://graceful-authority-3dcf287362.strapiapp.com/api/comments/${newComments[index].id}`, updatedComment);
       setReplyContent('');
       setReplyingTo(null);
     }
@@ -84,7 +84,7 @@ const CommentsSection = () => {
     const newComments = comments.filter((comment) => comment.id !== id);
     setComments(newComments);
 
-    await axios.delete(`http://localhost:1337/api/comments/${id}`);
+    await axios.delete(`https://graceful-authority-3dcf287362.strapiapp.com/api/comments/${id}`);
   };
 
   const handleDeleteReply = async (commentIndex, replyIndex) => {
@@ -98,7 +98,7 @@ const CommentsSection = () => {
       },
     };
 
-    await axios.put(`http://localhost:1337/api/comments/${newComments[commentIndex].id}`, updatedComment);
+    await axios.put(`https://graceful-authority-3dcf287362.strapiapp.com/api/comments/${newComments[commentIndex].id}`, updatedComment);
   };
 
   return (
