@@ -1,9 +1,9 @@
-const router = require('express').Router();
-const jwt = require('jsonwebtoken');
-const {google}= require('googleapis');
-const jwksClient = require('jwks-rsa');
+import express from 'express';
+import jwt from 'jsonwebtoken';
+import { google } from 'googleapis';
+import jwksClient from 'jwks-rsa';
 
-
+const router = express.Router();
 
 const client = jwksClient({
   jwksUri: 'https://www.googleapis.com/oauth2/v3/certs'
@@ -20,7 +20,7 @@ function getKey(header, callback) {
   });
 }
 
-// Middleware để xác minh token và lấy thông tin xác thực
+// Middleware to verify token and retrieve authentication information
 async function verifyToken(req, res, next) {
   const token = req.body.token;
   if (!token) {
@@ -33,7 +33,7 @@ async function verifyToken(req, res, next) {
       return res.status(500).json({ message: "Token verification failed.", error: err });
     }
     req.user = decoded;
-    req.user.access_token = token; //  xác minh nếu access_token có trong JWT hay không
+    req.user.access_token = token;
     next();
   });
 }
@@ -41,9 +41,7 @@ async function verifyToken(req, res, next) {
 router.post('/storeToken', verifyToken, async (req, res) => {
   const { token } = req.body;
 
-  // Lưu trữ refresh_token 
   try {
-    // access_token được lưu trong req.user
     const oAuth2Client = new google.auth.OAuth2();
     oAuth2Client.setCredentials({ id_token: token });
     const ticket = await oAuth2Client.verifyIdToken({
@@ -128,5 +126,4 @@ router.get('/listEvents', verifyToken, refreshAccessToken, async (req, res) => {
   }
 });
 
-
-module.exports = router;
+export default router;

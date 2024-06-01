@@ -1,16 +1,16 @@
-import express from "express";
-import mysql from "mysql";
-import cors from "cors";
-import jwt from "jsonwebtoken";
-import cookieParser from "cookie-parser";
-import multer from "multer";
-import path from "path";
-import serverless from "serverless-http";
+import express from 'express';
+import mysql from 'mysql';
+import cors from 'cors';
+import jwt from 'jsonwebtoken';
+import cookieParser from 'cookie-parser';
+import multer from 'multer';
+import path from 'path';
+import router from './routes/api.routes.js'; // Import your routes
 
 const app = express();
 app.use(
   cors({
-    origin: ["https://vn-backpacking.vercel.app"],
+    origin: ["https://vn-backpacking.vercel.app/"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
@@ -153,7 +153,9 @@ const storage = multer.diskStorage({
     );
   },
 });
-const upload = multer({ storage });
+const upload = multer({
+  storage: storage,
+});
 
 app.post("/upload", upload.single("imgAvatar"), (req, res) => {
   console.log(req.file);
@@ -210,6 +212,7 @@ app.delete('/api/favorites', (req, res) => {
   });
 });
 
+// Add this endpoint to your server code
 app.get('/api/favorites/:userId', (req, res) => {
   const { userId } = req.params;
   const query = 'SELECT post_id FROM user_favorites WHERE user_id = ?';
@@ -219,11 +222,17 @@ app.get('/api/favorites/:userId', (req, res) => {
   });
 });
 
+app.use('/api', router); // Use your apiRoutes
+
 const port = process.env.PORT || 8081;
 
-app.listen(port, () => {
-  console.log(`[INFO] Server Running on port: ${port}`);
+app.listen(8081, (err, res) => {
+  if (err) {
+      console.log(err)
+      return res.status(500).send(err.message)
+  } else {
+      console.log('[INFO] Server Running on port:', port)
+  }
 });
 
 export default app;
-export const handler = serverless(app);
