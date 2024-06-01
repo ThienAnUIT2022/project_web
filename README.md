@@ -1,6 +1,16 @@
 # 🌍 Vietnam Backpacking Website
 Visit our [website](https://vn-backpacking.vercel.app).
 
+## 🖼️ Screenshots
+![Home Page](/project-web-app/front-end/src/assets/images/Homepage.png)
+*Home Page*
+
+![Search Results](/project-web-app/front-end/src/assets/images/Destination.png)
+*Search Results*
+
+![Trip Planner](/project-web-app/front-end/src/assets/images/Schedule.png)
+*Trip Planner*
+
 Vietnam Backpacking Website is a project developed by group 5, class NT208.O23.ANTT. This website helps users discover travel destinations in Vietnam, create travel plans, and manage trips.
 
 ## 👥 Members
