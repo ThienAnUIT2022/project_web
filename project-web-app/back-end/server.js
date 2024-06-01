@@ -223,7 +223,7 @@ app.get('/api/favorites/:userId', (req, res) => {
 
 const port = process.env.PORT || 8081;
 
-app.listen(8081, (err, res) => {
+app.listen(port, (err, res) => {
   if (err) {
       console.log(err)
       return res.status(500).send(err.message)
