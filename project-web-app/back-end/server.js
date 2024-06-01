@@ -9,7 +9,7 @@ import path from "path";
 const app = express();
 app.use(
   cors({
-    origin: ["https://vn-backpacking.vercel.app/"],
+    origin: ["https://vn-backpacking.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })

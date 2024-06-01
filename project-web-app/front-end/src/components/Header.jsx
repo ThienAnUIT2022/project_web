@@ -9,15 +9,15 @@ function Header() {
   const location = useLocation();
 
   useEffect(() => {
-    axios.get("https://vn-backpacking.onrender.com:3306/verifyUser", { withCredentials: true })
+    axios.get("https://vn-backpacking.onrender.com/verifyUser", { withCredentials: true })
       .then(res => {
         if (res.data.Status === "Success") {
           setAuth(true);
           // Fetch the avatar image
-          axios.get("https://vn-backpacking.onrender.com:3306/uploadAvatar", { withCredentials: true })
+          axios.get("https://vn-backpacking.onrender.com/uploadAvatar", { withCredentials: true })
             .then(res => {
               if (res.data && res.data[0] && res.data[0].imgAvatar) {
-                setAvatar(`https://vn-backpacking.onrender.com:3306/images/${res.data[0].imgAvatar}`);
+                setAvatar(`https://vn-backpacking.onrender.com/images/${res.data[0].imgAvatar}`);
               }
             })
             .catch(err => console.log(err));
@@ -32,7 +32,7 @@ function Header() {
   }, []);
 
   const handleLogout = () => {
-    axios.get("https://vn-backpacking.onrender.com:3306/logout", { withCredentials: true })
+    axios.get("https://vn-backpacking.onrender.com/logout", { withCredentials: true })
       .then(res => {
         if (res.data.Status === "Success") {
           setAuth(false);

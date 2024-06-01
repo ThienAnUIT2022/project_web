@@ -19,7 +19,7 @@ function Profile() {
     axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        axios.get("https://vn-backpacking.onrender.com:3306")
+        axios.get("https://vn-backpacking.onrender.com")
             .then((res) => {
                 if (res.data === "Success") {
                     setAuth(true);
@@ -32,7 +32,7 @@ function Profile() {
     }, []);
 
     const handleDelete = () => {
-        axios.get("https://vn-backpacking.onrender.com:3306/logout")
+        axios.get("https://vn-backpacking.onrender.com/logout")
             .then((res) => {
                 setUserData({
                     id: "",
@@ -64,7 +64,7 @@ function Profile() {
     });
 
     useEffect(() => {
-        axios.get("https://vn-backpacking.onrender.com:3306/userdata")
+        axios.get("https://vn-backpacking.onrender.com/userdata")
             .then((res) => {
                 if (res.data.error) {
                     console.log(res.data.error);
@@ -88,7 +88,7 @@ function Profile() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post("https://vn-backpacking.onrender.com:3306/updateprofile", userData)
+        axios.post("https://vn-backpacking.onrender.com/updateprofile", userData)
             .catch((err) => console.log(err));
     };
 
@@ -108,7 +108,7 @@ function Profile() {
         const formData = new FormData();
         formData.append("imgAvatar", file);
         formData.append("email", userData.email);
-        axios.post("https://vn-backpacking.onrender.com:3306/upload", formData)
+        axios.post("https://vn-backpacking.onrender.com/upload", formData)
             .then((res) => {
                 console.log(res.data);
                 if (res.data.Status === "Success") {
@@ -123,7 +123,7 @@ function Profile() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get("https://vn-backpacking.onrender.com:3306/uploadAvatar")
+        axios.get("https://vn-backpacking.onrender.com/uploadAvatar")
             .then((res) => {
                 setData(res.data[0]);
             })
@@ -155,7 +155,7 @@ function Profile() {
                                 <div className="information-content2">
                                     <div className="image">
                                         <img
-                                            src={data.imgAvatar ? `https://vn-backpacking.onrender.com:3306/images/${data.imgAvatar}` : "default-avatar-url"}
+                                            src={data.imgAvatar ? `https://vn-backpacking.onrender.com/images/${data.imgAvatar}` : "default-avatar-url"}
                                             id="photo"
                                             alt="" />
                                         <input type="file" id="file" onChange={handleFile} />

@@ -52,12 +52,12 @@ const BlogContent = ({ blogs }) => {
     });
 
     useEffect(() => {
-        axios.get("https://vn-backpacking.onrender.com:3306/verifyUser", { withCredentials: true })
+        axios.get("https://vn-backpacking.onrender.com/verifyUser", { withCredentials: true })
         .then(res => {
             if (res.data.Status === "Success") {
             setAuth(true);
             // Fetch the ID and email
-            axios.get("https://vn-backpacking.onrender.com:3306/userdata", { withCredentials: true })
+            axios.get("https://vn-backpacking.onrender.com/userdata", { withCredentials: true })
                 .then(res => {
                 if (res.data && res.data && res.data.email && res.data.id) {
                     setUserData(res.data);

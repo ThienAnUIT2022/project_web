@@ -46,7 +46,7 @@ function Register() {
       errors.password === ""
     ) {
       axios
-        .post("https://vn-backpacking.onrender.com:3306/register", values)
+        .post("https://vn-backpacking.onrender.com/register", values)
         .then((res) => {
           console.log(res.data);
           navigate("/login");

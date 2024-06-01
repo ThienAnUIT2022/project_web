@@ -97,12 +97,12 @@ function Schedule()
   });
 
   useEffect(() => {
-    axios.get("https://vn-backpacking.onrender.com:3306/verifyUser", { withCredentials: true })
+    axios.get("https://vn-backpacking.onrender.com/verifyUser", { withCredentials: true })
       .then(res => {
         if (res.data.Status === "Success") {
           setAuth(true);
           // Fetch the ID and email
-          axios.get("https://vn-backpacking.onrender.com:3306/userdata", { withCredentials: true })
+          axios.get("https://vn-backpacking.onrender.com/userdata", { withCredentials: true })
             .then(res => {
               if (res.data && res.data && res.data.email && res.data.id) {
                 setUserData(res.data);
@@ -202,7 +202,7 @@ function Schedule()
                           <span type="button" class="btn-close closebtn" aria-label="Close" onClick={handleCloseModal}>&times;</span>
                           <p>Copy this link to share to your friend :</p>
                           <div className="copy-container">
-                            <input type="text" id="linkInput" value="https://vnbackpacking.com" readOnly />
+                            <input type="text" id="linkInput" value="https://vn-backpacking.vercel.app/" readOnly />
                             <button className="copy-button" onClick={handleCopy}>
                               {copied ? <i class="bi bi-check-lg"></i> :  <i class="bi bi-copy"></i> }
                             </button>

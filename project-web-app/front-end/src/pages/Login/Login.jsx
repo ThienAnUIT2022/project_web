@@ -42,7 +42,7 @@ function Login() {
     setErrors(validation(values));
     //if (errors.email === "" && errors.password === "") {
     axios
-      .post("https://vn-backpacking.onrender.com:3306/login", values)
+      .post("https://vn-backpacking.onrender.com/login", values)
       .then((res) => {
         if (res.data === "Success") {
           navigate("/");
