@@ -1,11 +1,10 @@
-import express from 'express';
-import mysql from 'mysql';
-import cors from 'cors';
-import jwt from 'jsonwebtoken';
-import cookieParser from 'cookie-parser';
-import multer from 'multer';
-import path from 'path';
-import router from './routes/api.routes.js'; // Import your routes
+import express from "express";
+import mysql from "mysql";
+import cors from "cors";
+import jwt, { decode } from "jsonwebtoken";
+import cookieParser from "cookie-parser";
+import multer from "multer";
+import path from "path";
 
 const app = express();
 app.use(
@@ -222,8 +221,6 @@ app.get('/api/favorites/:userId', (req, res) => {
   });
 });
 
-app.use('/api', router); // Use your apiRoutes
-
 const port = process.env.PORT || 8081;
 
 app.listen(8081, (err, res) => {
@@ -234,5 +231,3 @@ app.listen(8081, (err, res) => {
       console.log('[INFO] Server Running on port:', port)
   }
 });
-
-export default app;
