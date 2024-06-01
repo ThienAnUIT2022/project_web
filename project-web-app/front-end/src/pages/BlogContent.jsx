@@ -132,7 +132,7 @@ const BlogContent = ({ blogs }) => {
 
                             <div className='py-3'>
                                 {blog.attributes?.thumbnail && (
-                                    <img style={{ width: "100%" }} src={`https://graceful-authority-3dcf287362.strapiapp.com${blog.attributes.thumbnail.data.attributes.url}`} alt="thumbnail" />
+                                    <img style={{ width: "100%" }} src={`${blog.attributes.thumbnail.data.attributes.url}`} alt="thumbnail" />
                                 )}
                             </div>
 

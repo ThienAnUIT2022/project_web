@@ -22,11 +22,10 @@ app.use(cookieParser());
 app.use(express.static("public"));
 
 const db = mysql.createConnection({
-  host: "sql101.infinityfree.com",
-  user: "if0_36629839",
-  password: "3WoxXPjicpVH",
-  database: "if0_36629839_backpackprj",
-  port: 3306,
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "backpackprj",
 });
 
 const verifyUser = (req, res, next) => {
@@ -224,8 +223,15 @@ app.get('/api/favorites/:userId', (req, res) => {
   });
 });
 
+const port = process.env.PORT || 8081;
 
-
-app.listen(8081, () => {
-  console.log("listening");
+app.listen(port, (err, res) => {
+  if (err) {
+      console.log(err)
+      return res.status(500).send(err.message)
+  } else {
+      console.log('[INFO] Server Running on port:', port)
+  }
 });
+
+module.exports = app;
