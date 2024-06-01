@@ -22,10 +22,11 @@ app.use(cookieParser());
 app.use(express.static("public"));
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "backpackprj",
+  host: "sql101.infinityfree.com",
+  user: "if0_36629839",
+  password: "3WoxXPjicpVH",
+  database: "if0_36629839_backpackprj",
+  port: 3306,
 });
 
 const verifyUser = (req, res, next) => {
