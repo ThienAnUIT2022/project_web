@@ -85,7 +85,7 @@ Vietnam Backpacking Website is a project developed by group 5, class NT208.O23.A
     ```
 
 2. **Deploy the build to your preferred hosting service.**
-   We deploy the front-end using Vercel, the back-end using Heroku, and the database using Strapi cloud. You can try it: [Front-end](https://vercel.com/guides/deploying-react-with-vercel), [Back-end](https://devcenter.heroku.com/articles/deploying-nodejs), and [Database](https://docs.strapi.io/dev-docs/deployment).
+   We deploy the front-end using Vercel, the back-end using Render, and the database using Strapi cloud. You can try it: [Front-end](https://vercel.com/guides/deploying-react-with-vercel), [Back-end](https://docs.render.com/deploy-node-express-app), and [Database](https://docs.strapi.io/dev-docs/deployment).
 
 ### 🧪 Running Tests
 To run tests, use the following command:
