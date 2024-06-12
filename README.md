@@ -20,6 +20,62 @@ Vietnam Backpacking Website is a project developed by group 5, class NT208.O23.A
 - Lăng Thị Cẩm Nhung 22521057
 - Phạm Trần Hồng Phúc 22521138
 
+## Questions received from other groups:
+1. Jquery is a framework or library. What can jquery do that JS cannot do?
+2. What are the outstanding advantages of using Jquery compared to using frameworks and other libraries?
+Do you think Jquery will die? Who uses it now?
+## Answer the question above:
+1. - **jQuery** is a **library**, not a framework. It is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
+   - **Cross-browser compatibility**: jQuery handles cross-browser inconsistencies, allowing developers to write code without worrying about differences in browser implementations.
+   - **DOM manipulation**: jQuery provides a simpler and more intuitive syntax for selecting and manipulating DOM elements.
+   ```javascript
+      // jQuery
+      $('#element').hide();
+
+      // Plain JavaScript
+      document.getElementById('element').style.display = 'none';
+   ```
+   - **Event handling**: jQuery makes event handling straightforward with methods like .on() and .off().
+   ```
+   // jQuery
+    $('#button').on('click', function() { alert('Clicked!'); });
+
+    // Plain JavaScript
+    document.getElementById('button').addEventListener('click', function() { alert('Clicked!'); });
+    ```
+   - **Ajax calls**: jQuery simplifies Ajax requests with methods like $.ajax(), $.get(), and $.post().
+   ```
+   // jQuery
+    $.get('url', function(data) {
+      console.log(data);
+    });
+    
+    // Plain JavaScript
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'url', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200)
+        console.log(xhr.responseText);
+    };
+    xhr.send();
+   ```
+2. - **Simplicity**: jQuery has a very simple and readable syntax, making it easy to learn and use.
+   - **Cross-browser compatibility**: It handles many cross-browser issues automatically.
+   - **Lightweight**: Although there are lighter alternatives now, jQuery is still relatively small and doesn't add significant overhead.
+   - **Rich plugins ecosystem**: There is a vast collection of plugins available for jQuery that can add a lot of functionality without much effort.
+   - **Community and support**: jQuery has been around for a long time, resulting in a large community and plenty of resources (documentation, tutorials, forums) available.
+   - **Backward compatibility**: jQuery supports older browsers that modern frameworks and libraries may not support.
+3. While jQuery's popularity has declined with the rise of modern JavaScript frameworks like **React**, **Angular**, and **Vue.js**, it is unlikely to "die" completely in the near future for several reasons:
+   - **Legacy projects**: Many older projects were built using jQuery, and these projects will continue to use it for maintenance and updates.
+   - **Learning curve**: jQuery remains a go-to for beginners because of its simplicity and the vast amount of learning resources available.
+   - **Specific use cases**: For small projects or simple tasks, jQuery can still be more efficient than setting up a full-fledged framework.
+   - **Plugins**: Some plugins and third-party tools still rely on jQuery.
+   Who Uses jQuery Now?
+   - **Legacy systems**: Many large and small enterprises with older web applications still use jQuery.
+   - **Simple websites**: Smaller websites or projects that don't require the complexity of modern frameworks might use jQuery.
+   - **Beginners and learners**: Newcomers to web development often start with jQuery due to its ease of use and abundant resources.
+   In summary, while jQuery may not be the cutting-edge tool it once was, it still has a place in the web development ecosystem, particularly for legacy projects, smaller applications, and educational purposes.
+
 ## ✨ Features
 - **🔍 Search for destinations**: Search by place name, filter by geography, transportation, and cost.
 - **⭐ Add to favorites**: Save locations to your favorites list to review and schedule trips.
